@@ -23,9 +23,9 @@ public class PinViewModel extends AndroidViewModel {
     }
 
 
-    public LiveData<Resource<DataMaster>> getHeroList(String gameLevel,  String section, String rarity,  String classe,  String race_name) {
+    public LiveData<Resource<DataMaster>> getPinList(String race, String role, String type, String cover) {
 
-        return repository.getHeroList(gameLevel, section,rarity, classe, race_name);
+        return repository.getPinList(race, role, type, cover);
     }
 
 
