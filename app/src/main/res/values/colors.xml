@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#607D8B</color>
+    <color name="colorPrimaryDark">#2C2826</color>
+    <color name="colorAccent">#9E9E9E</color>
+    <color name="icons">#FFFFFF</color>
+
+    <color name="human">#0091EA</color>
+    <color name="wilders">#AEEA00</color>
+    <color name="orc">#FFD600</color>
+    <color name="zombie">#05A58E</color>
+    <color name="hypo">#C51162</color>
+    <color name="celestial">#FFFFFF</color>
+    <color name="legendary">#ffae42</color>
+    <color name="common">#32cd32</color>
+    <color name="ascend">#bb88bb</color>
+</resources>

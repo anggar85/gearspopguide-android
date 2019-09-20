@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/filter_list_service"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+           <TableLayout
+               android:layout_marginBottom="3dp"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+
+               <TableRow>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:text="Game Level"
+                       android:textAlignment="center"
+                       android:textSize="12sp"
+                       android:textStyle="bold" />
+
+                   <androidx.appcompat.widget.AppCompatSpinner
+                       android:id="@+id/spinner_game_level"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:background="#fff"
+                       android:layout_weight="1"
+                       android:popupBackground="#fff"
+                       android:spinnerMode="dropdown" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:textAlignment="center"
+                       android:text="Section"
+                       android:textSize="12sp"
+                       android:textStyle="bold" />
+
+                   <androidx.appcompat.widget.AppCompatSpinner
+                       android:id="@+id/spinner_game_section"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:background="#fff"
+                       android:popupBackground="#fff"
+                       android:spinnerMode="dropdown" />
+
+
+               </TableRow>
+
+
+
+
+           </TableLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TableRow>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Rarity"
+                        android:textAlignment="center"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinner_rarity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#fff"
+                        android:layout_weight="1"
+                        android:popupBackground="#fff"
+                        android:spinnerMode="dropdown" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Class"
+                        android:textAlignment="center"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinner_class"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#fff"
+                        android:popupBackground="#fff"
+                        android:spinnerMode="dropdown" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Race"
+                        android:textSize="12sp"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinner_race"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#fff"
+                        android:layout_weight="1"
+                        android:popupBackground="#fff"
+                        android:spinnerMode="dropdown" />
+
+
+                </TableRow>
+
+
+
+
+            </TableLayout>
+
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

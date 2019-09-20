@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "356934141059",
+    "firebase_url": "https://gears-pop-guide.firebaseio.com",
+    "project_id": "gears-pop-guide",
+    "storage_bucket": "gears-pop-guide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356934141059:android:636d641233b423119787b6",
+        "android_client_info": {
+          "package_name": "com.mxlapps.app.gearspopguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356934141059-bbidg45niu2lhq0puvhk9dm0235cu9pv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mxlapps.app.gearspopguide",
+            "certificate_hash": "7dca1a1fb3da36e6bc9fe4aa264c81660f951c26"
+          }
+        },
+        {
+          "client_id": "356934141059-crmhcejmjdbvl7kjm3cnp0uq0llrc734.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCn7ifBcYTStOiI81bobjSfGPlYpG3fUaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "356934141059-crmhcejmjdbvl7kjm3cnp0uq0llrc734.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout_listado_heroes"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BDBAB8">
+
+
+    <include layout="@layout/item_loading_screen" />
+
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_filte"
+            android:layout_marginBottom="46dp"
+            android:layout_marginEnd="15dp"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/button_drawer_filtros"
+            android:layout_gravity="bottom|end"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_hero_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="46dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view_filter"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="#80646464"
+        app:headerLayout="@layout/nav_header_filter" />
+
+
+    <!--<include layout="@layout/bottom_sheet_layout" />-->
+</androidx.drawerlayout.widget.DrawerLayout>

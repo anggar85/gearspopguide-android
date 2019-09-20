@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="200dp"
+    android:layout_height="match_parent"
+    android:background="#CE8D8D8D"
+    android:gravity="bottom"
+    android:paddingLeft="10dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/cccc"-->
+        <!--android:layout_marginTop="25dp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical">-->
+
+
+    <!---->
+
+
+    <!--</LinearLayout>-->
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Filters"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtEmail"
+        app:layout_constraintStart_toStartOf="@+id/txtEmail" />
+
+    <TextView
+        android:text="Game Level"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        android:id="@+id/gameLevelRadioGroup"
+        android:checkedButton="@+id/earlyGame" >
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/earlyGame"
+            android:checked="true"
+            android:text="Early Lvl: 1-60" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/midGame"
+            android:text="Mid Lvl: 61-160" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lateGame"
+            android:text="Late Lvl: 161-240+" />
+
+    </RadioGroup>
+
+
+    <TextView
+        android:text="Section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        android:id="@+id/sectionsRadioGroup">
+
+        <RadioButton
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sections_overall"
+            android:text="Overall" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sections_pvp"
+            android:text="PvP" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sections_pve"
+            android:text="PvE" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sections_lab"
+            android:text="Labyrinth and Peaks of Time" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sections_wrizz"
+            android:text="Guild Boss - Wrizz" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sections_soren"
+            android:text="Guild Boss - Soren" />
+
+    </RadioGroup>
+
+
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:text="Reset Filters"
+        android:id="@+id/button_reset_filters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+    <TextView
+        android:text="Rarity"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:text="Legendary"
+        android:id="@+id/rarity_legendary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <CheckBox
+        android:text="Ascend"
+        android:id="@+id/rarity_ascend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <CheckBox
+        android:text="Common"
+        android:id="@+id/rarity_common"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+    <TextView
+        android:text="Class"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:text="Agility"
+        android:id="@+id/classe_Agility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <CheckBox
+        android:text="Intelligence"
+        android:id="@+id/classe_Intelligence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <CheckBox
+        android:text="Strength"
+        android:checked="false"
+        android:id="@+id/classe_Strength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+    <TextView
+        android:text="Race Name"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:text="Wilders"
+        android:id="@+id/race_name_wilders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <CheckBox
+        android:text="Maulers"
+        android:id="@+id/race_name_Maulers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <CheckBox
+        android:text="Lightbearers"
+        android:id="@+id/race_name_Lightbearers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:text="Hypogean"
+        android:id="@+id/race_name_Hypogean"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <CheckBox
+        android:text="Celestian"
+        android:id="@+id/race_name_Celestian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <CheckBox
+        android:text="Graveborn"
+        android:id="@+id/race_name_Graveborn"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="47dp"
+        android:layout_height="wrap_content" />
+
+
+
+    <!--<TextView-->
+        <!--android:text="Role"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textSize="16sp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <!--<CheckBox-->
+        <!--android:text="Tank"-->
+        <!--android:id="@+id/role_Tank"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+    <!--<CheckBox-->
+        <!--android:text="Support"-->
+        <!--android:id="@+id/role_Support"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+    <!--<CheckBox-->
+        <!--android:text="Damage Dealer"-->
+        <!--android:id="@+id/role_Damage_Dealer"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <!--<CheckBox-->
+        <!--android:text="Solo Carry"-->
+        <!--android:id="@+id/role_Solo_Carry"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+
+</LinearLayout>

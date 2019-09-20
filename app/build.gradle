@@ -1,0 +1,125 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.mxlapps.app.gearspopguide"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "0.0.1"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        maxSdkVersion 28
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_BASE_URL", API_BASE_URL_PRODUCTION
+            buildConfigField "String", "AD_LIST", ADS_LIST_BANNER_PRODUCTION
+            buildConfigField "String", "AD_DETAIL", ADS_DETAIL_BANNER_PRODUCTION
+            buildConfigField "String", "ADS_INTERSTITIAL", API_BASE_URL_PRODUCTION
+            buildConfigField "String", "ADS_LIST_FLOAT", ADS_LIST_BANNER_FLOAT_PRODUCTION
+            buildConfigField "String", "ADS_DETAIL_FLOAT", ADS_DETAIL_BANNER_FLOAT_PRODUCTION
+            buildConfigField "Boolean", "APP_IS_IN_PRODUCTION", API_PRODUCTION
+
+        }
+        debug {
+            buildConfigField "String", "API_BASE_URL", API_BASE_URL_STAGING
+            buildConfigField "String", "AD_LIST", ADS_LIST_BANNER_TEST
+            buildConfigField "String", "AD_DETAIL", ADS_DETAIL_BANNER_TEST
+            buildConfigField "String", "ADS_INTERSTITIAL", ADS_INTERSTITIAL_BANNER_TEST
+            buildConfigField "String", "ADS_LIST_FLOAT", ADS_LIST_BANNER_FLOAT_TEST
+            buildConfigField "String", "ADS_DETAIL_FLOAT", ADS_DETAIL_BANNER_FLOAT_TEST
+            buildConfigField "Boolean", "APP_IS_IN_PRODUCTION", API_DEVELOPMENT
+
+        }
+    }
+    lintOptions {
+        // Turns off checks for the issue IDs you specify.
+        disable 'TypographyFractions', 'TypographyQuotes'
+        // Turns on checks for the issue IDs you specify. These checks are in
+        // addition to the default lint checks.
+        // To enable checks for only a subset of issue IDs and ignore all others,
+        // list the issue IDs with the 'check' property instead. This property overrides
+        // any issue IDs you enable or disable using the properties above.
+        check 'NewApi', 'InlinedApi'
+        // If set to true, turns off analysis progress reporting by lint.
+        quiet true
+        // if set to true (default), stops the build if errors are found.
+        abortOnError false
+        // if true, only report errors.
+        ignoreWarnings true
+    }
+}
+
+dependencies {
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.1.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
+
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //Retrofit for network calls
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
+    //Target View for Hint and UserModel Help
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta04'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation 'com.wang.avi:library:2.1.3'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // viewpagertabs
+    implementation 'com.ogaclejapan.smarttablayout:library:2.0.0@aar'
+
+    //Optional: see how to use the utility.
+    implementation 'com.ogaclejapan.smarttablayout:utils-v4:2.0.0@aar'
+
+    //imagen circular
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    // animaciones
+    implementation 'com.github.armcha:ElasticView:0.2.0'
+
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-core:17.2.0'
+
+    // Ads
+    implementation 'com.google.android.gms:play-services-ads:18.2.0'
+
+    // login
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+
+    //facebook
+    implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
+
+    //images
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    // Check for v11.4.2 or higher
+    implementation 'com.google.firebase:firebase-core:17.2.0'
+    implementation 'com.google.firebase:firebase-database:19.1.0'
+
+
+    // Add dependency
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+
+}
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'io.fabric'

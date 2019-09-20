@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--<item-->
+        <!--android:id="@+id/menu_bubble"-->
+        <!--android:title="Bubble"-->
+        <!--android:icon="@drawable/ic_bubble"-->
+        <!--app:showAsAction="always"-->
+        <!--android:visible="true"/>-->
+
+    <item
+        android:icon="@drawable/ic_more"
+        android:iconTint="@color/celestial"
+        app:showAsAction="always"
+        android:title="More">
+
+        <item
+            android:id="@+id/menu_facebook"
+            android:title="Facebook"
+            android:visible="true"/>
+            <item
+                android:id="@+id/menu_rateus"
+                android:title="Rate Us"
+                android:visible="true"/>
+        <item
+            android:id="@+id/menu_contributors"
+            android:title="Contributors"
+            android:visible="true"/>
+        <item
+            android:id="@+id/menu_about_us"
+            android:title="About Us"
+            android:visible="true"/>
+    </item>
+</menu>
