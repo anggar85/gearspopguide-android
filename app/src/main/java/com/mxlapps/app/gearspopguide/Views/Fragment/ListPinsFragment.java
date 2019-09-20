@@ -281,142 +281,14 @@ public class ListPinsFragment extends Fragment {
             }
         });
 
-        RadioGroup radioGroup = parentView.findViewById(R.id.gameLevelRadioGroup);
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.earlyGame:
-                        GAME_LEVEL = GAME_LEVEL_EARLY;
-                        requestCargarListaDeHeroes(GAME_LEVEL_EARLY, SECTION);
-                        break;
-                    case R.id.midGame:
-                        GAME_LEVEL = GAME_LEVEL_MID;
-                        requestCargarListaDeHeroes(GAME_LEVEL_MID, SECTION);
-                        break;
-                    case R.id.lateGame:
-                        GAME_LEVEL = GAME_LEVEL_LATE;
-                        requestCargarListaDeHeroes(GAME_LEVEL_LATE, SECTION);
-                        break;
-                }
-            }
-        });
-
-
-        RadioGroup radioGroupSections = parentView.findViewById(R.id.sectionsRadioGroup);
-        radioGroupSections.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.sections_overall:
-                        SECTION = OVERALL;
-                        requestCargarListaDeHeroes(GAME_LEVEL, SECTION);
-                        break;
-                    case R.id.sections_pvp:
-                        SECTION = PVP;
-                        requestCargarListaDeHeroes(GAME_LEVEL, SECTION);
-                        break;
-                    case R.id.sections_pve:
-                        SECTION = PVE;
-                        requestCargarListaDeHeroes(GAME_LEVEL, SECTION);
-                        break;
-                    case R.id.sections_lab:
-                        SECTION = LAB;
-                        requestCargarListaDeHeroes(GAME_LEVEL, SECTION);
-                        break;
-                    case R.id.sections_wrizz:
-                        SECTION = WRIZZ;
-                        requestCargarListaDeHeroes(GAME_LEVEL, SECTION);
-                        break;
-                    case R.id.sections_soren:
-                        SECTION = SOREN;
-                        requestCargarListaDeHeroes(GAME_LEVEL, SECTION);
-                        break;
-                }
-            }
-        });
-
-        filters = new Filters();
-
-
-        rarity_legendary = parentView.findViewById(R.id.rarity_legendary);
-        rarity_ascend = parentView.findViewById(R.id.rarity_ascend);
-        rarity_common = parentView.findViewById(R.id.rarity_common);
-
-        classe_Agility = parentView.findViewById(R.id.classe_Agility);
-        classe_Intelligence = parentView.findViewById(R.id.classe_Intelligence);
-        classe_Strength = parentView.findViewById(R.id.classe_Strength);
-
-        race_name_wilders = parentView.findViewById(R.id.race_name_wilders);
-        race_name_Maulers = parentView.findViewById(R.id.race_name_Maulers);
-        race_name_Lightbearers = parentView.findViewById(R.id.race_name_Lightbearers);
-        race_name_Hypogean = parentView.findViewById(R.id.race_name_Hypogean);
-        race_name_Celestian = parentView.findViewById(R.id.race_name_Celestian);
-        race_name_Graveborn = parentView.findViewById(R.id.race_name_Graveborn);
 
 
 
-        rarity_legendary.setOnCheckedChangeListener(checkboxListener);
-        rarity_ascend.setOnCheckedChangeListener(checkboxListener);
-        rarity_common.setOnCheckedChangeListener(checkboxListener);
 
-        classe_Agility.setOnCheckedChangeListener(checkboxListener);
-        classe_Intelligence.setOnCheckedChangeListener(checkboxListener);
-        classe_Strength.setOnCheckedChangeListener(checkboxListener);
-
-        race_name_wilders.setOnCheckedChangeListener(checkboxListener);
-        race_name_Maulers.setOnCheckedChangeListener(checkboxListener);
-        race_name_Lightbearers.setOnCheckedChangeListener(checkboxListener);
-        race_name_Hypogean.setOnCheckedChangeListener(checkboxListener);
-        race_name_Celestian.setOnCheckedChangeListener(checkboxListener);
-        race_name_Graveborn.setOnCheckedChangeListener(checkboxListener);
 
     }
 
-    private CompoundButton.OnCheckedChangeListener checkboxListener = new CompoundButton.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            switch (buttonView.getId()) {
-                case R.id.rarity_legendary:
-                    filters.filterRarity.legendary = buttonView.isChecked();
-                    break;
-                case R.id.rarity_ascend:
-                    filters.filterRarity.ascend = buttonView.isChecked();
-                    break;
-                case R.id.rarity_common:
-                    filters.filterRarity.common = buttonView.isChecked();
-                    break;
-                case R.id.classe_Agility:
-                    filters.filterClasses.agility = buttonView.isChecked();
-                    break;
-                case R.id.classe_Intelligence:
-                    filters.filterClasses.intelligence = buttonView.isChecked();
-                    break;
-                case R.id.classe_Strength:
-                    filters.filterClasses.strength = buttonView.isChecked();
-                    break;
-                case R.id.race_name_wilders:
-                    filters.filterRaceName.wilders = buttonView.isChecked();
-                    break;
-                case R.id.race_name_Maulers:
-                    filters.filterRaceName.maulers = buttonView.isChecked();
-                    break;
-                case R.id.race_name_Lightbearers:
-                    filters.filterRaceName.lightbearers = buttonView.isChecked();
-                    break;
-                case R.id.race_name_Hypogean:
-                    filters.filterRaceName.hypogean = buttonView.isChecked();
-                    break;
-                case R.id.race_name_Celestian:
-                    filters.filterRaceName.celestial = buttonView.isChecked();
-                    break;
-                case R.id.race_name_Graveborn:
-                    filters.filterRaceName.graveborn = buttonView.isChecked();
-                    break;
-            }
-            refreshHeroes();
-        }
-    };
+
 
     private void refreshHeroes() {
         ArrayList<PinModel> heroListClone = FilterAndSort.filterHeroes(pinModels, filters);
@@ -425,20 +297,7 @@ public class ListPinsFragment extends Fragment {
 
     private void clearFilters() {
         //Stars
-        rarity_legendary.setChecked(false);
-        rarity_ascend.setChecked(false);
-        rarity_common.setChecked(false);
 
-        classe_Agility.setChecked(false);
-        classe_Intelligence.setChecked(false);
-        classe_Strength.setChecked(false);
-
-        race_name_wilders.setChecked(false);
-        race_name_Maulers.setChecked(false);
-        race_name_Lightbearers.setChecked(false);
-        race_name_Hypogean.setChecked(false);
-        race_name_Celestian.setChecked(false);
-        race_name_Graveborn.setChecked(false);
 
     }
 

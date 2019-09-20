@@ -48,7 +48,7 @@
         android:layout_width="200dp"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:background="#80646464"
+        android:background="#AE000000"
         app:headerLayout="@layout/nav_header_filter" />
 
 
