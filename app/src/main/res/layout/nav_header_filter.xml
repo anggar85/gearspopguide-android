@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="200dp"
-    android:layout_height="wrap_content"
+    android:layout_width="150dp"
+    android:layout_height="match_parent"
     android:background="#AE000000"
     android:gravity="bottom"
     android:paddingLeft="10dp"
@@ -28,63 +28,184 @@
         android:layout_gravity="center_horizontal"
         android:text="Reset Filters" />
 
+
+
+    <TextView
+        android:text="Race"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <RadioGroup
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
-        android:id="@+id/gameLevelRadioGroup"
-        android:checkedButton="@+id/earlyGame" />
+        android:id="@+id/race_group"
+        android:checkedButton="@+id/race_all">
+
+        <RadioButton
+            android:id="@+id/race_all"
+            android:text="All"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/race_cgo"
+            android:text="CGO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/race_locust"
+            android:text="Locust"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RadioGroup>
+
+
+    <TextView
+        android:text="Role"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/role_group"
+        android:checkedButton="@+id/role_all">
+
+        <RadioButton
+            android:id="@+id/role_all"
+            android:text="All"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/role_Bruiser"
+            android:text="Bruiser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/role_removal"
+            android:text="Removal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/role_scout"
+            android:text="Scout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/role_tank"
+            android:text="Tank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/role_threat"
+            android:text="Threat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <RadioButton
+            android:id="@+id/role_utility"
+            android:text="Utility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RadioGroup>
+
+
+
+
+
+
+    <TextView
+        android:text="Type"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/type_group"
+        android:checkedButton="@+id/type_all">
+
+        <RadioButton
+            android:id="@+id/type_all"
+            android:text="All"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/type_common"
+            android:text="Common"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/type_epic"
+            android:text="Epic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/type_rare"
+            android:text="Rare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/type_legendary"
+            android:text="Legendary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </RadioGroup>
+
+
+
+    <TextView
+        android:text="Cover"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
     <RadioGroup
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
-        android:id="@+id/sectionsRadioGroup"/>
+        android:id="@+id/cover_group"
+        android:layout_marginBottom="50dp"
+        android:checkedButton="@+id/cover_all">
 
+        <RadioButton
+            android:id="@+id/cover_all"
+            android:text="All"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:text="Rarity"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/cover_yes"
+            android:text="No"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
+        <RadioButton
+            android:id="@+id/cover_no"
+            android:text="Yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:text="Class"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <CheckBox
-        android:text="Agility"
-        android:id="@+id/classe_Agility"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <CheckBox
-        android:text="Strength"
-        android:checked="false"
-        android:id="@+id/classe_Strength"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-
-    <TextView
-        android:text="Race Name"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <CheckBox
-        android:text="Wilders"
-        android:id="@+id/race_name_wilders"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+    </RadioGroup>
 
 </LinearLayout>

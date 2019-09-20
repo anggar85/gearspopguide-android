@@ -3,7 +3,7 @@ package com.mxlapps.app.gearspopguide.Utils;
 public class Constante {
 
 
-    public static final String HERO_LIST = "pins/list";
+    public static final String URL_PIN_LIST = "pins/list";
     public static final String HERO_DETAIL = "pins/detail";
 
     public static final String LIGHTBEARERS =  "LIGHTBEARERS";

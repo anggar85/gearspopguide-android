@@ -9,17 +9,16 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public interface AFKApi {
+public interface PinsApi {
 
-    @GET(Constante.HERO_LIST)
-    Call<DataMaster> getHeroList(
-            @Query("token") String token,
-            @Query("gameLevel") String gameLevel,
-            @Query("section") String section,
-            @Query("rarity") String rarity,
-            @Query("classe") String classe,
-            @Query("race_name") String race_name
-    );
+    @GET(Constante.URL_PIN_LIST + "/{race}/{role}/{type}/{cover}")
+    Call<DataMaster> getPinList(
+            @Path("race") String race,
+            @Path("role") String role,
+            @Path("type") String type,
+            @Path("cover") String cover);
+
+
     @GET(Constante.HERO_DETAIL + "/{hero_id}")
     Call<DataMaster> getHeroDetail(
             @Path("hero_id") Integer hero_id,
