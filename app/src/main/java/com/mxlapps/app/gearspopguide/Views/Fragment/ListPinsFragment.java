@@ -191,7 +191,7 @@ public class ListPinsFragment extends Fragment {
         // Recibe un arrayList de productosy la bandera si se quiere mostrar/ocultar el checkbox
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
 
-        int numberOfColumns = 4;
+        int numberOfColumns = 3;
 
         PinsAdapter adapter = new PinsAdapter(pinModelsInternal, getActivity(), 1);
 

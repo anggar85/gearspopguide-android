@@ -44,8 +44,8 @@
 
                 <ImageView
                     android:id="@+id/imageView_hero_image"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:scaleType="fitCenter"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/textView_hero_name"
@@ -55,8 +55,8 @@
 
                 <ImageView
                     android:id="@+id/imageView_holdertenporal"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp" />
+                    android:layout_width="100dp"
+                    android:layout_height="100dp" />
 
                 <TextView
                     android:textAlignment="center"
