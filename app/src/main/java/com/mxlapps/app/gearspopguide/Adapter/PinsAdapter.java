@@ -21,7 +21,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder> implements Filterable {
+public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder> {
 
     private ArrayList<PinModel> pinModels;
     private ArrayList<PinModel> pinModelsFull;
@@ -60,6 +60,7 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
     public void onBindViewHolder(@NonNull final PinsAdapter.HeroViewHolder holder, int position) {
 
         PinModel hero = pinModels.get(position);
+        holder.textView_pin_name.setText(hero.getName());
         Picasso.get().load(hero.getSmallImage())
                 .into(holder.smallImage, new Callback() {
                     @Override
@@ -83,6 +84,7 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
     public class HeroViewHolder extends RecyclerView.ViewHolder {
 
         TextView textView_tier;
+        TextView textView_pin_name;
         ImageView smallImage;
         ImageView imageView_holdertenporal;
         CardView cardView_pin_item;
@@ -92,6 +94,7 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
 
 
             smallImage = itemView.findViewById(R.id.imageView_hero_image);
+            textView_pin_name = itemView.findViewById(R.id.textView_pin_name);
             textView_tier = itemView.findViewById(R.id.textView_tier);
             imageView_holdertenporal = itemView.findViewById(R.id.imageView_holdertenporal);
             cardView_pin_item = itemView.findViewById(R.id.cardView_section_item);
@@ -106,44 +109,6 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
             });
         }
     }
-
-    @Override
-    public Filter getFilter() {
-        return exampleFilter;
-    }
-
-    private Filter exampleFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<PinModel> filteredList = new ArrayList<>();
-
-            if (constraint == null || constraint.length() == 0 ){
-                filteredList.addAll(pinModelsFull);
-            }else{
-                String filterPattern = constraint.toString().toLowerCase().trim();
-
-                for (PinModel hero: pinModelsFull){
-                    if (hero.getName().toLowerCase().contains(filterPattern)){
-                        filteredList.add(hero);
-                    }
-                }
-
-            }
-
-            FilterResults results = new FilterResults();
-            results.values = filteredList;
-            return results;
-
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            pinModels.clear();
-            pinModels.addAll((Collection<? extends PinModel>) results.values);
-            notifyDataSetChanged();
-        }
-    };
-
 
 
 }

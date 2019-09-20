@@ -8,6 +8,7 @@
     android:layout_marginStart="2dp"
     android:layout_marginTop="2dp"
     android:layout_marginEnd="2dp"
+
     android:layout_marginBottom="2dp"
     android:orientation="vertical">
 
@@ -19,6 +20,8 @@
         android:layout_marginTop="2dp"
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="2dp"
+        android:background="@android:color/transparent"
+        app:cardBackgroundColor="@color/ascend"
         app:cardCornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,23 +59,15 @@
                     android:layout_height="75dp" />
 
                 <TextView
-                    android:id="@+id/textView_tier"
-                    android:layout_gravity="bottom|right"
-                    android:background="#fff"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textAlignment="center"
+                    android:textSize="11sp"
+                    android:id="@+id/textView_pin_name"
+                    android:layout_gravity="bottom|center"
                     android:layout_width="match_parent"
-                    android:padding="2dp"
-                    android:textStyle="bold"
+                    android:textColor="#fff"
                     android:layout_height="wrap_content"
-                    android:text="S+" />
+                    android:text="TextView" />
 
-                <!--<ProgressBar-->
-                <!--android:id="@+id/homeprogress"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:background="#04D31C1C"-->
-                <!--tools:visibility="gone" />-->
             </FrameLayout>
 
 

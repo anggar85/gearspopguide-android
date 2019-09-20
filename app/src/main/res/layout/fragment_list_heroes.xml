@@ -6,7 +6,7 @@
     android:id="@+id/coordinatorLayout_listado_heroes"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3F3F3F">
+    android:background="#201F1F">
 
 
     <include layout="@layout/item_loading_screen" />
@@ -24,7 +24,7 @@
             android:layout_marginBottom="46dp"
             android:layout_marginEnd="15dp"
             android:tint="#FFFFFF"
-            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:backgroundTint="#E4131313"
             android:id="@+id/button_drawer_filtros"
             android:layout_gravity="bottom|end"
             android:layout_height="wrap_content" />
