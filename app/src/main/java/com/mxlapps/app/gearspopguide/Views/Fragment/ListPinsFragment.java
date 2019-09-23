@@ -1,6 +1,7 @@
 package com.mxlapps.app.gearspopguide.Views.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -26,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mxlapps.app.gearspopguide.Adapter.PinsAdapter;
 import com.mxlapps.app.gearspopguide.Model.PinModel;
 import com.mxlapps.app.gearspopguide.R;
@@ -35,6 +37,7 @@ import com.mxlapps.app.gearspopguide.Utils.FilterAndSort;
 import com.mxlapps.app.gearspopguide.Utils.Filters;
 import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
+import com.mxlapps.app.gearspopguide.Views.DetailActivity;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -135,10 +138,18 @@ public class ListPinsFragment extends Fragment {
         adapter.SetOnItemClickListener(new PinsAdapter.OnItemClickListener() {
             @Override
             public void onHeroCardClick(int position) {
-//                Util.startLoading(rootView);
-//                Intent intent = new Intent(getActivity(), HeroDetailV2.class);
-//                intent.putExtra("hero_id", pinModelsInternal.get(position).getId());
-//                startActivityForResult(intent, 50);
+                Util.startLoading(rootView);
+                Intent intent = new Intent(getActivity(), DetailActivity.class);
+
+                // Convierte objeto a string
+                GsonBuilder builder = new GsonBuilder();
+                Gson gson = builder.create();
+
+                String pinJson = gson.toJson(pinModelsInternal.get(position));
+
+
+                intent.putExtra("pin_data", pinJson);
+                startActivityForResult(intent, 50);
                 Log.d(TAG, "onHeroCardClick: with pin ->" + pinModelsInternal.get(position).getName());
 
             }
