@@ -116,7 +116,7 @@ public class TierPinsListActivity extends AppCompatActivity  {
         userViewModel = ViewModelProviders.of(TierPinsListActivity.this).get(UserViewModel.class);
 
 
-        eventsLeftDrawer();
+//        eventsLeftDrawer();
         // Lanza fragmento de heroes
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListPinsFragment()).commit();
 
@@ -164,28 +164,28 @@ public class TierPinsListActivity extends AppCompatActivity  {
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        NavigationView nv = findViewById(R.id.nav_view_left);
-        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-                switch (id) {
-                    case R.id.nav_my_account:
-                        Toast.makeText(TierPinsListActivity.this, "nav_my_account", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.nav_heroes:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListPinsFragment()).commit();
-                        break;
-                    case R.id.nav_about_us:
-                        startActivity(new Intent(TierPinsListActivity.this, AboutUsActivity.class));
-
-                        break;
-                }
-                dl.closeDrawer(GravityCompat.START);
-                return true;
-
-            }
-        });
+//        NavigationView nv = findViewById(R.id.nav_view_left);
+//        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                int id = item.getItemId();
+//                switch (id) {
+//                    case R.id.nav_my_account:
+//                        Toast.makeText(TierPinsListActivity.this, "nav_my_account", Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.nav_heroes:
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListPinsFragment()).commit();
+//                        break;
+//                    case R.id.nav_about_us:
+//                        startActivity(new Intent(TierPinsListActivity.this, AboutUsActivity.class));
+//
+//                        break;
+//                }
+//                dl.closeDrawer(GravityCompat.START);
+//                return true;
+//
+//            }
+//        });
     }
 
 
@@ -247,24 +247,24 @@ public class TierPinsListActivity extends AppCompatActivity  {
 
     public void llenarInfoUser(){
 
-        NavigationView navigationView = findViewById(R.id.nav_view_left);
-        ConstraintLayout layout_informacion_usuario = navigationView.getHeaderView(0).findViewById(R.id.layout_informacion_usuarioT);
-        TextView txtEmail = navigationView.getHeaderView(0).findViewById(R.id.txtEmail);
-        Button boton_comenzar_login = navigationView.getHeaderView(0).findViewById(R.id.boton_comenzar_login);
-
-        //Log.i(TAG, "llenarInfoUser: ");
-
-        if (AppPreferences.getInstance(this).getName().compareToIgnoreCase("") != 0){
-            //Log.i(TAG, "llenarInfoUser: aquii");
-            layout_informacion_usuario.setVisibility(View.VISIBLE);
-            txtEmail.setText(AppPreferences.getInstance(this).getName());
-            boton_comenzar_login.setText("Logout");
-        }else{
-            //Log.i(TAG, "llenarInfoUser: acaaaaa");
-            layout_informacion_usuario.setVisibility(View.GONE);
-            boton_comenzar_login.setText("Login with Facebook");
-            txtEmail.setText("");
-        }
+//        NavigationView navigationView = findViewById(R.id.nav_view_left);
+//        ConstraintLayout layout_informacion_usuario = navigationView.getHeaderView(0).findViewById(R.id.layout_informacion_usuarioT);
+//        TextView txtEmail = navigationView.getHeaderView(0).findViewById(R.id.txtEmail);
+//        Button boton_comenzar_login = navigationView.getHeaderView(0).findViewById(R.id.boton_comenzar_login);
+//
+//        //Log.i(TAG, "llenarInfoUser: ");
+//
+//        if (AppPreferences.getInstance(this).getName().compareToIgnoreCase("") != 0){
+//            //Log.i(TAG, "llenarInfoUser: aquii");
+//            layout_informacion_usuario.setVisibility(View.VISIBLE);
+//            txtEmail.setText(AppPreferences.getInstance(this).getName());
+//            boton_comenzar_login.setText("Logout");
+//        }else{
+//            //Log.i(TAG, "llenarInfoUser: acaaaaa");
+//            layout_informacion_usuario.setVisibility(View.GONE);
+//            boton_comenzar_login.setText("Login with Facebook");
+//            txtEmail.setText("");
+//        }
 
 
     }
@@ -275,17 +275,17 @@ public class TierPinsListActivity extends AppCompatActivity  {
 
     private void initFacebookEvents() {
 
-        NavigationView navigationView = findViewById(R.id.nav_view_left);
-        Button loginButton = navigationView.getHeaderView(0).findViewById(R.id.boton_comenzar_login);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Intent intent = new Intent(TierPinsListActivity.this, LoginFacebookActivity.class);
-//                startActivityForResult(intent, 1001);
-            }
-        });
-
-        llenarInfoUser();
+//        NavigationView navigationView = findViewById(R.id.nav_view_left);
+//        Button loginButton = navigationView.getHeaderView(0).findViewById(R.id.boton_comenzar_login);
+//        loginButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                Intent intent = new Intent(TierPinsListActivity.this, LoginFacebookActivity.class);
+////                startActivityForResult(intent, 1001);
+//            }
+//        });
+//
+//        llenarInfoUser();
     }
 
 

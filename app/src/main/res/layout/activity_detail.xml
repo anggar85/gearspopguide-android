@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,9 +11,13 @@
 
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <LinearLayout
@@ -37,7 +41,7 @@
                     <ImageView
                         android:id="@+id/imageView_pinImage"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="200dp"
                         android:background="#000"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -46,13 +50,17 @@
 
 
                     <TextView
-                        android:id="@+id/textView_pinName"
+                        android:id="@+id/textView_Name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="32dp"
+                        android:fontFamily="@font/ubuntu"
                         android:text="Pin Name"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView_pinImage" />
@@ -62,10 +70,12 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:fontFamily="@font/ubuntu"
                         android:text="TextView"
-                        app:layout_constraintEnd_toEndOf="@+id/textView_pinName"
-                        app:layout_constraintStart_toStartOf="@+id/textView_pinName"
-                        app:layout_constraintTop_toBottomOf="@+id/textView_pinName" />
+                        android:textSize="17sp"
+                        app:layout_constraintEnd_toEndOf="@+id/textView_Name"
+                        app:layout_constraintStart_toStartOf="@+id/textView_Name"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_Name" />
 
                     <Button
                         android:id="@+id/button_race"
@@ -73,7 +83,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="8dp"
+                        android:background="#03A9F4"
+                        android:fontFamily="@font/ubuntu"
                         android:text="CGO"
+                        android:textColor="#fff"
+                        android:textSize="15sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/button_type"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -86,7 +100,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="8dp"
+                        android:background="#673AB7"
+                        android:fontFamily="@font/ubuntu"
                         android:text="EPIC"
+                        android:textColor="#fff"
+                        android:textSize="15sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/button_role"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -99,7 +117,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="8dp"
+                        android:background="#009688"
+                        android:fontFamily="@font/ubuntu"
                         android:text="Bruiser"
+                        android:textColor="#fff"
+                        android:textSize="15sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -131,7 +153,10 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="24dp"
+                        android:fontFamily="@font/ubuntu"
                         android:text="Skill Name"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -144,7 +169,9 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="24dp"
                         android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/ubuntu"
                         android:text="TextView"
+                        android:textSize="17sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -156,8 +183,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -170,6 +197,7 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="24dp"
+                        android:fontFamily="@font/ubuntu"
                         android:text="Strong"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -178,13 +206,14 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <FrameLayout
-                        android:id="@+id/frameLayout"
+                        android:id="@+id/frameLayout_s1"
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/frameLayout2"
+                        app:layout_constraintEnd_toStartOf="@+id/frameLayout_s2"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView38">
@@ -195,27 +224,28 @@
                             android:layout_height="match_parent"
                             app:srcCompat="@drawable/gears" />
 
-                        <TextView
-                            android:id="@+id/textView_strong1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center|bottom"
-                            android:background="#CA000000"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="Kait Diaz"
-                            android:textColor="#fff" />
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView_strong1"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_gravity="center|bottom"-->
+                        <!--                            android:background="#CA000000"-->
+                        <!--                            android:paddingStart="5dp"-->
+                        <!--                            android:paddingEnd="5dp"-->
+                        <!--                            android:text="Kait Diaz"-->
+                        <!--                            android:textColor="#fff" />-->
                     </FrameLayout>
 
 
                     <FrameLayout
-                        android:id="@+id/frameLayout2"
+                        android:id="@+id/frameLayout_s2"
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/frameLayout3er"
+                        app:layout_constraintEnd_toStartOf="@+id/frameLayout_s3"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/frameLayout"
+                        app:layout_constraintStart_toEndOf="@+id/frameLayout_s1"
                         app:layout_constraintTop_toBottomOf="@+id/textView38">
 
                         <ImageView
@@ -224,27 +254,28 @@
                             android:layout_height="match_parent"
                             app:srcCompat="@drawable/gears" />
 
-                        <TextView
-                            android:id="@+id/textView_strong2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center|bottom"
-                            android:background="#CA000000"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="Kait Diaz"
-                            android:textColor="#fff" />
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView_strong2"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_gravity="center|bottom"-->
+                        <!--                            android:background="#CA000000"-->
+                        <!--                            android:paddingStart="5dp"-->
+                        <!--                            android:paddingEnd="5dp"-->
+                        <!--                            android:text="Kait Diaz"-->
+                        <!--                            android:textColor="#fff" />-->
                     </FrameLayout>
 
 
                     <FrameLayout
-                        android:id="@+id/frameLayout3er"
+                        android:id="@+id/frameLayout_s3"
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/frameLayout2"
+                        app:layout_constraintStart_toEndOf="@+id/frameLayout_s2"
                         app:layout_constraintTop_toBottomOf="@+id/textView38">
 
                         <ImageView
@@ -253,16 +284,16 @@
                             android:layout_height="match_parent"
                             app:srcCompat="@drawable/gears" />
 
-                        <TextView
-                            android:id="@+id/textView_strong3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center|bottom"
-                            android:background="#CA000000"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="Kait Diaz"
-                            android:textColor="#fff" />
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView_strong3"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_gravity="center|bottom"-->
+                        <!--                            android:background="#CA000000"-->
+                        <!--                            android:paddingStart="5dp"-->
+                        <!--                            android:paddingEnd="5dp"-->
+                        <!--                            android:text="Kait Diaz"-->
+                        <!--                            android:textColor="#fff" />-->
                     </FrameLayout>
 
 
@@ -274,6 +305,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="50dp"
                 android:layout_marginEnd="10dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -287,6 +319,7 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="24dp"
+                        android:fontFamily="@font/ubuntu"
                         android:text="Weak"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -296,11 +329,12 @@
 
 
                     <FrameLayout
-                        android:id="@+id/frameLayouts3er"
+                        android:id="@+id/frameLayout_w1"
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
                         android:layout_marginTop="8dp"
-                        app:layout_constraintEnd_toStartOf="@+id/frameLayoutrs3er"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toStartOf="@+id/frameLayout_w2"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView3a8">
@@ -311,26 +345,27 @@
                             android:layout_height="match_parent"
                             app:srcCompat="@drawable/gears" />
 
-                        <TextView
-                            android:id="@+id/textView_weak1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center|bottom"
-                            android:background="#CA000000"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="Kait Diaz"
-                            android:textColor="#fff" />
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView_weak1"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_gravity="center|bottom"-->
+                        <!--                            android:background="#CA000000"-->
+                        <!--                            android:paddingStart="5dp"-->
+                        <!--                            android:paddingEnd="5dp"-->
+                        <!--                            android:text="Kait Diaz"-->
+                        <!--                            android:textColor="#fff" />-->
                     </FrameLayout>
 
                     <FrameLayout
-                        android:id="@+id/frameLayoutrs3er"
+                        android:id="@+id/frameLayout_w2"
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
                         android:layout_marginTop="8dp"
-                        app:layout_constraintEnd_toStartOf="@+id/frameLaytouts3er"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toStartOf="@+id/frameLayout_w3"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/frameLayouts3er"
+                        app:layout_constraintStart_toEndOf="@+id/frameLayout_w1"
                         app:layout_constraintTop_toBottomOf="@+id/textView3a8">
 
                         <ImageView
@@ -339,27 +374,28 @@
                             android:layout_height="match_parent"
                             app:srcCompat="@drawable/gears" />
 
-                        <TextView
-                            android:id="@+id/textView_weak2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center|bottom"
-                            android:background="#CA000000"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="Kait Diaz"
-                            android:textColor="#fff" />
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView_weak2"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_gravity="center|bottom"-->
+                        <!--                            android:background="#CA000000"-->
+                        <!--                            android:paddingStart="5dp"-->
+                        <!--                            android:paddingEnd="5dp"-->
+                        <!--                            android:text="Kait Diaz"-->
+                        <!--                            android:textColor="#fff" />-->
                     </FrameLayout>
 
 
                     <FrameLayout
-                        android:id="@+id/frameLaytouts3er"
+                        android:id="@+id/frameLayout_w3"
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
                         android:layout_marginTop="8dp"
+                        android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/frameLayoutrs3er"
+                        app:layout_constraintStart_toEndOf="@+id/frameLayout_w2"
                         app:layout_constraintTop_toBottomOf="@+id/textView3a8">
 
                         <ImageView
@@ -368,16 +404,16 @@
                             android:layout_height="match_parent"
                             app:srcCompat="@drawable/gears" />
 
-                        <TextView
-                            android:id="@+id/textView_weak3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center|bottom"
-                            android:background="#CA000000"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="Kait Diaz"
-                            android:textColor="#fff" />
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView_weak3"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_gravity="center|bottom"-->
+                        <!--                            android:background="#CA000000"-->
+                        <!--                            android:paddingStart="5dp"-->
+                        <!--                            android:paddingEnd="5dp"-->
+                        <!--                            android:text="Kait Diaz"-->
+                        <!--                            android:textColor="#fff" />-->
                     </FrameLayout>
 
 
@@ -385,13 +421,19 @@
             </androidx.cardview.widget.CardView>
 
 
-
         </LinearLayout>
-
-
 
 
     </androidx.core.widget.NestedScrollView>
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adViewDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:adSize="BANNER"
+        app:adUnitId="@string/ads_detail"
+        app:layout_constraintBottom_toBottomOf="@+id/nestedScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
