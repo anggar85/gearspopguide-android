@@ -1,6 +1,8 @@
 package com.mxlapps.app.gearspopguide.Model;
 
 
+import java.util.ArrayList;
+
 public class PinModel {
 
 
@@ -13,8 +15,8 @@ public class PinModel {
     private String skillName;
     private String skillDesc;
     private Integer cost;
-    private String strong;
-    private String weak;
+    private ArrayList<String> strong;
+    private ArrayList<String> weak;
     private Boolean coverable;
     private String smallImage;
 
@@ -90,19 +92,19 @@ public class PinModel {
         this.cost = cost;
     }
 
-    public String getStrong() {
+    public ArrayList<String> getStrong() {
         return strong;
     }
 
-    public void setStrong(String strong) {
+    public void setStrong(ArrayList<String> strong) {
         this.strong = strong;
     }
 
-    public String getWeak() {
+    public ArrayList<String> getWeak() {
         return weak;
     }
 
-    public void setWeak(String weak) {
+    public void setWeak(ArrayList<String> weak) {
         this.weak = weak;
     }
 

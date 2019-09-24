@@ -135,14 +135,14 @@ public class TierPinsListActivity extends AppCompatActivity  {
 
     private void obtenerHashKey() {
         try {
-            PackageInfo info = getPackageManager().getPackageInfo("com.mxlapps.app.afk_arenaguide", PackageManager.GET_SIGNATURES);
+            PackageInfo info = getPackageManager().getPackageInfo("com.mxlapps.app.gearspopguide", PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
                 MessageDigest md;
                 md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
                 String something = new String(Base64.encode(md.digest(), 0));
                 //String something = new String(Base64.encodeBytes(md.digest()));
-//                Log.i("hash key", something);
+                Log.i("hash key", something);
             }
         } catch (PackageManager.NameNotFoundException e1) {
             Log.e("name not found", e1.toString());
@@ -280,8 +280,8 @@ public class TierPinsListActivity extends AppCompatActivity  {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(TierPinsListActivity.this, LoginFacebookActivity.class);
-//                startActivityForResult(intent, 1001);
+                Intent intent = new Intent(TierPinsListActivity.this, LoginFacebookActivity.class);
+                startActivityForResult(intent, 1001);
             }
         });
 
