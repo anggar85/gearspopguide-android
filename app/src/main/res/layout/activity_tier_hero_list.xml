@@ -65,16 +65,16 @@
 
     <!--<include layout="@layout/bottom_sheet_layout" />-->
 
-<!--    <com.google.android.material.navigation.NavigationView-->
-<!--        app:headerLayout="@layout/nav_header"-->
-<!--        app:menu="@menu/drawer_menu"-->
-<!--        android:id="@+id/nav_view_left"-->
-<!--        android:layout_gravity="start"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:fitsSystemWindows="true"-->
-<!--        android:layout_marginEnd="-65dp"-->
-<!--        android:layout_marginRight="-65dp"/>-->
+    <com.google.android.material.navigation.NavigationView
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"
+        android:id="@+id/nav_view_left"
+        android:layout_gravity="start"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:layout_marginEnd="-65dp"
+        android:layout_marginRight="-65dp"/>
 
-    <!--<include layout="@layout/bottom_sheet_layout" />-->
+<!--    <include layout="@layout/bottom_sheet_layout" />-->
 </androidx.drawerlayout.widget.DrawerLayout>
