@@ -2,43 +2,31 @@
     <string name="app_name">Gears Pop Guide</string>
     <!--<string name="app_name">AFK-Arena Guide ™</string>-->
 
-    <string name="facebook_app_id">2331220860531083</string>
-    <string name="fb_login_protocol_scheme">fb2331220860531083</string>
+    <string name="facebook_app_id">531981814226936</string>
+    <string name="fb_login_protocol_scheme">fb531981814226936</string>
+
+    <string name="show_filter">Show Filters</string>
+    <string name="hide_filters">Hide Filters</string>
+
 
     <string name="admob_app_id">
         ca-app-pub-3725947824223351~6817232207</string>
     <string name="admob_interstitial_id">
         ca-app-pub-3725947824223351/6194023123</string>
 
-
-    <string name="navigation_draw_open">Open Navigation drawer</string>
-    <string name="navigation_draw_close">Close Navigation drawer</string>
-    <string name="about_us1">This guide is developed by players for players.\nWe as players understand the value of having information  clear and easy to understand, that help us to create the best strategies to reach new levels, defeat bosses or simple for experiment with our heroes to get the best combination of them. Our goal its help us to display that info in the easiest posible way.</string>
-    <string name="about_us2">We hope that this app result helpful for you.</string>
-    <string name="about_us3">Thanks</string>
-    <string name="about_email_invitation">If you have comments, recomendations or want to apport to this proyect, you can send us an email to this address:</string>
-    <string name="about_email">afkarena.guide@gmail.com</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="overview_sample_text">Thane is a highly elusive Crit-based damage dealer who becomes stronger the higher his crit rate is.  With his ultimate, he deals powerful attacks to random targets while in an invulnerable state, making Thane perform better as the enemies’ numbers dwindle.  He is also the cheapest Guild Hunt damage dealer in the game, capable of dealing consistently high damage and surviving until time out even on minimal investment.</string>
-
-
-    <string name="texto_no">No</string>
-    <string name="texto_si">Yes</string>
-    <string name="show_filter">Show Filters</string>
-    <string name="hide_filters">Hide Filters</string>
-
     <!--test-->
-<!--    <string name="ads_list">ca-app-pub-3940256099942544/6300978111</string>-->
-<!--    <string name="ads_detail">ca-app-pub-3940256099942544/6300978111</string>-->
-<!--    <string name="ads_list_float">ca-app-pub-3940256099942544/6300978111</string>-->
-<!--    <string name="ads_detail_float">ca-app-pub-3940256099942544/6300978111</string>-->
-<!--    <string name="ads_interstitial">ca-app-pub-3940256099942544/1033173712</string>-->
+    <string name="ads_list">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="ads_detail">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="ads_interstitial">ca-app-pub-3940256099942544/1033173712</string>
 
     <!--produccion-->
-        <string name="ads_list">ca-app-pub-3725947824223351/2058717787</string>
-        <string name="ads_detail">ca-app-pub-3725947824223351/9060252165</string>
-        <string name="ads_interstitial">ca-app-pub-3725947824223351/3427639777</string>
+<!--        <string name="ads_list">ca-app-pub-3725947824223351/2058717787</string>-->
+<!--        <string name="ads_detail">ca-app-pub-3725947824223351/9060252165</string>-->
+<!--        <string name="ads_interstitial">ca-app-pub-3725947824223351/3427639777</string>-->
+
+
+    <string name="navigation_draw_open">open</string>
+    <string name="navigation_draw_close">close</string>
 
 
     <!--<string name="ads_string">ca-app-pub-3940256099942544/6300978111</string>-->
