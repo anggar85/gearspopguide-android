@@ -1,16 +1,7 @@
 package com.mxlapps.app.gearspopguide.Views.Fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,10 +10,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioGroup;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -33,22 +31,14 @@ import com.mxlapps.app.gearspopguide.Model.PinModel;
 import com.mxlapps.app.gearspopguide.R;
 import com.mxlapps.app.gearspopguide.Request.DataMaster;
 import com.mxlapps.app.gearspopguide.Service.Resource;
-import com.mxlapps.app.gearspopguide.Utils.FilterAndSort;
-import com.mxlapps.app.gearspopguide.Utils.Filters;
 import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
 import com.mxlapps.app.gearspopguide.Views.DetailActivity;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class ListPinsFragment extends Fragment {
+
+public class MyDecksFragment extends Fragment {
 
     private static final String TAG = "afkArenaMainActivity";
     private ArrayList<PinModel> pinModels;
@@ -67,16 +57,16 @@ public class ListPinsFragment extends Fragment {
     private Boolean isFilterReset = false;
 
 
-    public ListPinsFragment() {
-    }
 
-
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         rootView = container.getRootView();
-        v = inflater.inflate(R.layout.fragment_list_heroes, container, false);
+
+
+        v =  inflater.inflate(R.layout.fragment_my_decks, container, false);
+
+
         drawer = v.findViewById(R.id.coordinatorLayout_listado_heroes);
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Gears Pop Guide");
@@ -85,15 +75,15 @@ public class ListPinsFragment extends Fragment {
         pinViewModel = ViewModelProviders.of(getActivity()).get(PinViewModel.class);
 //        UserViewModel userViewModel = ViewModelProviders.of(getActivity()).get(UserViewModel.class);
 
-        eventsRightDrawer();
-
-        requestCargarListaDeHeroes();
-
-        initFilter();
+//        eventsRightDrawer();
+//
+//        requestCargarListaDeHeroes();
+//
+//        initFilter();
 
         return v;
-
     }
+
 
 
     private void eventsRightDrawer() {
@@ -334,12 +324,12 @@ public class ListPinsFragment extends Fragment {
 
 
     private void requestCargarListaDeHeroes() {
-            pinViewModel.getPinList(RACE, ROLE, TYPE, COVER).observe(this, new Observer<Resource<DataMaster>>() {
-                @Override
-                public void onChanged(Resource<DataMaster> dataMasterResource) {
-                    procesaRespuesta(dataMasterResource, 1);
-                }
-            });
+        pinViewModel.getPinList(RACE, ROLE, TYPE, COVER).observe(this, new Observer<Resource<DataMaster>>() {
+            @Override
+            public void onChanged(Resource<DataMaster> dataMasterResource) {
+                procesaRespuesta(dataMasterResource, 1);
+            }
+        });
     }
 
     @Override
@@ -347,7 +337,6 @@ public class ListPinsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
-
 
 
 }

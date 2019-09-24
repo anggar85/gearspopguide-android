@@ -42,6 +42,7 @@ import com.mxlapps.app.gearspopguide.Utils.AppPreferences;
 import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.UserViewModel;
 import com.mxlapps.app.gearspopguide.Views.Fragment.ListPinsFragment;
+import com.mxlapps.app.gearspopguide.Views.Fragment.MyDecksFragment;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -170,8 +171,9 @@ public class TierPinsListActivity extends AppCompatActivity  {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 switch (id) {
-                    case R.id.nav_my_account:
-                        Toast.makeText(TierPinsListActivity.this, "nav_my_account", Toast.LENGTH_SHORT).show();
+                    case R.id.nav_my_decks:
+                        Toast.makeText(TierPinsListActivity.this, "nav_my_decks", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyDecksFragment()).commit();
                         break;
                     case R.id.nav_heroes:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListPinsFragment()).commit();
