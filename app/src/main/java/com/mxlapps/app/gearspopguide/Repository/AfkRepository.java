@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
 import com.mxlapps.app.gearspopguide.Request.DataMaster;
-import com.mxlapps.app.gearspopguide.Service.AFKApi;
+import com.mxlapps.app.gearspopguide.Service.PinsApi;
 import com.mxlapps.app.gearspopguide.Service.NetworkBoundResource;
 import com.mxlapps.app.gearspopguide.Service.Resource;
 import com.mxlapps.app.gearspopguide.Service.RetrofitRequest;
@@ -15,7 +15,7 @@ import retrofit2.Call;
 
 public class AfkRepository {
 
-    private AFKApi apiService;
+    private PinsApi apiService;
     private  static AfkRepository instance;
     private Context context;
 
@@ -26,17 +26,17 @@ public class AfkRepository {
         return instance;
     }
     public AfkRepository(Context context) {
-        apiService = RetrofitRequest.getInstance().create(AFKApi.class);
+        apiService = RetrofitRequest.getInstance().create(PinsApi.class);
         this.context = context;
     }
 
-    public LiveData<Resource<DataMaster>> getHeroList(final String gameLevel, final String section, final String rarity, final String classe, final String race_name) {
+    public LiveData<Resource<DataMaster>> getPinList(final String race, final String role, final String type, final String cover) {
 
         return new NetworkBoundResource<DataMaster, DataMaster>() {
             @NonNull
             @Override
             protected Call<DataMaster> createCallRetrofit() {
-                return apiService.getHeroList("1234567890", gameLevel, section, rarity, classe, race_name);
+                return apiService.getPinList(race, role, type, cover);
             }
         }.getAsLiveData();
     }

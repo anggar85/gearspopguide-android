@@ -158,6 +158,23 @@ public class AppPreferences {
         return getPreferenceString("name", SHAREDPREFERENCE_NAME);
     }
 
+    public void setEmail(String email){
+        setPreference("email", email, SHAREDPREFERENCE_NAME);
+    }
+
+    public String getEmail(){
+        return getPreferenceString("email", SHAREDPREFERENCE_NAME);
+    }
+
+    public void setTapTarget(Boolean name){
+        setPreference("tap_target_facebook", name, SHAREDPREFERENCE_NAME);
+    }
+
+    public Boolean getTapTarget(){
+        return getPreferenceBoolean("tap_target_facebook", false , SHAREDPREFERENCE_NAME);
+    }
+
+
 
     public static void cerrarSesion() {
         SharedPreferences preferences = instance.mContext.getSharedPreferences(SHAREDPREFERENCE_NAME, Context.MODE_PRIVATE);

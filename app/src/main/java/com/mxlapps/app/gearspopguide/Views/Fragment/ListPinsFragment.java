@@ -10,8 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
@@ -21,6 +19,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mxlapps.app.gearspopguide.Adapter.PinsAdapter;
 import com.mxlapps.app.gearspopguide.Model.PinModel;
 import com.mxlapps.app.gearspopguide.R;
@@ -37,6 +37,7 @@ import com.mxlapps.app.gearspopguide.Utils.FilterAndSort;
 import com.mxlapps.app.gearspopguide.Utils.Filters;
 import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
+import com.mxlapps.app.gearspopguide.Views.DetailActivity;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -53,43 +54,20 @@ public class ListPinsFragment extends Fragment {
     private ArrayList<PinModel> pinModels;
     private View rootView;
     View v;
-
     private Filters filters = null;
-    // checkboxes
-    private CheckBox rarity_legendary = null;
-    private CheckBox rarity_ascend = null;
-    private CheckBox rarity_common = null;
-
-    private CheckBox classe_Agility = null;
-    private CheckBox classe_Intelligence = null;
-    private CheckBox classe_Strength = null;
-
-    private CheckBox race_name_wilders = null;
-    private CheckBox race_name_Maulers = null;
-    private CheckBox race_name_Lightbearers = null;
-    private CheckBox race_name_Hypogean = null;
-    private CheckBox race_name_Celestian = null;
-    private CheckBox race_name_Graveborn = null;
-
     private String GAME_LEVEL_EARLY = "tier_list_earlies";
-    private String GAME_LEVEL_MID = "tier_list_mids";
-    private String GAME_LEVEL_LATE = "tier_list_lates";
-    private String OVERALL = "overall";
-    private String PVP = "pvp";
-    private String PVE = "pve";
-    private String LAB = "lab";
-    private String WRIZZ = "wrizz";
-    private String SOREN = "soren";
     private String SECTION = "overall";
-    private String GAME_LEVEL = "tier_list_earlies";
-
-    private static int LAYOUT_GRID = 1;
-
     private NavigationView navigationView;
-
     private PinViewModel pinViewModel;
-
     DrawerLayout drawer;
+
+    // variables para filtrar
+    private String RACE = "All";
+    private String ROLE = "All";
+    private String TYPE = "All";
+    private String COVER = "All";
+
+    private Boolean isFilterReset = false;
 
 
     public ListPinsFragment() {
@@ -112,7 +90,7 @@ public class ListPinsFragment extends Fragment {
 
         eventsRightDrawer();
 
-        requestCargarListaDeHeroes(GAME_LEVEL_EARLY, SECTION);
+        requestCargarListaDeHeroes();
 
         initFilter();
 
@@ -144,67 +122,35 @@ public class ListPinsFragment extends Fragment {
 
 
 
-    private String read(Context context, String fileName) {
-        try {
-            FileInputStream fis = context.openFileInput(fileName);
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader bufferedReader = new BufferedReader(isr);
-            StringBuilder sb = new StringBuilder();
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                sb.append(line);
-            }
-            return sb.toString();
-        } catch (FileNotFoundException fileNotFound) {
-            return null;
-        } catch (IOException ioException) {
-            return null;
-        }
-    }
-
-    private boolean create(Context context, String fileName, String jsonString){
-        String FILENAME = "hero_list.json";
-        try {
-            FileOutputStream fos = context.openFileOutput(fileName,Context.MODE_PRIVATE);
-            if (jsonString != null) {
-                fos.write(jsonString.getBytes());
-            }
-            fos.close();
-            return true;
-        } catch (FileNotFoundException fileNotFound) {
-            return false;
-        } catch (IOException ioException) {
-            return false;
-        }
-
-    }
-
-    public boolean isFilePresent(Context context, String fileName) {
-        String path = context.getFilesDir().getAbsolutePath() + "/" + fileName;
-        File file = new File(path);
-        return file.exists();
-    }
-
-
     private void initRecyclerView(final ArrayList<PinModel> pinModelsInternal) {
         RecyclerView recyclerView = v.findViewById(R.id.recyclerview_hero_list);
-        // Recibe un arrayList de productosy la bandera si se quiere mostrar/ocultar el checkbox
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
 
-        int numberOfColumns = 4;
+        int numberOfColumns = 3;
 
         PinsAdapter adapter = new PinsAdapter(pinModelsInternal, getActivity(), 1);
 
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setHasFixedSize(true);
+
         recyclerView.setAdapter(adapter);
 
         adapter.SetOnItemClickListener(new PinsAdapter.OnItemClickListener() {
             @Override
             public void onHeroCardClick(int position) {
-//                Util.startLoading(rootView);
-//                Intent intent = new Intent(getActivity(), HeroDetailV2.class);
-//                intent.putExtra("hero_id", pinModelsInternal.get(position).getId());
-//                startActivityForResult(intent, 50);
+                Util.startLoading(rootView);
+                Intent intent = new Intent(getActivity(), DetailActivity.class);
+
+                // Convierte objeto a string
+                GsonBuilder builder = new GsonBuilder();
+                Gson gson = builder.create();
+
+                String pinJson = gson.toJson(pinModelsInternal.get(position));
+
+
+                intent.putExtra("pin_data", pinJson);
+                startActivityForResult(intent, 50);
+                Log.d(TAG, "onHeroCardClick: with pin ->" + pinModelsInternal.get(position).getName());
 
             }
 
@@ -235,26 +181,6 @@ public class ListPinsFragment extends Fragment {
                     case 1:
                         pinModels = dataMasterResource.data.getData().getPins();
                         initListadoHeroes();
-
-                        Gson gson = new Gson();
-                        String json = gson.toJson(dataMasterResource.data.getData());
-                        Log.d(TAG, "initRecyclerView: no existe vamos a crearlo");
-                        boolean isFilePresent = isFilePresent(getActivity(), "hero_list.json");
-                        if(isFilePresent) {
-                            String jsonString = read(getActivity(), "hero_list.json");
-                            //do the json parsing here and do the rest of functionality of app
-                            Log.d(TAG, "initRecyclerView: si existe, hay que leerlo o actualizarlo");
-                        } else {
-                            boolean isFileCreated = create(getActivity(), "hero_list.json", json);
-                            if(isFileCreated) {
-                                Log.d(TAG, "initRecyclerView: se creooo");
-                                //proceed with storing the first todo  or show ui
-                            } else {
-                                Log.d(TAG, "initRecyclerView: no se pudo crear, hubo un error");
-                                //show error or try again.
-                            }
-                        }
-
                 }
                 break;
             default:
@@ -264,22 +190,154 @@ public class ListPinsFragment extends Fragment {
 
     private void initListadoHeroes() {
         initRecyclerView(pinModels);
-        initFilter();
-        clearFilters();
+//        initFilter();
+//        clearFilters();
 
     }
 
     private void initFilter() {
-        View parentView = navigationView.getHeaderView(0);
+        final View parentView = navigationView.getHeaderView(0);
         // Filtros
+
+        final RadioGroup radioGroupRace = parentView.findViewById(R.id.race_group);
+        final RadioGroup radioGroupRole = parentView.findViewById(R.id.role_group);
+        final RadioGroup radioGroupType = parentView.findViewById(R.id.type_group);
+        final RadioGroup radioGroupCover = parentView.findViewById(R.id.cover_group);
+
+
+
         Button button_reset_filters = parentView.findViewById(R.id.button_reset_filters);
         button_reset_filters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clearFilters();
+                Log.d(TAG, "onClick: limpiar filtrooss");
+
+                isFilterReset = true;
 //                refreshHeroes();
+                RACE = "All";
+                ROLE = "All";
+                TYPE = "All";
+                COVER = "All";
+                radioGroupRace.check(R.id.race_all);
+                radioGroupRole.check(R.id.role_all);
+                radioGroupType.check(R.id.type_all);
+                radioGroupCover.check(R.id.cover_all);
+                requestCargarListaDeHeroes();
+
+                isFilterReset = false;
+
             }
         });
+
+
+        radioGroupRace.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                switch (checkedId){
+                    case R.id.race_all:
+                        RACE = "All";
+                        break;
+                    case R.id.race_cgo:
+                        RACE = "cgo";
+                        break;
+                    case R.id.race_locust:
+                        RACE = "locust";
+                        break;
+                }
+
+                if (!isFilterReset)
+                    requestCargarListaDeHeroes();
+            }
+        });
+
+
+        radioGroupRole.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                switch (checkedId){
+                    case R.id.role_all:
+                        ROLE = "All";
+                        break;
+                    case R.id.role_Bruiser:
+                        ROLE = "Bruiser";
+                        break;
+                    case R.id.role_removal:
+                        ROLE = "Removal";
+                        break;
+                    case R.id.role_scout:
+                        ROLE = "Scout";
+                        break;
+                    case R.id.role_tank:
+                        ROLE = "Tank";
+                        break;
+                    case R.id.role_threat:
+                        ROLE = "Threat";
+                        break;
+                    case R.id.role_utility:
+                        ROLE = "Utility";
+                        break;
+                }
+                if (!isFilterReset)
+                    requestCargarListaDeHeroes();
+            }
+        });
+
+
+        radioGroupType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                switch (checkedId){
+                    case R.id.type_all:
+                        TYPE = "All";
+                        break;
+                    case R.id.type_common:
+                        TYPE = "Common";
+                        break;
+                    case R.id.type_epic:
+                        TYPE = "Epic";
+                        break;
+                    case R.id.type_rare:
+                        TYPE = "Rare";
+                        break;
+                    case R.id.type_legendary:
+                        TYPE = "Legendary";
+                        break;
+                }
+                if (!isFilterReset)
+                    requestCargarListaDeHeroes();
+            }
+        });
+
+
+        radioGroupCover.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                switch (checkedId){
+                    case R.id.cover_all:
+                        COVER = "All";
+                        break;
+                    case R.id.cover_yes:
+                        COVER = "0";
+                        break;
+                    case R.id.cover_no:
+                        COVER = "1";
+                        break;
+                }
+                if (!isFilterReset)
+                    requestCargarListaDeHeroes();
+            }
+        });
+
+
 
 
 
@@ -301,23 +359,13 @@ public class ListPinsFragment extends Fragment {
 
     }
 
-    private void requestCargarListaDeHeroes(String gameLevel, String section) {
-//        boolean isFilePresent = isFilePresent(getActivity(), "hero_list.json");
-//        if(isFilePresent) {
-//            String jsonString = read(getActivity(), "hero_list.json");
-//            //do the json parsing here and do the rest of functionality of app
-//            Gson gson = new Gson();
-//            Data hM = gson.fromJson(jsonString, Data.class);
-//            Log.d(TAG, "initRecyclerView: si existe, hay que leerlo");
-//            initRecyclerView(hM.getPinModel(),1);
-//        } else {
-            pinViewModel.getHeroList(gameLevel, section, "All", "All", "All").observe(this, new Observer<Resource<DataMaster>>() {
+    private void requestCargarListaDeHeroes() {
+            pinViewModel.getPinList(RACE, ROLE, TYPE, COVER).observe(this, new Observer<Resource<DataMaster>>() {
                 @Override
                 public void onChanged(Resource<DataMaster> dataMasterResource) {
                     procesaRespuesta(dataMasterResource, 1);
                 }
             });
-//        }
     }
 
     @Override
