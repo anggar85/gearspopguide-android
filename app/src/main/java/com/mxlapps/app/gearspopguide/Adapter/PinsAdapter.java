@@ -61,18 +61,20 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
 
         PinModel hero = pinModels.get(position);
         holder.textView_pin_name.setText(hero.getName());
-        Picasso.get().load(hero.getSmallImage())
-                .into(holder.smallImage, new Callback() {
-                    @Override
-                    public void onSuccess() {
-                        holder.imageView_holdertenporal.setVisibility(View.GONE);
-                    }
+        Picasso.get().load(hero.getSmallImage()).into(holder.smallImage);
 
-                    @Override
-                    public void onError(Exception e) {
-
-                    }
-                });
+//        Picasso.get().load(hero.getSmallImage())
+//                .into(holder.smallImage, new Callback() {
+//                    @Override
+//                    public void onSuccess() {
+//                        holder.imageView_holdertenporal.setVisibility(View.GONE);
+//                    }
+//
+//                    @Override
+//                    public void onError(Exception e) {
+//
+//                    }
+//                });
     }
 
 

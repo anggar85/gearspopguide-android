@@ -29,16 +29,16 @@
     <string name="hide_filters">Hide Filters</string>
 
     <!--test-->
-    <string name="ads_list">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="ads_detail">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="ads_list_float">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="ads_detail_float">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="ads_interstitial">ca-app-pub-3940256099942544/1033173712</string>
+<!--    <string name="ads_list">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="ads_detail">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="ads_list_float">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="ads_detail_float">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="ads_interstitial">ca-app-pub-3940256099942544/1033173712</string>-->
 
     <!--produccion-->
-<!--    <string name="ads_list">ca-app-pub-3725947824223351/2058717787</string>-->
-<!--    <string name="ads_detail">ca-app-pub-3725947824223351/9060252165</string>-->
-<!--    <string name="ads_interstitial">ca-app-pub-3725947824223351/3427639777</string>-->
+        <string name="ads_list">ca-app-pub-3725947824223351/2058717787</string>
+        <string name="ads_detail">ca-app-pub-3725947824223351/9060252165</string>
+        <string name="ads_interstitial">ca-app-pub-3725947824223351/3427639777</string>
 
 
     <!--<string name="ads_string">ca-app-pub-3940256099942544/6300978111</string>-->

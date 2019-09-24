@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
-        android:name="com.mxlapps.app.gearspopguide.Utils.GlobalApplication"
+        android:name=".Utils.GlobalApplication"
         android:allowBackup="true"
         android:configChanges="keyboardHidden|orientation"
         android:hardwareAccelerated="false"
@@ -17,8 +17,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Views.DetailActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.mxlapps.app.gearspopguide.Views.TierPinsListActivity"
+            android:name=".Views.TierPinsListActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Launcher">
@@ -28,7 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.mxlapps.app.gearspopguide.Views.AboutUsActivity" />
+        <activity android:name=".Views.AboutUsActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -56,7 +59,6 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
