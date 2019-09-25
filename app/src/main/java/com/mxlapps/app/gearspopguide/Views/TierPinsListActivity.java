@@ -119,7 +119,7 @@ public class TierPinsListActivity extends AppCompatActivity  {
 
         eventsLeftDrawer();
         // Lanza fragmento de heroes
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListPinsFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyDecksFragment()).commit();
 
 
         MobileAds.initialize(this, BuildConfig.AD_LIST);

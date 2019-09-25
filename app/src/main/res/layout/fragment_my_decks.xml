@@ -11,240 +11,226 @@
     <include layout="@layout/item_loading_screen" />
 
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/adView2"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="#1976D2"
+            android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Cost: 3.5"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/textView7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <FrameLayout
+                android:id="@+id/framelayout_image7"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/framelayout_image8"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/framelayout_image6"
+                app:layout_constraintTop_toBottomOf="@+id/framelayout_image3">
 
-       <androidx.constraintlayout.widget.ConstraintLayout
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/imageViewDeck7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gears" />
+            </FrameLayout>
 
-           <androidx.cardview.widget.CardView
-               android:id="@+id/cardView2"
-               android:layout_width="0dp"
-               android:layout_height="wrap_content"
-               android:layout_marginStart="16dp"
-               android:layout_marginTop="16dp"
-               android:layout_marginEnd="16dp"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toTopOf="parent">
+            <FrameLayout
+                android:id="@+id/framelayout_image8"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/framelayout_image7"
+                app:layout_constraintTop_toBottomOf="@+id/framelayout_image4">
 
-               <androidx.constraintlayout.widget.ConstraintLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/imageViewDeck8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gears" />
+            </FrameLayout>
 
-                   <TextView
-                       android:id="@+id/textView10"
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_marginStart="24dp"
-                       android:layout_marginEnd="24dp"
-                       android:layout_marginBottom="2dp"
-                       android:text="Deck Name"
-                       app:layout_constraintBottom_toTopOf="@+id/editText_deckName"
-                       app:layout_constraintEnd_toEndOf="parent"
-                       app:layout_constraintStart_toStartOf="parent"
-                       app:layout_constraintTop_toTopOf="parent" />
+            <FrameLayout
+                android:id="@+id/framelayout_image6"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/framelayout_image7"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/framelayout_image5"
+                app:layout_constraintTop_toBottomOf="@+id/framelayout_image2">
 
-                   <EditText
-                       android:id="@+id/editText_deckName"
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_marginStart="24dp"
-                       android:layout_marginTop="2dp"
-                       android:layout_marginEnd="24dp"
-                       android:layout_marginBottom="2dp"
-                       android:ems="10"
-                       android:inputType="textPersonName"
-                       app:layout_constraintBottom_toTopOf="@+id/framelayout_image4"
-                       app:layout_constraintEnd_toEndOf="parent"
-                       app:layout_constraintStart_toStartOf="parent"
-                       app:layout_constraintTop_toBottomOf="@+id/textView10" />
+                <ImageView
+                    android:id="@+id/imageViewDeck6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gears" />
+            </FrameLayout>
 
-                   <FrameLayout
-                       android:id="@+id/framelayout_image7"
-                       android:layout_width="70dp"
-                       android:layout_height="70dp"
-                       android:layout_marginBottom="8dp"
-                       app:layout_constraintBottom_toBottomOf="parent"
-                       app:layout_constraintEnd_toStartOf="@+id/framelayout_image8"
-                       app:layout_constraintHorizontal_bias="0.5"
-                       app:layout_constraintStart_toEndOf="@+id/framelayout_image6"
-                       app:layout_constraintTop_toBottomOf="@+id/framelayout_image3">
+            <FrameLayout
+                android:id="@+id/framelayout_image4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/framelayout_image3"
+                app:layout_constraintTop_toBottomOf="@+id/textView10">
 
-                       <ImageView
-                           android:id="@+id/imageViewDeck7"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:src="@drawable/gears" />
-                   </FrameLayout>
+                <ImageView
+                    android:id="@+id/imageViewDeck4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gears" />
+            </FrameLayout>
 
-                   <FrameLayout
-                       android:id="@+id/framelayout_image8"
-                       android:layout_width="70dp"
-                       android:layout_height="70dp"
-                       android:layout_marginBottom="8dp"
-                       app:layout_constraintBottom_toBottomOf="parent"
-                       app:layout_constraintEnd_toEndOf="parent"
-                       app:layout_constraintHorizontal_bias="0.5"
-                       app:layout_constraintStart_toEndOf="@+id/framelayout_image7"
-                       app:layout_constraintTop_toBottomOf="@+id/framelayout_image4">
+            <FrameLayout
+                android:id="@+id/framelayout_image1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintBottom_toTopOf="@+id/framelayout_image5"
+                app:layout_constraintEnd_toStartOf="@+id/framelayout_image2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10">
 
-                       <ImageView
-                           android:id="@+id/imageViewDeck8"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:src="@drawable/gears" />
-                   </FrameLayout>
+                <ImageView
+                    android:id="@+id/imageViewDeck1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gears" />
+            </FrameLayout>
 
-                   <FrameLayout
-                       android:id="@+id/framelayout_image6"
-                       android:layout_width="70dp"
-                       android:layout_height="70dp"
-                       android:layout_marginBottom="8dp"
-                       app:layout_constraintBottom_toBottomOf="parent"
-                       app:layout_constraintEnd_toStartOf="@+id/framelayout_image7"
-                       app:layout_constraintHorizontal_bias="0.5"
-                       app:layout_constraintStart_toEndOf="@+id/framelayout_image5"
-                       app:layout_constraintTop_toBottomOf="@+id/framelayout_image2">
+            <FrameLayout
+                android:id="@+id/framelayout_image2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintBottom_toTopOf="@+id/framelayout_image6"
+                app:layout_constraintEnd_toStartOf="@+id/framelayout_image3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/framelayout_image1"
+                app:layout_constraintTop_toBottomOf="@+id/textView10">
 
-                       <ImageView
-                           android:id="@+id/imageViewDeck6"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:src="@drawable/gears" />
-                   </FrameLayout>
+                <ImageView
+                    android:id="@+id/imageViewDeck2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gears" />
+            </FrameLayout>
 
-                   <FrameLayout
-                       android:id="@+id/framelayout_image4"
-                       android:layout_width="70dp"
-                       android:layout_height="70dp"
-                       app:layout_constraintEnd_toEndOf="parent"
-                       app:layout_constraintHorizontal_bias="0.5"
-                       app:layout_constraintStart_toEndOf="@+id/framelayout_image3"
-                       app:layout_constraintTop_toTopOf="@+id/framelayout_image2">
+            <FrameLayout
+                android:id="@+id/framelayout_image3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintBottom_toTopOf="@+id/framelayout_image7"
+                app:layout_constraintEnd_toStartOf="@+id/framelayout_image4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/framelayout_image2"
+                app:layout_constraintTop_toBottomOf="@+id/textView10">
 
-                       <ImageView
-                           android:id="@+id/imageViewDeck4"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:src="@drawable/gears" />
-                   </FrameLayout>
+                <ImageView
+                    android:id="@+id/imageViewDeck3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gears" />
+            </FrameLayout>
 
-                   <FrameLayout
-                       android:id="@+id/framelayout_image1"
-                       android:layout_width="70dp"
-                       android:layout_height="70dp"
-                       android:layout_marginTop="2dp"
-                       app:layout_constraintBottom_toTopOf="@+id/framelayout_image5"
-                       app:layout_constraintEnd_toStartOf="@+id/framelayout_image2"
-                       app:layout_constraintHorizontal_bias="0.5"
-                       app:layout_constraintStart_toStartOf="parent"
-                       app:layout_constraintTop_toBottomOf="@+id/editText_deckName">
+            <FrameLayout
+                android:id="@+id/framelayout_image5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/framelayout_image6"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/framelayout_image1">
 
-                       <ImageView
-                           android:id="@+id/imageViewDeck1"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:src="@drawable/gears" />
-                   </FrameLayout>
+                <ImageView
+                    android:id="@+id/imageViewDeck5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gears" />
+            </FrameLayout>
 
-                   <FrameLayout
-                       android:id="@+id/framelayout_image2"
-                       android:layout_width="70dp"
-                       android:layout_height="70dp"
-                       android:layout_marginTop="2dp"
-                       app:layout_constraintBottom_toTopOf="@+id/framelayout_image6"
-                       app:layout_constraintEnd_toStartOf="@+id/framelayout_image3"
-                       app:layout_constraintHorizontal_bias="0.5"
-                       app:layout_constraintStart_toEndOf="@+id/framelayout_image1"
-                       app:layout_constraintTop_toBottomOf="@+id/editText_deckName">
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:text="Save Deck"
+                android:background="#303F9F"
+                android:padding="3dp"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView10" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
-                       <ImageView
-                           android:id="@+id/imageViewDeck2"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:src="@drawable/gears" />
-                   </FrameLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_recycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/adView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
-                   <FrameLayout
-                       android:id="@+id/framelayout_image3"
-                       android:layout_width="70dp"
-                       android:layout_height="70dp"
-                       android:layout_marginTop="2dp"
-                       app:layout_constraintBottom_toTopOf="@+id/framelayout_image7"
-                       app:layout_constraintEnd_toStartOf="@+id/framelayout_image4"
-                       app:layout_constraintHorizontal_bias="0.5"
-                       app:layout_constraintStart_toEndOf="@+id/framelayout_image2"
-                       app:layout_constraintTop_toBottomOf="@+id/editText_deckName">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-                       <ImageView
-                           android:id="@+id/imageViewDeck3"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:src="@drawable/gears" />
-                   </FrameLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_pinListDeck"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
-                   <FrameLayout
-                       android:id="@+id/framelayout_image5"
-                       android:layout_width="70dp"
-                       android:layout_height="70dp"
-                       android:layout_marginBottom="8dp"
-                       app:layout_constraintBottom_toBottomOf="parent"
-                       app:layout_constraintEnd_toStartOf="@+id/framelayout_image6"
-                       app:layout_constraintHorizontal_bias="0.5"
-                       app:layout_constraintStart_toStartOf="parent"
-                       app:layout_constraintTop_toBottomOf="@+id/framelayout_image1">
-
-                       <ImageView
-                           android:id="@+id/imageViewDeck5"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:src="@drawable/gears" />
-                   </FrameLayout>
-               </androidx.constraintlayout.widget.ConstraintLayout>
-           </androidx.cardview.widget.CardView>
-
-           <androidx.cardview.widget.CardView
-               android:id="@+id/cardView_recycler"
-               android:layout_width="0dp"
-               android:layout_height="wrap_content"
-               android:layout_marginStart="16dp"
-               android:layout_marginEnd="16dp"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/cardView2">
-
-               <androidx.constraintlayout.widget.ConstraintLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent">
-
-                   <androidx.recyclerview.widget.RecyclerView
-                       android:id="@+id/recycler_pinListDeck"
-                       android:layout_width="match_parent"
-                       android:layout_height="200dp"
-                       android:layout_marginBottom="8dp"
-                       app:layout_constraintBottom_toBottomOf="parent"
-                       app:layout_constraintEnd_toEndOf="parent"
-                       app:layout_constraintStart_toStartOf="parent"
-                       app:layout_constraintTop_toTopOf="parent" />
-               </androidx.constraintlayout.widget.ConstraintLayout>
-           </androidx.cardview.widget.CardView>
-
-
-       </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView2"

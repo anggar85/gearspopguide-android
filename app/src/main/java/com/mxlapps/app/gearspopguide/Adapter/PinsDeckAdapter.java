@@ -1,6 +1,7 @@
 package com.mxlapps.app.gearspopguide.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,9 +57,15 @@ public class PinsDeckAdapter extends RecyclerView.Adapter<PinsDeckAdapter.HeroVi
     public void onBindViewHolder(@NonNull final PinsDeckAdapter.HeroViewHolder holder, int position) {
 
         PinModel hero = pinModels.get(position);
-//        holder.textView_pin_name.setText(hero.getName());
+        holder.textView_pin_cost.setText(String.valueOf(hero.getCost()));
+        holder.textView_pin_role.setText(hero.getRole());
+        holder.textView_pin_type.setText(hero.getType());
         Picasso.get().load(hero.getSmallImage()).into(holder.smallImage);
+
+        pintaRole(hero.getRole(), holder);
+        pintaType(hero.getType(), holder);
     }
+
 
 
     @Override
@@ -68,10 +75,10 @@ public class PinsDeckAdapter extends RecyclerView.Adapter<PinsDeckAdapter.HeroVi
 
     public class HeroViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textView_tier;
-//        TextView textView_pin_name;
+        TextView textView_pin_cost;
+        TextView textView_pin_role;
+        TextView textView_pin_type;
         ImageView smallImage;
-        ImageView imageView_holdertenporal;
         CardView cardView_pin_item;
 
         public HeroViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
@@ -79,9 +86,9 @@ public class PinsDeckAdapter extends RecyclerView.Adapter<PinsDeckAdapter.HeroVi
 
 
             smallImage = itemView.findViewById(R.id.imageView_hero_image);
-//            textView_pin_name = itemView.findViewById(R.id.textView_pin_name);
-            textView_tier = itemView.findViewById(R.id.textView_tier);
-            imageView_holdertenporal = itemView.findViewById(R.id.imageView_holdertenporal);
+            textView_pin_cost = itemView.findViewById(R.id.textView_pin_cost);
+            textView_pin_role = itemView.findViewById(R.id.textView_pin_role);
+            textView_pin_type = itemView.findViewById(R.id.textView_pin_type);
             cardView_pin_item = itemView.findViewById(R.id.cardView_section_item);
 
             cardView_pin_item.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +99,58 @@ public class PinsDeckAdapter extends RecyclerView.Adapter<PinsDeckAdapter.HeroVi
                     }
                 }
             });
+        }
+    }
+
+    public void pintaRole(String role, HeroViewHolder holder){
+        int color;
+        switch (role){
+            case "Tank":
+                color = Color.parseColor("#a64d79");
+                holder.textView_pin_role.setBackgroundColor(color);
+                break;
+            case "Threat":
+                color = Color.parseColor("#260d8a");
+                holder.textView_pin_role.setBackgroundColor(color);
+                break;
+            case "Scout":
+                color = Color.parseColor("#b314c9");
+                holder.textView_pin_role.setBackgroundColor(color);
+                break;
+            case "Removal":
+                color = Color.parseColor("#76a21a");
+                holder.textView_pin_role.setBackgroundColor(color);
+                break;
+            case "Utility":
+                color = Color.parseColor("#5c5c5c");
+                holder.textView_pin_role.setBackgroundColor(color);
+                break;
+            case "Bruiser":
+                color = Color.parseColor("#df3030");
+                holder.textView_pin_role.setBackgroundColor(color);
+                break;
+        }
+    }
+
+    public void pintaType(String type, HeroViewHolder holder){
+        int color;
+        switch (type){
+            case "Common":
+                color = Color.parseColor("#32cd32");
+                holder.textView_pin_type.setBackgroundColor(color);
+                break;
+            case "Rare":
+                color = Color.parseColor("#bb88bb");
+                holder.textView_pin_type.setBackgroundColor(color);
+                break;
+            case "Epic":
+                color = Color.parseColor("#C51162");
+                holder.textView_pin_type.setBackgroundColor(color);
+                break;
+            case "Legendary":
+                color = Color.parseColor("#ffae42");
+                holder.textView_pin_type.setBackgroundColor(color);
+                break;
         }
     }
 
