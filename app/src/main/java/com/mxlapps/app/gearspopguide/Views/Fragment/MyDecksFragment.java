@@ -1,10 +1,8 @@
 package com.mxlapps.app.gearspopguide.Views.Fragment;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -12,33 +10,24 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.mxlapps.app.gearspopguide.Adapter.PinsAdapter;
 import com.mxlapps.app.gearspopguide.Adapter.PinsDeckAdapter;
+import com.mxlapps.app.gearspopguide.Model.DeckModel;
 import com.mxlapps.app.gearspopguide.Model.PinModel;
 import com.mxlapps.app.gearspopguide.R;
 import com.mxlapps.app.gearspopguide.Request.DataMaster;
 import com.mxlapps.app.gearspopguide.Service.Resource;
 import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
-import com.mxlapps.app.gearspopguide.Views.DetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -56,6 +45,8 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
     View v;
     private PinViewModel pinViewModel;
     DrawerLayout drawer;
+    TextView textView_save_deck;
+    TextView textView_cost;
 
     // variables para filtrar
     private String RACE = "All";
@@ -73,14 +64,25 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
     ImageView imageViewDeck8;
 
 
-    int deck1_id = 0;
-    int deck2_id = 0;
-    int deck3_id = 0;
-    int deck4_id = 0;
-    int deck5_id = 0;
-    int deck6_id = 0;
-    int deck7_id = 0;
-    int deck8_id = 0;
+    String deck1_id = "";
+    String deck2_id = "";
+    String deck3_id = "";
+    String deck4_id = "";
+    String deck5_id = "";
+    String deck6_id = "";
+    String deck7_id = "";
+    String deck8_id = "";
+
+    Double costo1 = 0.0;
+    Double costo2 = 0.0;
+    Double costo3 = 0.0;
+    Double costo4 = 0.0;
+    Double costo5 = 0.0;
+    Double costo6 = 0.0;
+    Double costo7 = 0.0;
+    Double costo8 = 0.0;
+
+    private DeckModel deckModel = new DeckModel();
 
 
     @Override
@@ -102,6 +104,7 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
     }
 
     private void agreaListenrClickHolders() {
+        textView_cost = v.findViewById(R.id.textView_cost);
         imageViewDeck1 = v.findViewById(R.id.imageViewDeck1);
         imageViewDeck1.setOnClickListener(this);
 
@@ -125,6 +128,36 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
 
         imageViewDeck8 = v.findViewById(R.id.imageViewDeck8);
         imageViewDeck8.setOnClickListener(this);
+
+        textView_save_deck = v.findViewById(R.id.textView_save_deck);
+        textView_save_deck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Valida si hay pins repetidos
+
+                deckModel.setPin1(deck1_id);
+                deckModel.setPin2(deck2_id);
+                deckModel.setPin3(deck3_id);
+                deckModel.setPin4(deck4_id);
+                deckModel.setPin5(deck5_id);
+                deckModel.setPin6(deck6_id);
+                deckModel.setPin7(deck7_id);
+                deckModel.setPin8(deck8_id);
+                deckModel.setCost(String.valueOf(cost));
+
+                if (buscaRepetidos()){
+                    Log.d(TAG, "onClick: hay repetidos");
+                }else{
+                    Log.d(TAG, "onClick: NO hay repetidos");
+
+                }
+
+
+
+
+            }
+        });
     }
 
 
@@ -143,65 +176,65 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
             public void onHeroCardClick(int position) {
                 Log.d(TAG, "onHeroCardClick: " + pinIds.toString());
                 // Valida si ya fue agregado el pin
-                boolean yaEsta = false;
-                for (int x = 0; x < pinIds.size(); x++){
-                    if (pinModelsInternal.get(position).getId() ==  pinIds.get(x)){
-                        yaEsta = true;
-                        break;
-                    }
-                }
 
-                if (!yaEsta){
-                    // Solo si el pin no esta, continuamos y agregamos el id al array
-                    Log.d(TAG, "onHeroCardClick: " + pinIds.toString());
+                if (pinHolderSelected != 0){
+                    String imgLink = pinModelsInternal.get(position).getSmallImage();
+                    switch (pinHolderSelected){
+                        case 1:
+                            Picasso.get().load(imgLink).into(imageViewDeck1);
+                            deck1_id = pinModelsInternal.get(position).getName();
+                            costo1 = Double.valueOf(pinModelsInternal.get(position).getCost().toString());
+                            break;
+                        case 2:
+                            Picasso.get().load(imgLink).into(imageViewDeck2);
+                            deck2_id = pinModelsInternal.get(position).getName();
+                            costo2 = Double.valueOf(pinModelsInternal.get(position).getCost().toString());
 
-                    if (pinHolderSelected != 0){
-                        pinIds.add(pinModelsInternal.get(position).getId());
-                        String imgLink = pinModelsInternal.get(position).getSmallImage();
-                        switch (pinHolderSelected){
-                            case 1:
-                                Picasso.get().load(imgLink).into(imageViewDeck1);
-                                deck1_id = pinModelsInternal.get(position).getId();
-                                break;
-                            case 2:
-                                Picasso.get().load(imgLink).into(imageViewDeck2);
-                                deck2_id = pinModelsInternal.get(position).getId();
-                                break;
-                            case 3:
-                                Picasso.get().load(imgLink).into(imageViewDeck3);
-                                deck3_id = pinModelsInternal.get(position).getId();
-                                break;
-                            case 4:
-                                Picasso.get().load(imgLink).into(imageViewDeck4);
-                                deck4_id = pinModelsInternal.get(position).getId();
-                                break;
-                            case 5:
-                                Picasso.get().load(imgLink).into(imageViewDeck5);
-                                deck5_id = pinModelsInternal.get(position).getId();
-                                break;
-                            case 6:
-                                Picasso.get().load(imgLink).into(imageViewDeck6);
-                                deck6_id = pinModelsInternal.get(position).getId();
-                                break;
-                            case 7:
-                                Picasso.get().load(imgLink).into(imageViewDeck7);
-                                deck7_id = pinModelsInternal.get(position).getId();
-                                break;
-                            case 8:
-                                Picasso.get().load(imgLink).into(imageViewDeck8);
-                                deck8_id = pinModelsInternal.get(position).getId();
-                                break;
-                        }
-                        pinHolderSelected = 0;
-                    }else{
-                        Toast.makeText(getActivity(), "Please select a holder", Toast.LENGTH_SHORT).show();
-                        pinHolderSelected = 0;
+                            break;
+                        case 3:
+                            Picasso.get().load(imgLink).into(imageViewDeck3);
+                            deck3_id = pinModelsInternal.get(position).getName();
+                            costo3 = Double.valueOf(pinModelsInternal.get(position).getCost().toString());
+
+                            break;
+                        case 4:
+                            Picasso.get().load(imgLink).into(imageViewDeck4);
+                            deck4_id = pinModelsInternal.get(position).getName();
+                            costo4 = Double.valueOf(pinModelsInternal.get(position).getCost().toString());
+
+                            break;
+                        case 5:
+                            Picasso.get().load(imgLink).into(imageViewDeck5);
+                            deck5_id = pinModelsInternal.get(position).getName();
+                            costo5 = Double.valueOf(pinModelsInternal.get(position).getCost().toString());
+
+                            break;
+                        case 6:
+                            Picasso.get().load(imgLink).into(imageViewDeck6);
+                            deck6_id = pinModelsInternal.get(position).getName();
+                            costo6 = Double.valueOf(pinModelsInternal.get(position).getCost().toString());
+
+                            break;
+                        case 7:
+                            Picasso.get().load(imgLink).into(imageViewDeck7);
+                            deck7_id = pinModelsInternal.get(position).getName();
+                            costo7 = Double.valueOf(pinModelsInternal.get(position).getCost().toString());
+
+                            break;
+                        case 8:
+                            Picasso.get().load(imgLink).into(imageViewDeck8);
+                            deck8_id = pinModelsInternal.get(position).getName();
+                            costo8 = Double.valueOf(pinModelsInternal.get(position).getCost().toString());
+
+                            break;
                     }
+                    pinHolderSelected = 0;
                 }else{
-                    // Ya existe, manda un mensaje
-                    Toast.makeText(getActivity(), "You can't repeat pins", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please select a holder", Toast.LENGTH_SHORT).show();
                     pinHolderSelected = 0;
                 }
+
+                calculaCosto();
 
                 imageViewDeck1.setBackgroundColor(color);
                 imageViewDeck2.setBackgroundColor(color);
@@ -217,6 +250,66 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
 
     }
 
+    public void calculaCosto(){
+        Double costos = costo1 + costo2 + costo3 + costo4 + costo5 + costo6 + costo7 + costo8;
+        int divisor = 0;
+        if (costo1 > 0)
+            divisor++;
+        if (costo2 > 0)
+            divisor++;
+        if (costo3 > 0)
+            divisor++;
+        if (costo4 > 0)
+            divisor++;
+        if (costo5 > 0)
+            divisor++;
+        if (costo6 > 0)
+            divisor++;
+        if (costo7 > 0)
+            divisor++;
+        if (costo8 > 0)
+            divisor++;
+
+        if (costos == 0){
+            cost = 0.0;
+        }else{
+            cost =  ((costos)/divisor);
+        }
+
+        textView_cost.setText("Costo: "+ String.format("%.2f", cost));
+    }
+
+
+    public Boolean buscaRepetidos(){
+        ArrayList<String> pinsSeleccionados = new ArrayList<>();
+        pinsSeleccionados.add(deck1_id);
+        pinsSeleccionados.add(deck2_id);
+        pinsSeleccionados.add(deck3_id);
+        pinsSeleccionados.add(deck4_id);
+        pinsSeleccionados.add(deck5_id);
+        pinsSeleccionados.add(deck6_id);
+        pinsSeleccionados.add(deck7_id);
+        pinsSeleccionados.add(deck8_id);
+
+
+        for (String pinName : pinsSeleccionados) {
+
+            int cont = 0;
+            for (int y = 0; y < pinsSeleccionados.size(); y++){
+                if (pinName.compareToIgnoreCase(pinsSeleccionados.get(y)) == 0) {
+                    if (pinName.compareToIgnoreCase("") != 0) {
+                        cont++;
+                    }
+                }
+                if (cont == 2){
+                    return true;
+                }
+            }
+            cont = 0;
+        }
+
+        return false;
+    }
 
 
 
