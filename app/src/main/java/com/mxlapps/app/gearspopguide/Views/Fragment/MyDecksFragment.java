@@ -73,6 +73,16 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
     ImageView imageViewDeck8;
 
 
+    int deck1_id = 0;
+    int deck2_id = 0;
+    int deck3_id = 0;
+    int deck4_id = 0;
+    int deck5_id = 0;
+    int deck6_id = 0;
+    int deck7_id = 0;
+    int deck8_id = 0;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -151,27 +161,35 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
                         switch (pinHolderSelected){
                             case 1:
                                 Picasso.get().load(imgLink).into(imageViewDeck1);
+                                deck1_id = pinModelsInternal.get(position).getId();
                                 break;
                             case 2:
                                 Picasso.get().load(imgLink).into(imageViewDeck2);
+                                deck2_id = pinModelsInternal.get(position).getId();
                                 break;
                             case 3:
                                 Picasso.get().load(imgLink).into(imageViewDeck3);
+                                deck3_id = pinModelsInternal.get(position).getId();
                                 break;
                             case 4:
                                 Picasso.get().load(imgLink).into(imageViewDeck4);
+                                deck4_id = pinModelsInternal.get(position).getId();
                                 break;
                             case 5:
                                 Picasso.get().load(imgLink).into(imageViewDeck5);
+                                deck5_id = pinModelsInternal.get(position).getId();
                                 break;
                             case 6:
                                 Picasso.get().load(imgLink).into(imageViewDeck6);
+                                deck6_id = pinModelsInternal.get(position).getId();
                                 break;
                             case 7:
                                 Picasso.get().load(imgLink).into(imageViewDeck7);
+                                deck7_id = pinModelsInternal.get(position).getId();
                                 break;
                             case 8:
                                 Picasso.get().load(imgLink).into(imageViewDeck8);
+                                deck8_id = pinModelsInternal.get(position).getId();
                                 break;
                         }
                         pinHolderSelected = 0;
