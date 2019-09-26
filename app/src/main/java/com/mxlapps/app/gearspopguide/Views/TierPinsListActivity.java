@@ -41,6 +41,7 @@ import com.mxlapps.app.gearspopguide.R;
 import com.mxlapps.app.gearspopguide.Utils.AppPreferences;
 import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.UserViewModel;
+import com.mxlapps.app.gearspopguide.Views.Fragment.ListDecksFragment;
 import com.mxlapps.app.gearspopguide.Views.Fragment.ListPinsFragment;
 import com.mxlapps.app.gearspopguide.Views.Fragment.MyDecksFragment;
 
@@ -119,7 +120,7 @@ public class TierPinsListActivity extends AppCompatActivity  {
 
         eventsLeftDrawer();
         // Lanza fragmento de heroes
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyDecksFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListDecksFragment()).commit();
 
 
         MobileAds.initialize(this, BuildConfig.AD_LIST);

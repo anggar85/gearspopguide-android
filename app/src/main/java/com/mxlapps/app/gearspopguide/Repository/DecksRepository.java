@@ -42,6 +42,16 @@ public class DecksRepository {
             }
         }.getAsLiveData();
     }
+    public LiveData<Resource<DataMaster>> getDecks() {
+
+        return new NetworkBoundResource<DataMaster, DataMaster>() {
+            @NonNull
+            @Override
+            protected Call<DataMaster> createCallRetrofit() {
+                return apiService.getDecks();
+            }
+        }.getAsLiveData();
+    }
 
 
 

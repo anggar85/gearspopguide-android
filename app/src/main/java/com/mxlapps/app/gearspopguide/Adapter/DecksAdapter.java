@@ -1,7 +1,6 @@
 package com.mxlapps.app.gearspopguide.Adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mxlapps.app.gearspopguide.Model.DeckModel;
 import com.mxlapps.app.gearspopguide.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -32,7 +30,7 @@ public class DecksAdapter extends RecyclerView.Adapter<DecksAdapter.HeroViewHold
 
 
     public interface OnItemClickListener {
-        void onHeroCardClick(int position);
+        void onDeckCardClick(int position);
     }
 
 
@@ -56,8 +54,8 @@ public class DecksAdapter extends RecyclerView.Adapter<DecksAdapter.HeroViewHold
         DeckModel deck = deckModels.get(position);
         holder.name.setText(deck.getName());
         holder.author.setText(deck.getAuthor());
-        holder.cost.setText(deck.getCost());
-        holder.votes.setText(String.valueOf(deck.getVotes()));
+        holder.cost.setText("Cost: "+deck.getCost());
+        holder.votes.setText("Votes: "+String.valueOf(deck.getVotes()));
 
 //        Picasso.get().load(deck.getSmallImage()).into(holder.smallImage);
     }
@@ -91,7 +89,7 @@ public class DecksAdapter extends RecyclerView.Adapter<DecksAdapter.HeroViewHold
                 @Override
                 public void onClick(View v) {
                     if (listener != null){
-                        listener.onHeroCardClick(getAdapterPosition());
+                        listener.onDeckCardClick(getAdapterPosition());
                     }
                 }
             });

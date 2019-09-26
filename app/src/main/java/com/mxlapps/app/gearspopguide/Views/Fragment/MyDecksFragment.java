@@ -1,10 +1,6 @@
 package com.mxlapps.app.gearspopguide.Views.Fragment;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -17,7 +13,6 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,8 +33,6 @@ import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
 import com.mxlapps.app.gearspopguide.Views.LoginFacebookActivity;
 import com.squareup.picasso.Picasso;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 
@@ -100,7 +93,7 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         rootView = container.getRootView();
         v =  inflater.inflate(R.layout.fragment_my_decks, container, false);
-        drawer = v.findViewById(R.id.coordinatorLayout_listado_heroes);
+        drawer = v.findViewById(R.id.coordinatorLayout_listado_decks);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Gears Pop Guide");
         // ViewModels
         pinViewModel = ViewModelProviders.of(getActivity()).get(PinViewModel.class);

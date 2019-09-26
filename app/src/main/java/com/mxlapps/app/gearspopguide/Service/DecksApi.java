@@ -13,6 +13,7 @@ import retrofit2.http.Query;
 public interface DecksApi {
 
     String create_deck = "deck/create_deck";
+    String getDecks = "deck/decks_list";
 
     @GET(Constante.URL_PIN_LIST + "/{race}/{role}/{type}/{cover}")
     Call<DataMaster> getPinList(
@@ -20,6 +21,9 @@ public interface DecksApi {
             @Path("role") String role,
             @Path("type") String type,
             @Path("cover") String cover);
+
+    @GET(getDecks)
+    Call<DataMaster> getDecks();
 
 
     @POST(create_deck )

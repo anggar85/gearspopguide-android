@@ -11,10 +11,19 @@ public class Data {
 
     private PinModel pin;
     private ArrayList<PinModel> pins;
+    private ArrayList<DeckModel> decks;
     private String msg;
     private boolean error;
     private UserModel user;
     private DeckModel deck;
+
+    public ArrayList<DeckModel> getDecks() {
+        return decks;
+    }
+
+    public void setDecks(ArrayList<DeckModel> decks) {
+        this.decks = decks;
+    }
 
     public DeckModel getDeck() {
         return deck;
