@@ -41,6 +41,11 @@ public class DecksViewModel extends AndroidViewModel {
     }
 
 
+    public LiveData<Resource<DataMaster>> show_deck(Integer deck_id) {
+        return repository.show_deck(deck_id);
+    }
+
+
 
 
 

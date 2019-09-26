@@ -88,19 +88,12 @@ public class ListDecksFragment extends Fragment {
             @Override
             public void onDeckCardClick(int position) {
                 Log.d(TAG, "onDeckCardClick: click en deck");
-                //                Util.startLoading(rootView);
-//                Intent intent = new Intent(getActivity(), DetailActivity.class);
-//
-//                // Convierte objeto a string
-//                GsonBuilder builder = new GsonBuilder();
-//                Gson gson = builder.create();
-//
-//                String pinJson = gson.toJson(deckModelsInternal.get(position));
-//
-//
-//                intent.putExtra("pin_data", pinJson);
-//                startActivityForResult(intent, 50);
-//                Log.d(TAG, "onHeroCardClick: with pin ->" + deckModelsInternal.get(position).getName());
+
+                ShowDecksFragment showDecksFragment = new ShowDecksFragment(deckModelsInternal.get(position));
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, showDecksFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
     }

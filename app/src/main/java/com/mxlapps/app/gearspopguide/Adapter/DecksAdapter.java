@@ -102,8 +102,8 @@ public class DecksAdapter extends RecyclerView.Adapter<DecksAdapter.HeroViewHold
             pin6 = itemView.findViewById(R.id.imageView_pin6);
             pin7 = itemView.findViewById(R.id.imageView_pin7);
             pin8 = itemView.findViewById(R.id.imageView_pin8);
-            name = itemView.findViewById(R.id.textView_namedeck);
-            author = itemView.findViewById(R.id.textView_author);
+            name = itemView.findViewById(R.id.textView_coment);
+            author = itemView.findViewById(R.id.textView_user);
             cost = itemView.findViewById(R.id.textView_cost);
             votes = itemView.findViewById(R.id.textView_votes);
             cardView_pin_item = itemView.findViewById(R.id.cardView_section_item);
