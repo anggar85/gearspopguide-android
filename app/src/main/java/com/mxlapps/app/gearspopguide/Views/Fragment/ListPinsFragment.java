@@ -54,9 +54,6 @@ public class ListPinsFragment extends Fragment {
     private ArrayList<PinModel> pinModels;
     private View rootView;
     View v;
-    private Filters filters = null;
-    private String GAME_LEVEL_EARLY = "tier_list_earlies";
-    private String SECTION = "overall";
     private NavigationView navigationView;
     private PinViewModel pinViewModel;
     DrawerLayout drawer;
@@ -198,7 +195,6 @@ public class ListPinsFragment extends Fragment {
     private void initFilter() {
         final View parentView = navigationView.getHeaderView(0);
         // Filtros
-
         final RadioGroup radioGroupRace = parentView.findViewById(R.id.race_group);
         final RadioGroup radioGroupRole = parentView.findViewById(R.id.role_group);
         final RadioGroup radioGroupType = parentView.findViewById(R.id.type_group);
@@ -210,11 +206,8 @@ public class ListPinsFragment extends Fragment {
         button_reset_filters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clearFilters();
                 Log.d(TAG, "onClick: limpiar filtrooss");
-
                 isFilterReset = true;
-//                refreshHeroes();
                 RACE = "All";
                 ROLE = "All";
                 TYPE = "All";
@@ -337,27 +330,8 @@ public class ListPinsFragment extends Fragment {
             }
         });
 
-
-
-
-
-
-
-
     }
 
-
-
-    private void refreshHeroes() {
-        ArrayList<PinModel> heroListClone = FilterAndSort.filterHeroes(pinModels, filters);
-        initRecyclerView(heroListClone);
-    }
-
-    private void clearFilters() {
-        //Stars
-
-
-    }
 
     private void requestCargarListaDeHeroes() {
             pinViewModel.getPinList(RACE, ROLE, TYPE, COVER).observe(this, new Observer<Resource<DataMaster>>() {

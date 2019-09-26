@@ -21,8 +21,8 @@
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="2dp"
         android:background="@android:color/transparent"
-        app:cardBackgroundColor="@color/ascend"
-        app:cardCornerRadius="5dp"
+        app:cardBackgroundColor="#000"
+        app:cardCornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,8 +34,8 @@
 
             <FrameLayout
                 android:id="@+id/framelayout_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:padding="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -44,29 +44,60 @@
 
                 <ImageView
                     android:id="@+id/imageView_hero_image"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="fitCenter"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerInside"
+                    android:layout_gravity="center_horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/textView_hero_name"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:srcCompat="@tools:sample/avatars" />
 
-                <ImageView
-                    android:id="@+id/imageView_holdertenporal"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp" />
 
                 <TextView
                     android:textAlignment="center"
-                    android:textSize="11sp"
-                    android:id="@+id/textView_pin_name"
-                    android:layout_gravity="bottom|center"
-                    android:layout_width="match_parent"
+                    android:textSize="16sp"
+                    android:padding="2dp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:background="#2196F3"
+                    android:id="@+id/textView_pin_cost"
+                    android:layout_width="wrap_content"
                     android:textColor="#fff"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="0" />
+                <LinearLayout
+                    android:layout_gravity="bottom"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textView_pin_role"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#F44336"
+                        android:padding="2dp"
+                        android:text="Role"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:textSize="11sp"
+                        android:padding="2dp"
+                        android:background="#673AB7"
+                        android:id="@+id/textView_pin_type"
+                        android:layout_width="match_parent"
+                        android:textColor="#fff"
+                        android:layout_height="wrap_content"
+                        android:text="Type" />
+
+                </LinearLayout>
+
+
 
             </FrameLayout>
 
