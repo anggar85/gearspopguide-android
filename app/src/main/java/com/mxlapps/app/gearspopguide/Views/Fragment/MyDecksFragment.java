@@ -1,5 +1,8 @@
 package com.mxlapps.app.gearspopguide.Views.Fragment;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -12,6 +15,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,10 +30,13 @@ import com.mxlapps.app.gearspopguide.Model.PinModel;
 import com.mxlapps.app.gearspopguide.R;
 import com.mxlapps.app.gearspopguide.Request.DataMaster;
 import com.mxlapps.app.gearspopguide.Service.Resource;
+import com.mxlapps.app.gearspopguide.Utils.AppPreferences;
 import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
 import com.squareup.picasso.Picasso;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 
@@ -99,9 +106,9 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
 
         agreaListenrClickHolders();
 
-
         return v;
     }
+
 
     private void agreaListenrClickHolders() {
         textView_cost = v.findViewById(R.id.textView_cost);
@@ -135,7 +142,7 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
             public void onClick(View view) {
 
                 // Valida si hay pins repetidos
-
+                deckModel.setUser_token(AppPreferences.getInstance(getActivity()).getUserId());
                 deckModel.setPin1(deck1_id);
                 deckModel.setPin2(deck2_id);
                 deckModel.setPin3(deck3_id);
@@ -151,11 +158,10 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
                 }else{
                     Log.d(TAG, "onClick: NO hay repetidos");
 
+                    CreateDeckFragment createDeckFragment = new CreateDeckFragment(deckModel);
+                    createDeckFragment.show(getActivity().getSupportFragmentManager(),"createDeckFragment");
+
                 }
-
-
-
-
             }
         });
     }

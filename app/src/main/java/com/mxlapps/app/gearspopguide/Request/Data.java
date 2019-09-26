@@ -1,6 +1,7 @@
 
 package com.mxlapps.app.gearspopguide.Request;
 
+import com.mxlapps.app.gearspopguide.Model.DeckModel;
 import com.mxlapps.app.gearspopguide.Model.PinModel;
 import com.mxlapps.app.gearspopguide.Model.UserModel;
 
@@ -13,6 +14,15 @@ public class Data {
     private String msg;
     private boolean error;
     private UserModel user;
+    private DeckModel deck;
+
+    public DeckModel getDeck() {
+        return deck;
+    }
+
+    public void setDeck(DeckModel deck) {
+        this.deck = deck;
+    }
 
     public UserModel getUser() {
         return user;

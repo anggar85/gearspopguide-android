@@ -13,19 +13,19 @@ import com.mxlapps.app.gearspopguide.Service.RetrofitRequest;
 
 import retrofit2.Call;
 
-public class AfkRepository {
+public class PinsRepository {
 
     private PinsApi apiService;
-    private  static AfkRepository instance;
+    private  static PinsRepository instance;
     private Context context;
 
-    public static AfkRepository getInstance(Context context){
+    public static PinsRepository getInstance(Context context){
         if(instance == null){
-            instance = new AfkRepository(context);
+            instance = new PinsRepository(context);
         }
         return instance;
     }
-    public AfkRepository(Context context) {
+    public PinsRepository(Context context) {
         apiService = RetrofitRequest.getInstance().create(PinsApi.class);
         this.context = context;
     }

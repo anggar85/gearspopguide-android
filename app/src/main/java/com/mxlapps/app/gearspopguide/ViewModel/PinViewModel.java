@@ -7,19 +7,19 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 
-import com.mxlapps.app.gearspopguide.Repository.AfkRepository;
+import com.mxlapps.app.gearspopguide.Repository.PinsRepository;
 import com.mxlapps.app.gearspopguide.Request.DataMaster;
 import com.mxlapps.app.gearspopguide.Service.Resource;
 
 public class PinViewModel extends AndroidViewModel {
 
-    private AfkRepository repository;
+    private PinsRepository repository;
 
 
     public PinViewModel(@NonNull Application application) {
         super(application);
         //Se crea una instancia del repositorio
-        repository = AfkRepository.getInstance(application);
+        repository = PinsRepository.getInstance(application);
     }
 
 
