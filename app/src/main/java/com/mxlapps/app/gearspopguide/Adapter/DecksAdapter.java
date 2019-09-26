@@ -53,7 +53,7 @@ public class DecksAdapter extends RecyclerView.Adapter<DecksAdapter.HeroViewHold
     public void onBindViewHolder(@NonNull final DecksAdapter.HeroViewHolder holder, int position) {
         DeckModel deck = deckModels.get(position);
         holder.name.setText(deck.getName());
-        holder.author.setText(deck.getAuthor());
+        holder.author.setText("by: "+deck.getAuthor());
         holder.cost.setText("Cost: "+deck.getCost());
         holder.votes.setText("Votes: "+String.valueOf(deck.getVotes()));
 
