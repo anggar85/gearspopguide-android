@@ -153,14 +153,19 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
                 deckModel.setPin8(deck8_id);
                 deckModel.setCost(String.valueOf(cost));
 
-                if (buscaRepetidos()){
-                    Log.d(TAG, "onClick: hay repetidos");
-                }else{
-                    Log.d(TAG, "onClick: NO hay repetidos");
+                if ((deck1_id.compareToIgnoreCase("") == 0) ||(deck2_id.compareToIgnoreCase("") == 0) ||
+                        (deck3_id.compareToIgnoreCase("") == 0) ||(deck4_id.compareToIgnoreCase("") == 0) ||
+                        (deck5_id.compareToIgnoreCase("") == 0) ||(deck6_id.compareToIgnoreCase("") == 0) ||
+                        (deck7_id.compareToIgnoreCase("") == 0) ||(deck8_id.compareToIgnoreCase("") == 0) ){
+                    Toast.makeText(getActivity(), "Select 8 pins", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
+                if (buscaRepetidos()){
+                    Toast.makeText(getActivity(), "You can't repeat pins", Toast.LENGTH_SHORT).show();
+                }else{
                     CreateDeckFragment createDeckFragment = new CreateDeckFragment(deckModel);
                     createDeckFragment.show(getActivity().getSupportFragmentManager(),"createDeckFragment");
-
                 }
             }
         });
