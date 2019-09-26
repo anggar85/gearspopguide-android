@@ -94,7 +94,7 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
         rootView = container.getRootView();
         v =  inflater.inflate(R.layout.fragment_my_decks, container, false);
         drawer = v.findViewById(R.id.coordinatorLayout_listado_decks);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Gears Pop Guide");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Create a Deck");
         // ViewModels
         pinViewModel = ViewModelProviders.of(getActivity()).get(PinViewModel.class);
         requestCargarListaDeHeroes();
