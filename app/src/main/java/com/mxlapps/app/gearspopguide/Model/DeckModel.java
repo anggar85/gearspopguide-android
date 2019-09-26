@@ -13,6 +13,24 @@ public class DeckModel {
     private String name;
     private String desc;
     private String cost;
+    private String author;
+    private Integer votes;
+
+    public Integer getVotes() {
+        return votes;
+    }
+
+    public void setVotes(Integer votes) {
+        this.votes = votes;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
     public String getUser_token() {
         return user_token;

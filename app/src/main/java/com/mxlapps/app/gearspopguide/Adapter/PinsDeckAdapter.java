@@ -67,7 +67,6 @@ public class PinsDeckAdapter extends RecyclerView.Adapter<PinsDeckAdapter.HeroVi
     }
 
 
-
     @Override
     public int getItemCount() {
         return pinModels.size();

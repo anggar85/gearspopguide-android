@@ -1,5 +1,7 @@
 package com.mxlapps.app.gearspopguide.Views.Fragment;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -33,6 +35,7 @@ import com.mxlapps.app.gearspopguide.Service.Resource;
 import com.mxlapps.app.gearspopguide.Utils.AppPreferences;
 import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
+import com.mxlapps.app.gearspopguide.Views.LoginFacebookActivity;
 import com.squareup.picasso.Picasso;
 
 import java.security.MessageDigest;
@@ -141,31 +144,53 @@ public class MyDecksFragment extends Fragment implements View.OnClickListener{
             @Override
             public void onClick(View view) {
 
-                // Valida si hay pins repetidos
-                deckModel.setUser_token(AppPreferences.getInstance(getActivity()).getUserId());
-                deckModel.setPin1(deck1_id);
-                deckModel.setPin2(deck2_id);
-                deckModel.setPin3(deck3_id);
-                deckModel.setPin4(deck4_id);
-                deckModel.setPin5(deck5_id);
-                deckModel.setPin6(deck6_id);
-                deckModel.setPin7(deck7_id);
-                deckModel.setPin8(deck8_id);
-                deckModel.setCost(String.valueOf(cost));
+                String token = AppPreferences.getInstance(getActivity()).getUserId();
+                // Valida que el usuario este logeado
+                if (token.compareToIgnoreCase("") == 0) {
 
-                if ((deck1_id.compareToIgnoreCase("") == 0) ||(deck2_id.compareToIgnoreCase("") == 0) ||
-                        (deck3_id.compareToIgnoreCase("") == 0) ||(deck4_id.compareToIgnoreCase("") == 0) ||
-                        (deck5_id.compareToIgnoreCase("") == 0) ||(deck6_id.compareToIgnoreCase("") == 0) ||
-                        (deck7_id.compareToIgnoreCase("") == 0) ||(deck8_id.compareToIgnoreCase("") == 0) ){
-                    Toast.makeText(getActivity(), "Select 8 pins", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                    Intent intent = new Intent(getActivity(), LoginFacebookActivity.class);
+                    startActivityForResult(intent, 1001);
 
-                if (buscaRepetidos()){
-                    Toast.makeText(getActivity(), "You can't repeat pins", Toast.LENGTH_SHORT).show();
                 }else{
-                    CreateDeckFragment createDeckFragment = new CreateDeckFragment(deckModel);
-                    createDeckFragment.show(getActivity().getSupportFragmentManager(),"createDeckFragment");
+
+                    // Valida si hay pins repetidos
+                    deckModel.setUser_token(AppPreferences.getInstance(getActivity()).getUserId());
+                    deckModel.setPin1(deck1_id);
+                    deckModel.setPin2(deck2_id);
+                    deckModel.setPin3(deck3_id);
+                    deckModel.setPin4(deck4_id);
+                    deckModel.setPin5(deck5_id);
+                    deckModel.setPin6(deck6_id);
+                    deckModel.setPin7(deck7_id);
+                    deckModel.setPin8(deck8_id);
+                    deckModel.setCost(String.valueOf(cost));
+
+                    if ((deck1_id.compareToIgnoreCase("") == 0) ||(deck2_id.compareToIgnoreCase("") == 0) ||
+                            (deck3_id.compareToIgnoreCase("") == 0) ||(deck4_id.compareToIgnoreCase("") == 0) ||
+                            (deck5_id.compareToIgnoreCase("") == 0) ||(deck6_id.compareToIgnoreCase("") == 0) ||
+                            (deck7_id.compareToIgnoreCase("") == 0) ||(deck8_id.compareToIgnoreCase("") == 0) ){
+                        Toast.makeText(getActivity(), "Select 8 pins", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if (buscaRepetidos()){
+                        Toast.makeText(getActivity(), "You can't repeat pins", Toast.LENGTH_SHORT).show();
+                    }else{
+                        CreateDeckFragment createDeckFragment = new CreateDeckFragment(deckModel);
+                        createDeckFragment.show(getActivity().getSupportFragmentManager(),"createDeckFragment");
+//                        createDeckFragment.onDismiss(new DialogInterface() {
+//                            @Override
+//                            public void cancel() {
+//                                Log.d(TAG, "cancel: ");
+//                            }
+//
+//                            @Override
+//                            public void dismiss() {
+//                                Log.d(TAG, "dismiss: ");
+//                            }
+//                        });
+                    }
+
                 }
             }
         });
