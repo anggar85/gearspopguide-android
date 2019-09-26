@@ -36,14 +36,6 @@ public class ListDecksFragment extends Fragment {
     View v;
     private DecksViewModel decksViewModel;
 
-    // variables para filtrar
-    private String RACE = "All";
-    private String ROLE = "All";
-    private String TYPE = "All";
-    private String COVER = "All";
-
-
-
     public ListDecksFragment() {
     }
 
@@ -72,8 +64,6 @@ public class ListDecksFragment extends Fragment {
                 fragmentTransaction.replace(R.id.fragment_container, newGamefragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-
-
 
             }
         });
