@@ -1,5 +1,6 @@
 package com.mxlapps.app.gearspopguide.Views.Fragment;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,14 +10,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mxlapps.app.gearspopguide.Adapter.DecksAdapter;
 import com.mxlapps.app.gearspopguide.Model.DeckModel;
 import com.mxlapps.app.gearspopguide.R;
@@ -24,7 +25,6 @@ import com.mxlapps.app.gearspopguide.Request.DataMaster;
 import com.mxlapps.app.gearspopguide.Service.Resource;
 import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.DecksViewModel;
-import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
 
 import java.util.ArrayList;
 
@@ -55,20 +55,28 @@ public class ListDecksFragment extends Fragment {
         rootView = container.getRootView();
         v = inflater.inflate(R.layout.fragment_list_decks, container, false);
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Gears Pop Guide");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Gears Pop Decks");
 
         // ViewModels
         decksViewModel = ViewModelProviders.of(getActivity()).get(DecksViewModel.class);
 
         requestCargarListaDecks();
 
-//        FloatingActionButton button_drawer_filtros = v.findViewById(R.id.button_drawer_filtros);
-//        button_drawer_filtros.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                drawer.openDrawer(Gravity.RIGHT);
-//            }
-//        });
+        FloatingActionButton button_drawer_filtros = v.findViewById(R.id.button_crear_deck);
+        button_drawer_filtros.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                MyDecksFragment newGamefragment = new MyDecksFragment();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, newGamefragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
+
+
+            }
+        });
 
         return v;
 

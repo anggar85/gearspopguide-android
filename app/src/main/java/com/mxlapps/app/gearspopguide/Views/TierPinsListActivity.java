@@ -120,7 +120,7 @@ public class TierPinsListActivity extends AppCompatActivity  {
 
         eventsLeftDrawer();
         // Lanza fragmento de heroes
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListDecksFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListPinsFragment()).commit();
 
 
         MobileAds.initialize(this, BuildConfig.AD_LIST);
@@ -173,8 +173,8 @@ public class TierPinsListActivity extends AppCompatActivity  {
                 int id = item.getItemId();
                 switch (id) {
                     case R.id.nav_my_decks:
-                        Toast.makeText(TierPinsListActivity.this, "nav_my_decks", Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyDecksFragment()).commit();
+//                        Toast.makeText(TierPinsListActivity.this, "nav_my_decks", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListDecksFragment()).commit();
                         break;
                     case R.id.nav_heroes:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListPinsFragment()).commit();
