@@ -63,7 +63,7 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
         holder.textView_pin_name.setText(hero.getName());
         Picasso.get().load(hero.getSmallImage()).into(holder.smallImage);
 
-//        Picasso.get().load(hero.getSmallImage())
+//        Picasso.get().load(news_element.getSmallImage())
 //                .into(holder.smallImage, new Callback() {
 //                    @Override
 //                    public void onSuccess() {
