@@ -15,6 +15,15 @@ public class DeckModel {
     private String cost;
     private String author;
     private Integer votes;
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getVotes() {
         return votes;

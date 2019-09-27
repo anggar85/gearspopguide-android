@@ -14,6 +14,7 @@ public interface DecksApi {
 
     String create_deck = "deck/create_deck";
     String getDecks = "deck/decks_list";
+    String show_deck = "deck/show_deck";
 
     @GET(Constante.URL_PIN_LIST + "/{race}/{role}/{type}/{cover}")
     Call<DataMaster> getPinList(
@@ -21,6 +22,10 @@ public interface DecksApi {
             @Path("role") String role,
             @Path("type") String type,
             @Path("cover") String cover);
+
+    @GET(show_deck + "/{deck_id}")
+    Call<DataMaster> show_deck(
+            @Path("deck_id") int deck_id);
 
     @GET(getDecks)
     Call<DataMaster> getDecks();

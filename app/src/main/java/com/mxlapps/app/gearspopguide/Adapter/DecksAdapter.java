@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mxlapps.app.gearspopguide.Model.DeckModel;
 import com.mxlapps.app.gearspopguide.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -57,7 +58,15 @@ public class DecksAdapter extends RecyclerView.Adapter<DecksAdapter.HeroViewHold
         holder.cost.setText("Cost: "+deck.getCost());
         holder.votes.setText("Votes: "+String.valueOf(deck.getVotes()));
 
-//        Picasso.get().load(deck.getSmallImage()).into(holder.smallImage);
+
+        Picasso.get().load(deck.getPin1()).into(holder.pin1);
+        Picasso.get().load(deck.getPin2()).into(holder.pin2);
+        Picasso.get().load(deck.getPin3()).into(holder.pin3);
+        Picasso.get().load(deck.getPin4()).into(holder.pin4);
+        Picasso.get().load(deck.getPin5()).into(holder.pin5);
+        Picasso.get().load(deck.getPin6()).into(holder.pin6);
+        Picasso.get().load(deck.getPin7()).into(holder.pin7);
+        Picasso.get().load(deck.getPin8()).into(holder.pin8);
     }
 
 
@@ -72,15 +81,29 @@ public class DecksAdapter extends RecyclerView.Adapter<DecksAdapter.HeroViewHold
         TextView author;
         TextView cost;
         TextView votes;
-        ImageView smallImage;
+        ImageView pin1;
+        ImageView pin2;
+        ImageView pin3;
+        ImageView pin4;
+        ImageView pin5;
+        ImageView pin6;
+        ImageView pin7;
+        ImageView pin8;
         CardView cardView_pin_item;
 
         public HeroViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
 
-            smallImage = itemView.findViewById(R.id.imageView_hero_image);
-            name = itemView.findViewById(R.id.textView_namedeck);
-            author = itemView.findViewById(R.id.textView_author);
+            pin1 = itemView.findViewById(R.id.imageView_pin1);
+            pin2 = itemView.findViewById(R.id.imageView_pin2);
+            pin3 = itemView.findViewById(R.id.imageView_pin3);
+            pin4 = itemView.findViewById(R.id.imageView_pin4);
+            pin5 = itemView.findViewById(R.id.imageView_pin5);
+            pin6 = itemView.findViewById(R.id.imageView_pin6);
+            pin7 = itemView.findViewById(R.id.imageView_pin7);
+            pin8 = itemView.findViewById(R.id.imageView_pin8);
+            name = itemView.findViewById(R.id.textView_coment);
+            author = itemView.findViewById(R.id.textView_user);
             cost = itemView.findViewById(R.id.textView_cost);
             votes = itemView.findViewById(R.id.textView_votes);
             cardView_pin_item = itemView.findViewById(R.id.cardView_section_item);
