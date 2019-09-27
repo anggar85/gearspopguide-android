@@ -42,9 +42,9 @@ public class NewsElementFragment extends Fragment {
     public NewsElementFragment() {
     }
 
-   public NewsElementFragment(ArrayList<NewsModel> news_element) {
-        this.news_element = news_element;
-    }
+//   public NewsElementFragment(ArrayList<NewsModel> news_element) {
+//        this.news_element = news_element;
+//    }
 
 
     @Nullable

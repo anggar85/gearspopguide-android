@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.mxlapps.app.gearspopguide.Model.NewsModel;
+import com.mxlapps.app.gearspopguide.Views.Fragment.NewsElementFragment;
 
 import java.util.ArrayList;
 
@@ -21,10 +22,14 @@ public class CustomPagerAdapter extends FragmentStatePagerAdapter {
     }
     @Override
     public Fragment getItem(int position) {
-//        switch (position){
-//            case 0: return new NewsElementFragment(news_element);
-//            case 1: return new NewsElementFragment(news_element);
-//        }
+        switch (position){
+            case 0: return new NewsElementFragment();
+            case 1: return new NewsElementFragment();
+            case 2: return new NewsElementFragment();
+            case 3: return new NewsElementFragment();
+            case 4: return new NewsElementFragment();
+            case 5: return new NewsElementFragment();
+        }
         return null;
     }
     @Override
