@@ -1,7 +1,6 @@
 package com.mxlapps.app.gearspopguide.Views.Fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,15 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mxlapps.app.gearspopguide.Adapter.DeckCommentsAdapter;
-import com.mxlapps.app.gearspopguide.Adapter.DecksAdapter;
-import com.mxlapps.app.gearspopguide.Model.DeckCommentsModel;
+import com.mxlapps.app.gearspopguide.Model.CommentsModel;
 import com.mxlapps.app.gearspopguide.Model.DeckModel;
 import com.mxlapps.app.gearspopguide.R;
 import com.mxlapps.app.gearspopguide.Request.DataMaster;
@@ -36,7 +33,7 @@ public class ShowDecksFragment extends Fragment {
 
     private static final String TAG = "afkArenaMainActivity";
     private DeckModel deck;
-    private ArrayList<DeckCommentsModel> deckCommentsModel = new ArrayList<>();
+    private ArrayList<CommentsModel> commentsModel = new ArrayList<>();
     private View rootView;
     View v;
     private DecksViewModel decksViewModel;
@@ -155,7 +152,7 @@ public class ShowDecksFragment extends Fragment {
                 // Crea copia de listado de heroes
                 switch (opcion) {
                     case 1:
-                        deckCommentsModel = dataMasterResource.data.getData().getDeckComments();
+                        commentsModel = dataMasterResource.data.getData().getDeckComments();
                 }
                 break;
             default:
@@ -174,18 +171,18 @@ public class ShowDecksFragment extends Fragment {
 
         for (int x = 0; x < 15; x++){
 
-            DeckCommentsModel comment = new DeckCommentsModel();
+            CommentsModel comment = new CommentsModel();
             comment.setComment("fyguhbjuyg hi g iu ggh iu erfg i ger g egrgerg ergu g");
-            comment.setUsuario("ANgel " + x);
+            comment.setUser("ANgel " + x);
 
-            deckCommentsModel.add(comment);
+            commentsModel.add(comment);
 
 
         }
 
 
         int numberOfColumns = 1;
-        DeckCommentsAdapter adapter = new DeckCommentsAdapter(deckCommentsModel, getActivity(), 1);
+        DeckCommentsAdapter adapter = new DeckCommentsAdapter(commentsModel, getActivity(), 1);
         recycler_comments.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
         recycler_comments.setNestedScrollingEnabled(false);
         recycler_comments.setHasFixedSize(true);

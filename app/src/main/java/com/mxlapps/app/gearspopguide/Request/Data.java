@@ -1,7 +1,7 @@
 
 package com.mxlapps.app.gearspopguide.Request;
 
-import com.mxlapps.app.gearspopguide.Model.DeckCommentsModel;
+import com.mxlapps.app.gearspopguide.Model.CommentsModel;
 import com.mxlapps.app.gearspopguide.Model.DeckModel;
 import com.mxlapps.app.gearspopguide.Model.PinModel;
 import com.mxlapps.app.gearspopguide.Model.UserModel;
@@ -13,17 +13,17 @@ public class Data {
     private PinModel pin;
     private ArrayList<PinModel> pins;
     private ArrayList<DeckModel> decks;
-    private ArrayList<DeckCommentsModel> deckComments;
+    private ArrayList<CommentsModel> deckComments;
     private String msg;
     private boolean error;
     private UserModel user;
     private DeckModel deck;
 
-    public ArrayList<DeckCommentsModel> getDeckComments() {
+    public ArrayList<CommentsModel> getDeckComments() {
         return deckComments;
     }
 
-    public void setDeckComments(ArrayList<DeckCommentsModel> deckComments) {
+    public void setDeckComments(ArrayList<CommentsModel> deckComments) {
         this.deckComments = deckComments;
     }
 

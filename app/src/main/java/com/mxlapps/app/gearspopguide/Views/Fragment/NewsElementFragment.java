@@ -4,29 +4,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.mxlapps.app.gearspopguide.Adapter.DeckCommentsAdapter;
-import com.mxlapps.app.gearspopguide.Model.DeckCommentsModel;
-import com.mxlapps.app.gearspopguide.Model.DeckModel;
 import com.mxlapps.app.gearspopguide.Model.NewsModel;
 import com.mxlapps.app.gearspopguide.R;
-import com.mxlapps.app.gearspopguide.Request.DataMaster;
-import com.mxlapps.app.gearspopguide.Service.Resource;
-import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.DecksViewModel;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
