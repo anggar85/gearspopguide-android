@@ -9,49 +9,49 @@
     android:background="#201F1F">
 
 
-    <include layout="@layout/item_loading_screen" />
+<!--    <include layout="@layout/item_loading_screen" />-->
 
 
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_filte"
-            android:layout_marginBottom="46dp"
-            android:layout_marginEnd="15dp"
-            android:tint="#FFFFFF"
-            android:backgroundTint="#E4131313"
-            android:id="@+id/button_drawer_filtros"
-            android:layout_gravity="bottom|end"
-            android:layout_height="wrap_content" />
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:src="@drawable/ic_filte"-->
+<!--            android:layout_marginBottom="46dp"-->
+<!--            android:layout_marginEnd="15dp"-->
+<!--            android:tint="#FFFFFF"-->
+<!--            android:backgroundTint="#E4131313"-->
+<!--            android:id="@+id/button_drawer_filtros"-->
+<!--            android:layout_gravity="bottom|end"-->
+<!--            android:layout_height="wrap_content" />-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_hero_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="0dp"
-            android:nestedScrollingEnabled="false"
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recyclerview_hero_list"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginTop="0dp"-->
+<!--            android:nestedScrollingEnabled="false"-->
 
-            android:layout_marginBottom="46dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--            android:layout_marginBottom="46dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view_filter"
-        android:layout_width="150dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:background="#00000000"
-        app:headerLayout="@layout/nav_header_filter" />
+<!--    <com.google.android.material.navigation.NavigationView-->
+<!--        android:id="@+id/nav_view_filter"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_gravity="end"-->
+<!--        android:background="#00000000"-->
+<!--        app:headerLayout="@layout/nav_header_filter" />-->
 
 
     <!--<include layout="@layout/bottom_sheet_layout" />-->

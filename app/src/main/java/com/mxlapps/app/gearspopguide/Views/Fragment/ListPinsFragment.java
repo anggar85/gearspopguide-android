@@ -77,19 +77,19 @@ public class ListPinsFragment extends Fragment {
 
         rootView = container.getRootView();
         v = inflater.inflate(R.layout.fragment_list_heroes, container, false);
-        drawer = v.findViewById(R.id.coordinatorLayout_listado_heroes);
+//        drawer = v.findViewById(R.id.coordinatorLayout_listado_heroes);
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Gears Pop Guide");
+//        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Gears Pop Guide");
 
         // ViewModels
         pinViewModel = ViewModelProviders.of(getActivity()).get(PinViewModel.class);
 //        UserViewModel userViewModel = ViewModelProviders.of(getActivity()).get(UserViewModel.class);
-
-        eventsRightDrawer();
-
-        requestCargarListaDeHeroes();
-
-        initFilter();
+//
+//        eventsRightDrawer();
+//
+//        requestCargarListaDeHeroes();
+//
+//        initFilter();
 
         return v;
 
