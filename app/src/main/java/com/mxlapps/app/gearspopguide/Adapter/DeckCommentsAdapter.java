@@ -1,27 +1,23 @@
 package com.mxlapps.app.gearspopguide.Adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mxlapps.app.gearspopguide.Model.DeckCommentsModel;
-import com.mxlapps.app.gearspopguide.Model.DeckCommentsModel;
+import com.mxlapps.app.gearspopguide.Model.CommentsModel;
 import com.mxlapps.app.gearspopguide.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class DeckCommentsAdapter extends RecyclerView.Adapter<DeckCommentsAdapter.HeroViewHolder> {
 
-    private ArrayList<DeckCommentsModel> deckCommentsModel;
+    private ArrayList<CommentsModel> commentsModel;
     private OnItemClickListener mlistener;
     Context ctx;
     int modo = 1;
@@ -37,8 +33,8 @@ public class DeckCommentsAdapter extends RecyclerView.Adapter<DeckCommentsAdapte
     }
 
 
-    public DeckCommentsAdapter(ArrayList<DeckCommentsModel> deckCommentsModel, Context context, int modo) {
-        this.deckCommentsModel = deckCommentsModel;
+    public DeckCommentsAdapter(ArrayList<CommentsModel> commentsModel, Context context, int modo) {
+        this.commentsModel = commentsModel;
         this.ctx = context;
         this.modo = modo;
     }
@@ -54,8 +50,8 @@ public class DeckCommentsAdapter extends RecyclerView.Adapter<DeckCommentsAdapte
     @Override
     public void onBindViewHolder(@NonNull final DeckCommentsAdapter.HeroViewHolder holder, int position) {
 
-        DeckCommentsModel comment = deckCommentsModel.get(position);
-        holder.user.setText(String.valueOf(comment.getUsuario()));
+        CommentsModel comment = commentsModel.get(position);
+        holder.user.setText(String.valueOf(comment.getUser()));
         holder.comment.setText(comment.getComment());
 //        Picasso.get().load(comment.getSmallImage()).into(holder.smallImage);
     }
@@ -63,7 +59,7 @@ public class DeckCommentsAdapter extends RecyclerView.Adapter<DeckCommentsAdapte
 
     @Override
     public int getItemCount() {
-        return deckCommentsModel.size();
+        return commentsModel.size();
     }
 
     public class HeroViewHolder extends RecyclerView.ViewHolder {

@@ -229,9 +229,7 @@ public class LoginFacebookActivity extends AppCompatActivity {
     private void initInfoUSer(Resource<DataMaster> dataMasterResource) {
         assert dataMasterResource.data != null;
         userModel = dataMasterResource.data.getData().getUser();
-
         Snackbar.make(findViewById(android.R.id.content), "Welcome back " + userModel.getEmail(), Snackbar.LENGTH_LONG).show();
-
         // Seteta el id de usuario en las sharedpreferences
         AppPreferences.getInstance(this).setUserId(userModel.getToken());
         AppPreferences.getInstance(this).setName(userModel.getName());
@@ -246,13 +244,7 @@ public class LoginFacebookActivity extends AppCompatActivity {
             Log.d(TAG, "initInfoUSer: ");
         }else{
             button_back_to_app.setVisibility(View.VISIBLE);
-//            setResult(RESULT_OK);
-//            finish();
         }
-
-
-
-
     }
 
     @Override

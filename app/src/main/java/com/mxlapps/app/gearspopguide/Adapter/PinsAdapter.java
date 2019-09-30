@@ -4,8 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,11 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mxlapps.app.gearspopguide.Model.PinModel;
 import com.mxlapps.app.gearspopguide.R;
-import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder> {
 
@@ -34,11 +30,9 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
         this.mlistener = mlistener;
     }
 
-
     public interface OnItemClickListener {
         void onHeroCardClick(int position);
     }
-
 
 
     public PinsAdapter(ArrayList<PinModel> pinModels, Context context, int modo) {
@@ -52,7 +46,7 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
     @Override
     public PinsAdapter.HeroViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_hero, parent, false);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pin, parent, false);
         return new HeroViewHolder(view, mlistener);
     }
 
@@ -62,21 +56,7 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
         PinModel hero = pinModels.get(position);
         holder.textView_pin_name.setText(hero.getName());
         Picasso.get().load(hero.getSmallImage()).into(holder.smallImage);
-
-//        Picasso.get().load(hero.getSmallImage())
-//                .into(holder.smallImage, new Callback() {
-//                    @Override
-//                    public void onSuccess() {
-//                        holder.imageView_holdertenporal.setVisibility(View.GONE);
-//                    }
-//
-//                    @Override
-//                    public void onError(Exception e) {
-//
-//                    }
-//                });
     }
-
 
     @Override
     public int getItemCount() {
@@ -85,7 +65,6 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
 
     public class HeroViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textView_tier;
         TextView textView_pin_name;
         ImageView smallImage;
         ImageView imageView_holdertenporal;
@@ -97,7 +76,6 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
 
             smallImage = itemView.findViewById(R.id.imageView_hero_image);
             textView_pin_name = itemView.findViewById(R.id.textView_pin_name);
-            textView_tier = itemView.findViewById(R.id.textView_tier);
             imageView_holdertenporal = itemView.findViewById(R.id.imageView_holdertenporal);
             cardView_pin_item = itemView.findViewById(R.id.cardView_section_item);
 
