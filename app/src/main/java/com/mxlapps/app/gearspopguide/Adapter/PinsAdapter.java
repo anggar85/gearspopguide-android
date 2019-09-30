@@ -34,11 +34,9 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
         this.mlistener = mlistener;
     }
 
-
     public interface OnItemClickListener {
         void onHeroCardClick(int position);
     }
-
 
 
     public PinsAdapter(ArrayList<PinModel> pinModels, Context context, int modo) {
@@ -62,21 +60,7 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
         PinModel hero = pinModels.get(position);
         holder.textView_pin_name.setText(hero.getName());
         Picasso.get().load(hero.getSmallImage()).into(holder.smallImage);
-
-//        Picasso.get().load(news_element.getSmallImage())
-//                .into(holder.smallImage, new Callback() {
-//                    @Override
-//                    public void onSuccess() {
-//                        holder.imageView_holdertenporal.setVisibility(View.GONE);
-//                    }
-//
-//                    @Override
-//                    public void onError(Exception e) {
-//
-//                    }
-//                });
     }
-
 
     @Override
     public int getItemCount() {
@@ -85,7 +69,6 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
 
     public class HeroViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textView_tier;
         TextView textView_pin_name;
         ImageView smallImage;
         ImageView imageView_holdertenporal;
@@ -97,7 +80,6 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
 
             smallImage = itemView.findViewById(R.id.imageView_hero_image);
             textView_pin_name = itemView.findViewById(R.id.textView_pin_name);
-            textView_tier = itemView.findViewById(R.id.textView_tier);
             imageView_holdertenporal = itemView.findViewById(R.id.imageView_holdertenporal);
             cardView_pin_item = itemView.findViewById(R.id.cardView_section_item);
 
