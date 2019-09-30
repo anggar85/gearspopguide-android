@@ -1,8 +1,6 @@
 package com.mxlapps.app.gearspopguide.Views;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -25,9 +23,8 @@ import com.mxlapps.app.gearspopguide.Request.DataMaster;
 import com.mxlapps.app.gearspopguide.Service.Resource;
 import com.mxlapps.app.gearspopguide.Utils.AppPreferences;
 import com.mxlapps.app.gearspopguide.Utils.Util;
-import com.mxlapps.app.gearspopguide.ViewModel.DecksViewModel;
 import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
-import com.mxlapps.app.gearspopguide.Views.Fragment.CreateDeckFragment;
+import com.mxlapps.app.gearspopguide.Views.Fragment.DeckSaveNewDeckFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -86,7 +83,7 @@ public class CreateDeckActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_deck);
+        setContentView(R.layout.activity_deck_save_deck);
 
         rootView = getWindow().getDecorView().findViewById(android.R.id.content);
 
@@ -162,8 +159,8 @@ public class CreateDeckActivity extends AppCompatActivity implements View.OnClic
                     if (buscaRepetidos()){
                         Toast.makeText(CreateDeckActivity.this, "You can't repeat pins", Toast.LENGTH_SHORT).show();
                     }else{
-                        CreateDeckFragment createDeckFragment = new CreateDeckFragment(deckModel);
-                        createDeckFragment.show(CreateDeckActivity.this.getSupportFragmentManager(),"createDeckFragment");
+                        DeckSaveNewDeckFragment deckSaveNewDeckFragment = new DeckSaveNewDeckFragment(deckModel);
+                        deckSaveNewDeckFragment.show(CreateDeckActivity.this.getSupportFragmentManager(),"deckSaveNewDeckFragment");
                     }
 
                 }

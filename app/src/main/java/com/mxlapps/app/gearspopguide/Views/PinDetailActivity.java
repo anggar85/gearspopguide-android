@@ -2,7 +2,6 @@ package com.mxlapps.app.gearspopguide.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -27,7 +26,7 @@ import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
 import com.squareup.picasso.Picasso;
 
-public class DetailActivity extends AppCompatActivity {
+public class PinDetailActivity extends AppCompatActivity {
 
     private PinViewModel pinViewModel;
     private View rootView;
@@ -37,7 +36,7 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_pin_detail);
 
 
         rootView = getWindow().getDecorView().findViewById(android.R.id.content);
@@ -45,7 +44,7 @@ public class DetailActivity extends AppCompatActivity {
 //        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Gears Pop Guide");
 
         // ViewModels
-        pinViewModel = ViewModelProviders.of(DetailActivity.this).get(PinViewModel.class);
+        pinViewModel = ViewModelProviders.of(PinDetailActivity.this).get(PinViewModel.class);
 
 
         Intent intent = getIntent();
@@ -65,7 +64,7 @@ public class DetailActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
 
-//        pinViewModel.getHeroDetail(hero_id).observe(DetailActivity.this, new Observer<Resource<DataMaster>>() {
+//        pinViewModel.getHeroDetail(hero_id).observe(PinDetailActivity.this, new Observer<Resource<DataMaster>>() {
 //            @Override
 //            public void onChanged(Resource<DataMaster> dataMasterResource) {
 //                procesaRespuesta(dataMasterResource, 1);
@@ -81,7 +80,7 @@ public class DetailActivity extends AppCompatActivity {
         switch (dataMasterResource.status) {
             case ERROR:
                 Util.stopLoading(rootView);
-                Util.alertaMensajeCtx(dataMasterResource.message, DetailActivity.this);
+                Util.alertaMensajeCtx(dataMasterResource.message, PinDetailActivity.this);
                 break;
             case LOADING:
                 Util.startLoading(rootView);

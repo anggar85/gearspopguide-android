@@ -134,7 +134,7 @@ public class PinListActivity extends AppCompatActivity {
             @Override
             public void onHeroCardClick(int position) {
 //                Util.startLoading(rootView);
-                Intent intent = new Intent(PinListActivity.this, DetailActivity.class);
+                Intent intent = new Intent(PinListActivity.this, PinDetailActivity.class);
 
                 // Convierte objeto a string
                 GsonBuilder builder = new GsonBuilder();

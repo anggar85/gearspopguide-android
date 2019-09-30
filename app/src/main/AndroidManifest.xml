@@ -27,14 +27,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Views.DetailActivity"
+            android:name=".Views.PinDetailActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Views.LoginFacebookActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
-        <activity android:name=".Views.AboutUsActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

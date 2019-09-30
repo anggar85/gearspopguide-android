@@ -4,8 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,11 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mxlapps.app.gearspopguide.Model.PinModel;
 import com.mxlapps.app.gearspopguide.R;
-import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder> {
 
@@ -50,7 +46,7 @@ public class PinsAdapter extends RecyclerView.Adapter<PinsAdapter.HeroViewHolder
     @Override
     public PinsAdapter.HeroViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_hero, parent, false);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pin, parent, false);
         return new HeroViewHolder(view, mlistener);
     }
 

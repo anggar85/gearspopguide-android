@@ -27,20 +27,20 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CreateDeckFragment extends BottomSheetDialogFragment {
+public class DeckSaveNewDeckFragment extends BottomSheetDialogFragment {
 
     DeckModel deckModel = new DeckModel();
     View v;
     Button button_deck_save;
 
-    public static CreateDeckFragment newInstance() {
-        return new CreateDeckFragment();
+    public static DeckSaveNewDeckFragment newInstance() {
+        return new DeckSaveNewDeckFragment();
     }
 
-    public CreateDeckFragment() {
+    public DeckSaveNewDeckFragment() {
     }
 
-    public CreateDeckFragment(DeckModel deckModel) {
+    public DeckSaveNewDeckFragment(DeckModel deckModel) {
         this.deckModel = deckModel;
     }
 
@@ -48,7 +48,7 @@ public class CreateDeckFragment extends BottomSheetDialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        v = inflater.inflate(R.layout.bottom_sheet_deck, container, false);
+        v = inflater.inflate(R.layout.fragment_deck_save_new_deck, container, false);
         Log.d("bottomSheet", "onCreateView: " + deckModel.getPin1());
 
         button_deck_save = v.findViewById(R.id.button_deck_save);

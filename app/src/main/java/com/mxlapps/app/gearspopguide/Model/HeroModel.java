@@ -12,58 +12,16 @@ public class HeroModel {
     private String race_name;
     private Integer race;
     private String role;
-    private String lore;
-    private String synergy;
-    private boolean isFood;
-    private String position;
-    private String artifact;
-    private String union;
     private String type;
     private String classe;
     private String avatar;
     private String smallImage;
     private String iconImage;
     private String bigImage;
-    private String rarity;
     private String section;
-    private TierDataModel early;
-    private TierDataModel mid;
-    private TierDataModel late;
-    private ArrayList<SkillModel> skills;
-    private ArrayList<StrengthWeaknessModel> strengths;
-    private ArrayList<StrengthWeaknessModel> weaknesses;
 
-    public String getLore() {
-        return lore;
-    }
 
-    public void setLore(String lore) {
-        this.lore = lore;
-    }
 
-    public boolean isFood() {
-        return isFood;
-    }
-
-    public void setFood(boolean food) {
-        isFood = food;
-    }
-
-    public ArrayList<StrengthWeaknessModel> getStrengths() {
-        return strengths;
-    }
-
-    public void setStrengths(ArrayList<StrengthWeaknessModel> strengths) {
-        this.strengths = strengths;
-    }
-
-    public ArrayList<StrengthWeaknessModel> getWeaknesses() {
-        return weaknesses;
-    }
-
-    public void setWeaknesses(ArrayList<StrengthWeaknessModel> weaknesses) {
-        this.weaknesses = weaknesses;
-    }
 
     public String getIntroduction() {
         return introduction;
@@ -87,38 +45,6 @@ public class HeroModel {
 
     public void setIconImage(String iconImage) {
         this.iconImage = iconImage;
-    }
-
-    public TierDataModel getEarly() {
-        return early;
-    }
-
-    public void setEarly(TierDataModel early) {
-        this.early = early;
-    }
-
-    public TierDataModel getMid() {
-        return mid;
-    }
-
-    public void setMid(TierDataModel mid) {
-        this.mid = mid;
-    }
-
-    public TierDataModel getLate() {
-        return late;
-    }
-
-    public void setLate(TierDataModel late) {
-        this.late = late;
-    }
-
-    public ArrayList<SkillModel> getSkills() {
-        return skills;
-    }
-
-    public void setSkills(ArrayList<SkillModel> skills) {
-        this.skills = skills;
     }
 
     public Integer getId() {
@@ -177,37 +103,6 @@ public class HeroModel {
         this.role = role;
     }
 
-    public String getSynergy() {
-        return synergy;
-    }
-
-    public void setSynergy(String synergy) {
-        this.synergy = synergy;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    public String getArtifact() {
-        return artifact;
-    }
-
-    public void setArtifact(String artifact) {
-        this.artifact = artifact;
-    }
-
-    public String getUnion() {
-        return union;
-    }
-
-    public void setUnion(String union) {
-        this.union = union;
-    }
 
     public String getClasse() {
         return classe;
@@ -227,14 +122,6 @@ public class HeroModel {
 
     public String getSmallImage() {
         return smallImage;
-    }
-
-    public String getRarity() {
-        return rarity;
-    }
-
-    public void setRarity(String rarity) {
-        this.rarity = rarity;
     }
 
     public void setSmallImage(String smallImage) {
