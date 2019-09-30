@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,7 +36,7 @@ public class DeckListActivity extends AppCompatActivity {
     private View rootView;
     View v;
     private DecksViewModel decksViewModel;
-
+    SwipeRefreshLayout swipeRefreshLayout;
 
 
     @Override
@@ -74,7 +75,16 @@ public class DeckListActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-
+        swipeRefreshLayout =  findViewById(R.id.swipeRefreshLayout);
+//        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
+//        swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.colorAccent);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Esto se ejecuta cada vez que se realiza el gesto
+                requestCargarListaDecks();
+            }
+        });
 
     }
 
@@ -105,6 +115,8 @@ public class DeckListActivity extends AppCompatActivity {
 
             }
         });
+        swipeRefreshLayout.setRefreshing(false);
+
     }
 
     private void requestCargarListaDecks() {

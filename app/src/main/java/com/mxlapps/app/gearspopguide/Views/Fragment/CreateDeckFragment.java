@@ -18,7 +18,6 @@ import com.mxlapps.app.gearspopguide.R;
 import com.mxlapps.app.gearspopguide.Request.Data;
 import com.mxlapps.app.gearspopguide.Request.DataMaster;
 import com.mxlapps.app.gearspopguide.Service.DecksApi;
-import com.mxlapps.app.gearspopguide.ViewModel.DecksViewModel;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
