@@ -45,8 +45,6 @@ public class DeckListActivity extends AppCompatActivity {
 
         rootView = getWindow().getDecorView().findViewById(android.R.id.content);
 
-//        ((AppCompatActivity) DeckListActivity.this).getSupportActionBar().setTitle("Gears Pop Decks");
-
         // ViewModels
         decksViewModel = ViewModelProviders.of(DeckListActivity.this).get(DecksViewModel.class);
 
@@ -56,13 +54,9 @@ public class DeckListActivity extends AppCompatActivity {
         button_drawer_filtros.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                MyDecksFragment newGamefragment = new MyDecksFragment();
-//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.fragment_container, newGamefragment);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
-
+                Intent intent = new Intent(DeckListActivity.this, CreateDeckActivity.class);
+                startActivityForResult(intent, 2001);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
         });
 
@@ -144,6 +138,12 @@ public class DeckListActivity extends AppCompatActivity {
             default:
                 break;
         }
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
 }
