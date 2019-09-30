@@ -1,6 +1,7 @@
 package com.mxlapps.app.gearspopguide.Views.Fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -11,14 +12,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mxlapps.app.gearspopguide.Adapter.DecksAdapter;
+import com.mxlapps.app.gearspopguide.BuildConfig;
 import com.mxlapps.app.gearspopguide.Model.DeckModel;
 import com.mxlapps.app.gearspopguide.R;
 import com.mxlapps.app.gearspopguide.Request.DataMaster;
 import com.mxlapps.app.gearspopguide.Service.Resource;
 import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.DecksViewModel;
+import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
+import com.mxlapps.app.gearspopguide.Views.PinListActivity;
 
 import java.util.ArrayList;
 
@@ -46,7 +53,7 @@ public class DeckListActivity extends AppCompatActivity {
 
         requestCargarListaDecks();
 
-        FloatingActionButton button_drawer_filtros = v.findViewById(R.id.button_crear_deck);
+        FloatingActionButton button_drawer_filtros = findViewById(R.id.button_crear_deck);
         button_drawer_filtros.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,12 +68,26 @@ public class DeckListActivity extends AppCompatActivity {
         });
 
 
+        // Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar_deckLIst);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            toolbar.setTitle("Gears Pop Guide - Decks");
+        }
+
+
+        MobileAds.initialize(this, BuildConfig.AD_LIST);
+        AdView mAdView = findViewById(R.id.adViewListado);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
 
     }
 
 
     private void initRecyclerView(final ArrayList<DeckModel> deckModelsInternal) {
-        RecyclerView recyclerView = v.findViewById(R.id.recyclerview_deck_list);
+        RecyclerView recyclerView = findViewById(R.id.recyclerview_deck_list);
 
         int numberOfColumns = 1;
         DecksAdapter adapter = new DecksAdapter(deckModelsInternal, DeckListActivity.this, 1);

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1b1f33"
     tools:context=".Views.Fragment.DeckListActivity">
 
 
@@ -11,37 +12,70 @@
     <include layout="@layout/item_loading_screen" />
 
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_deckLIst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="Gears Pop Guide"
+        android:backgroundTint="#1b1f33"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:orientation="vertical"
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/adViewListado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_deckLIst">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_filte"
-            android:layout_marginBottom="46dp"
-            android:layout_marginEnd="15dp"
-            android:tint="#FFFFFF"
-            android:backgroundTint="#E4131313"
             android:id="@+id/button_crear_deck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_height="wrap_content" />
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="46dp"
+            android:backgroundTint="#E4131313"
+            android:src="@drawable/ic_add"
+            android:tint="#FFFFFF" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_deck_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="0dp"
-            android:nestedScrollingEnabled="false"
+            android:layout_marginBottom="0dp"
 
-            android:layout_marginBottom="46dp"
+            android:nestedScrollingEnabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adViewListado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center|bottom"
+        app:adSize="BANNER"
+        app:adUnitId="@string/ads_list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
