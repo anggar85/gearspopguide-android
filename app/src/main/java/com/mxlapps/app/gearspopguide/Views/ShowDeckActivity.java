@@ -1,23 +1,26 @@
-package com.mxlapps.app.gearspopguide.Views.Fragment;
+package com.mxlapps.app.gearspopguide.Views;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.gson.Gson;
 import com.mxlapps.app.gearspopguide.Adapter.DeckCommentsAdapter;
+import com.mxlapps.app.gearspopguide.BuildConfig;
 import com.mxlapps.app.gearspopguide.Model.CommentsModel;
 import com.mxlapps.app.gearspopguide.Model.DeckModel;
 import com.mxlapps.app.gearspopguide.R;
@@ -25,11 +28,12 @@ import com.mxlapps.app.gearspopguide.Request.DataMaster;
 import com.mxlapps.app.gearspopguide.Service.Resource;
 import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.DecksViewModel;
+import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class ShowDecksFragment extends Fragment {
+public class ShowDeckActivity extends AppCompatActivity {
 
     private static final String TAG = "afkArenaMainActivity";
     private DeckModel deck;
@@ -53,25 +57,37 @@ public class ShowDecksFragment extends Fragment {
     Button button_voteUp;
     RecyclerView recycler_comments;
 
-    public ShowDecksFragment() {
-    }
-
-   public ShowDecksFragment(DeckModel deck) {
-        this.deck = deck;
-    }
 
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_show_deck);
 
-        rootView = container.getRootView();
-        v = inflater.inflate(R.layout.fragment_show_deck, container, false);
+        rootView = getWindow().getDecorView().findViewById(android.R.id.content);
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Gears Pop Deck");
+        // Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar_pinLIst);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            toolbar.setTitle("Gears Pop Guide - Pins");
+        }
+
+        // Revisa si se esta llegando desde una factura
+        Intent intent = getIntent();
+        if (intent.hasExtra("deck_data")) {
+            String deck = intent.getStringExtra("deck_data");
+            Gson gson = new Gson();
+            this.deck =  gson.fromJson(deck, DeckModel.class);
+        }
 
         // ViewModels
-        decksViewModel = ViewModelProviders.of(getActivity()).get(DecksViewModel.class);
+        decksViewModel = ViewModelProviders.of(ShowDeckActivity.this).get(DecksViewModel.class);
+
+//        MobileAds.initialize(this, BuildConfig.AD_LIST);
+//        AdView mAdView = findViewById(R.id.adViewListado);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
 
         initViews();
 
@@ -79,11 +95,8 @@ public class ShowDecksFragment extends Fragment {
         requestShowDeck();
 
         initRecyclerView();
-
-
-        return v;
-
     }
+
 
     private void cargaInformacionDeck() {
 
@@ -101,28 +114,24 @@ public class ShowDecksFragment extends Fragment {
         textView_deckName1.setText(deck.getName());
         textView_deck_description.setText(deck.getDesc());
         textView_autor.setText(deck.getAuthor());
-
-
-
-
     }
 
     private void initViews() {
 
-        textView_cost  = v.findViewById(R.id.textView_cost);
-        textView_deckName1  = v.findViewById(R.id.textView_deckName1);
-        textView_deck_description  = v.findViewById(R.id.textView_deck_description);
-        textView_autor  = v.findViewById(R.id.textView_autor);
-        imageViewDeck1 = v.findViewById(R.id.imageViewDeck1);
-        imageViewDeck2 = v.findViewById(R.id.imageViewDeck2);
-        imageViewDeck3 = v.findViewById(R.id.imageViewDeck3);
-        imageViewDeck4 = v.findViewById(R.id.imageViewDeck4);
-        imageViewDeck5 = v.findViewById(R.id.imageViewDeck5);
-        imageViewDeck6 = v.findViewById(R.id.imageViewDeck6);
-        imageViewDeck7 = v.findViewById(R.id.imageViewDeck7);
-        imageViewDeck8 = v.findViewById(R.id.imageViewDeck8);
-        button_voteUp = v.findViewById(R.id.button_voteUp);
-        recycler_comments = v.findViewById(R.id.recycler_comments);
+        textView_cost  = findViewById(R.id.textView_cost);
+        textView_deckName1  = findViewById(R.id.textView_deckName1);
+        textView_deck_description  = findViewById(R.id.textView_deck_description);
+        textView_autor  = findViewById(R.id.textView_autor);
+        imageViewDeck1 = findViewById(R.id.imageViewDeck1);
+        imageViewDeck2 = findViewById(R.id.imageViewDeck2);
+        imageViewDeck3 = findViewById(R.id.imageViewDeck3);
+        imageViewDeck4 = findViewById(R.id.imageViewDeck4);
+        imageViewDeck5 = findViewById(R.id.imageViewDeck5);
+        imageViewDeck6 = findViewById(R.id.imageViewDeck6);
+        imageViewDeck7 = findViewById(R.id.imageViewDeck7);
+        imageViewDeck8 = findViewById(R.id.imageViewDeck8);
+        button_voteUp = findViewById(R.id.button_voteUp);
+        recycler_comments = findViewById(R.id.recycler_comments);
 
 
     }
@@ -142,7 +151,7 @@ public class ShowDecksFragment extends Fragment {
         switch (dataMasterResource.status) {
             case ERROR:
                 Util.stopLoading(rootView);
-                Util.alertaMensajeCtx(dataMasterResource.message, getActivity());
+                Util.alertaMensajeCtx(dataMasterResource.message, ShowDeckActivity.this);
                 break;
             case LOADING:
                 Util.startLoading(rootView);
@@ -160,13 +169,7 @@ public class ShowDecksFragment extends Fragment {
         }
     }
 
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
-
+    
     private void initRecyclerView() {
 
         for (int x = 0; x < 15; x++){
@@ -182,8 +185,8 @@ public class ShowDecksFragment extends Fragment {
 
 
         int numberOfColumns = 1;
-        DeckCommentsAdapter adapter = new DeckCommentsAdapter(commentsModel, getActivity(), 1);
-        recycler_comments.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
+        DeckCommentsAdapter adapter = new DeckCommentsAdapter(commentsModel, ShowDeckActivity.this, 1);
+        recycler_comments.setLayoutManager(new GridLayoutManager(ShowDeckActivity.this, numberOfColumns));
         recycler_comments.setNestedScrollingEnabled(false);
         recycler_comments.setHasFixedSize(true);
         recycler_comments.setAdapter(adapter);
@@ -191,7 +194,5 @@ public class ShowDecksFragment extends Fragment {
 
 
     }
-
-
 
 }

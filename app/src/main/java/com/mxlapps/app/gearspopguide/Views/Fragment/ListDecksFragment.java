@@ -89,11 +89,11 @@ public class ListDecksFragment extends Fragment {
             public void onDeckCardClick(int position) {
                 Log.d(TAG, "onDeckCardClick: click en deck");
 
-                ShowDecksFragment showDecksFragment = new ShowDecksFragment(deckModelsInternal.get(position));
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, showDecksFragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+//                ShowDecksFragment showDecksFragment = new ShowDecksFragment(deckModelsInternal.get(position));
+//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+//                fragmentTransaction.replace(R.id.fragment_container, showDecksFragment);
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
             }
         });
     }

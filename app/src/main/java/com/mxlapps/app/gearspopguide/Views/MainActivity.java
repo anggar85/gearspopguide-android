@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.mxlapps.app.gearspopguide.Adapter.CustomPagerAdapter;
 import com.mxlapps.app.gearspopguide.Model.NewsModel;
 import com.mxlapps.app.gearspopguide.R;
-import com.mxlapps.app.gearspopguide.Views.Fragment.DeckListActivity;
 
 import java.util.ArrayList;
 

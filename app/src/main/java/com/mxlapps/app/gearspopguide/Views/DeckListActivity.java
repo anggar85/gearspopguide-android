@@ -1,13 +1,13 @@
-package com.mxlapps.app.gearspopguide.Views.Fragment;
+package com.mxlapps.app.gearspopguide.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +16,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 import com.mxlapps.app.gearspopguide.Adapter.DecksAdapter;
 import com.mxlapps.app.gearspopguide.BuildConfig;
 import com.mxlapps.app.gearspopguide.Model.DeckModel;
@@ -24,8 +25,6 @@ import com.mxlapps.app.gearspopguide.Request.DataMaster;
 import com.mxlapps.app.gearspopguide.Service.Resource;
 import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.DecksViewModel;
-import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
-import com.mxlapps.app.gearspopguide.Views.PinListActivity;
 
 import java.util.ArrayList;
 
@@ -101,11 +100,15 @@ public class DeckListActivity extends AppCompatActivity {
             public void onDeckCardClick(int position) {
                 Log.d(TAG, "onDeckCardClick: click en deck");
 
-//                ShowDecksFragment showDecksFragment = new ShowDecksFragment(deckModelsInternal.get(position));
-//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.fragment_container, showDecksFragment);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
+                DeckModel deckModel = new DeckModel();
+                deckModel = deckModelsInternal.get(position);
+                Gson gson = new Gson();
+                String deck = gson.toJson(deckModel);
+                Intent intent = new Intent(DeckListActivity.this, ShowDeckActivity.class);
+                intent.putExtra("deck_data", deck);
+                startActivityForResult(intent, 2001);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+
             }
         });
     }
