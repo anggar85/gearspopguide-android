@@ -7,6 +7,15 @@ public class CommentsModel {
     private String section;
     private String comment;
     private Integer item_id;
+    private String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getSection() {
         return section;
