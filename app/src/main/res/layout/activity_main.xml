@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1b1f33"
+    android:background="#292D47"
     tools:context=".Views.MainActivity">
 
         <androidx.appcompat.widget.Toolbar
@@ -42,6 +42,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -118,7 +119,7 @@
         android:layout_height="110dp"
         android:layout_marginTop="16dp"
         app:cardCornerRadius="15dp"
-        android:backgroundTint="#673AB7"
+        android:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/cardView_decks"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,14 +134,13 @@
                 android:id="@+id/imageView33s"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/kait_diaz" />
+                android:src="@drawable/icon_pinsnew" />
 
             <TextView
                 android:id="@+id/textView17as"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
-                android:background="#72000000"
                 android:text="Pins"
                 android:paddingEnd="3dp"
                 android:paddingStart="3dp"
@@ -160,7 +160,7 @@
 
         android:layout_height="110dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#2196F3"
+        android:backgroundTint="@android:color/transparent"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -175,7 +175,7 @@
                 android:id="@+id/imageView33"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/kait_diaz" />
+                android:src="@drawable/icon_decks" />
 
             <TextView
                 android:id="@+id/textView17a"
@@ -184,7 +184,6 @@
                 android:paddingEnd="3dp"
                 android:paddingStart="3dp"
                 android:layout_gravity="bottom|center"
-                android:background="#72000000"
                 android:text="Decks"
                 android:textAlignment="center"
                 android:textColor="#fff"
@@ -201,7 +200,7 @@
 
         android:layout_height="110dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#FF9800"
+        android:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/cardView_account"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -215,14 +214,13 @@
                 android:id="@+id/imageView33e"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/kait_diaz" />
+                android:src="@drawable/icon_clans" />
 
             <TextView
                 android:id="@+id/textView17aw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
-                android:background="#72000000"
                 android:text="Clans"
                 android:paddingEnd="3dp"
                 android:paddingStart="3dp"
@@ -239,7 +237,7 @@
         android:id="@+id/cardView_account"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        android:backgroundTint="#009688"
+        android:backgroundTint="@android:color/transparent"
         app:cardCornerRadius="15dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -262,7 +260,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
-                android:background="#72000000"
                 android:text="Account"
                 android:paddingEnd="3dp"
                 android:paddingStart="3dp"
