@@ -8,11 +8,14 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -109,19 +112,24 @@ public class ShowDeckActivity extends AppCompatActivity {
                 if(event.getAction() == MotionEvent.ACTION_UP) {
                     if(event.getRawX() >= (textInputEditText_nuevo_comentario.getRight() - textInputEditText_nuevo_comentario.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
                         // your action here
-                        Log.d(TAG, "onTouch: se trata de enviar comentario");
-                        CommentsModel comment = new CommentsModel();
-                        comment.setItem_id(deck.getId());
-                        comment.setSection("decks");
-                        comment.setComment(textInputEditText_nuevo_comentario.getText().toString());
-                        comment.setUser(String.valueOf(AppPreferences.getInstance(ShowDeckActivity.this).getUsuario_id()));
-                        extraViewModel.createComment(comment).observe(ShowDeckActivity.this, new Observer<Resource<DataMaster>>() {
-                            @Override
-                            public void onChanged(Resource<DataMaster> dataMasterResource) {
-                                procesaRespuesta(dataMasterResource, 2);
-                            }
-                        });
-
+                        if (textInputEditText_nuevo_comentario.getText().toString().compareToIgnoreCase("") == 0){
+                            Toast.makeText(ShowDeckActivity.this, "Write a comment", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Log.d(TAG, "onTouch: se trata de enviar comentario");
+                            CommentsModel comment = new CommentsModel();
+                            comment.setItem_id(deck.getId());
+                            comment.setSection("decks");
+                            comment.setComment(textInputEditText_nuevo_comentario.getText().toString());
+                            comment.setUser(String.valueOf(AppPreferences.getInstance(ShowDeckActivity.this).getUsuario_id()));
+                            InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+                            imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+                            extraViewModel.createComment(comment).observe(ShowDeckActivity.this, new Observer<Resource<DataMaster>>() {
+                                @Override
+                                public void onChanged(Resource<DataMaster> dataMasterResource) {
+                                    procesaRespuesta(dataMasterResource, 2);
+                                }
+                            });
+                        }
                         return true;
                     }
                 }
@@ -201,13 +209,13 @@ public class ShowDeckActivity extends AppCompatActivity {
                         initRecyclerViewComentarios();
                         break;
                     case 2:
-//                        commentsModel = dataMasterResource.data.getData().getDeck().getComments();
-//                        initRecyclerViewComentarios();
-                        CommentsModel com = dataMasterResource.data.getData().getComment();
-                        commentsModel.add(com);
+
+                        commentsModel = dataMasterResource.data.getData().getComments();
+                        initRecyclerViewComentarios();
+
                         textInputEditText_nuevo_comentario.setText("");
+
                         Toast.makeText(this, "Comments Added!", Toast.LENGTH_SHORT).show();
-                        adapter.notifyDataSetChanged();
                         break;
                 }
                 break;

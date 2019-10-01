@@ -13,7 +13,7 @@ public class Data {
     private PinModel pin;
     private ArrayList<PinModel> pins;
     private ArrayList<DeckModel> decks;
-    private ArrayList<CommentsModel> deckComments;
+    private ArrayList<CommentsModel> comments;
     private CommentsModel comment;
     private String msg;
     private boolean error;
@@ -28,12 +28,12 @@ public class Data {
         this.comment = comment;
     }
 
-    public ArrayList<CommentsModel> getDeckComments() {
-        return deckComments;
+    public ArrayList<CommentsModel> getComments() {
+        return comments;
     }
 
-    public void setDeckComments(ArrayList<CommentsModel> deckComments) {
-        this.deckComments = deckComments;
+    public void setComments(ArrayList<CommentsModel> comments) {
+        this.comments = comments;
     }
 
     public ArrayList<DeckModel> getDecks() {
