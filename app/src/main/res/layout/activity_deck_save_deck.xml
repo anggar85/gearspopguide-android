@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E1020202"
-    tools:context=".Views.Fragment.MyDecksFragment">
+    android:background="#E1020202">
 
 
     <include layout="@layout/item_loading_screen" />

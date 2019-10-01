@@ -153,10 +153,10 @@ public class ShowDeckActivity extends AppCompatActivity {
         Picasso.get().load(deck.getPin7()).into(imageViewDeck7);
         Picasso.get().load(deck.getPin8()).into(imageViewDeck8);
 
-        textView_cost.setText(deck.getCost());
+        textView_cost.setText("Energy: " + deck.getCost());
         textView_deckName1.setText(deck.getName());
         textView_deck_description.setText(deck.getDesc());
-        textView_autor.setText(deck.getAuthor());
+        textView_autor.setText("By: " + deck.getAuthor());
     }
 
     private void initViews() {

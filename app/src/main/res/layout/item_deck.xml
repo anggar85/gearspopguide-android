@@ -21,7 +21,7 @@
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="2dp"
         android:background="@android:color/transparent"
-        app:cardBackgroundColor="#E2E0E0"
+        app:cardBackgroundColor="#222121"
         app:cardCornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +42,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="Victorious Killers"
                 android:textSize="22sp"
+                android:textColor="#B8B6B6"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/textView_cost"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +57,7 @@
                 android:layout_marginBottom="8dp"
                 android:text="Author: Angel Canales"
                 android:textStyle="italic"
+                android:textColor="#808080"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textView_votes"
                 app:layout_constraintStart_toStartOf="@+id/textView_coment"
@@ -81,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
-                android:background="#F57C00"
+                android:background="#858585"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"
                 android:text="Votes: 72"
@@ -180,6 +182,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView_coment"
                 app:srcCompat="@drawable/gears" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_height="2dp"
+            android:background="@android:color/holo_red_dark" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
