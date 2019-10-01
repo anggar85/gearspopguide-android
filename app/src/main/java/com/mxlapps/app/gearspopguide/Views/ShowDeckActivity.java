@@ -1,6 +1,5 @@
 package com.mxlapps.app.gearspopguide.Views;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
@@ -8,27 +7,29 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
 import com.mxlapps.app.gearspopguide.Adapter.DeckCommentsAdapter;
-import com.mxlapps.app.gearspopguide.BuildConfig;
 import com.mxlapps.app.gearspopguide.Model.CommentsModel;
 import com.mxlapps.app.gearspopguide.Model.DeckModel;
 import com.mxlapps.app.gearspopguide.R;
 import com.mxlapps.app.gearspopguide.Request.DataMaster;
 import com.mxlapps.app.gearspopguide.Service.Resource;
+import com.mxlapps.app.gearspopguide.Utils.AppPreferences;
 import com.mxlapps.app.gearspopguide.Utils.Util;
 import com.mxlapps.app.gearspopguide.ViewModel.DecksViewModel;
-import com.mxlapps.app.gearspopguide.ViewModel.PinViewModel;
+import com.mxlapps.app.gearspopguide.ViewModel.ExtraViewModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -41,6 +42,8 @@ public class ShowDeckActivity extends AppCompatActivity {
     private View rootView;
     View v;
     private DecksViewModel decksViewModel;
+    private ExtraViewModel extraViewModel;
+    DeckCommentsAdapter adapter;
 
     ImageView imageViewDeck1;
     ImageView imageViewDeck2;
@@ -54,11 +57,13 @@ public class ShowDeckActivity extends AppCompatActivity {
     TextView textView_deckName1;
     TextView textView_deck_description;
     TextView textView_autor;
+    TextInputEditText textInputEditText_nuevo_comentario;
     Button button_voteUp;
     RecyclerView recycler_comments;
 
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +88,7 @@ public class ShowDeckActivity extends AppCompatActivity {
 
         // ViewModels
         decksViewModel = ViewModelProviders.of(ShowDeckActivity.this).get(DecksViewModel.class);
+        extraViewModel = ViewModelProviders.of(ShowDeckActivity.this).get(ExtraViewModel.class);
 
 //        MobileAds.initialize(this, BuildConfig.AD_LIST);
 //        AdView mAdView = findViewById(R.id.adViewListado);
@@ -94,7 +100,36 @@ public class ShowDeckActivity extends AppCompatActivity {
         cargaInformacionDeck();
         requestShowDeck();
 
-        initRecyclerView();
+
+        textInputEditText_nuevo_comentario.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_RIGHT = 2;
+
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if(event.getRawX() >= (textInputEditText_nuevo_comentario.getRight() - textInputEditText_nuevo_comentario.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        // your action here
+                        Log.d(TAG, "onTouch: se trata de enviar comentario");
+                        CommentsModel comment = new CommentsModel();
+                        comment.setItem_id(deck.getId());
+                        comment.setSection("decks");
+                        comment.setComment(textInputEditText_nuevo_comentario.getText().toString());
+                        comment.setUser(String.valueOf(AppPreferences.getInstance(ShowDeckActivity.this).getUsuario_id()));
+                        extraViewModel.createComment(comment).observe(ShowDeckActivity.this, new Observer<Resource<DataMaster>>() {
+                            @Override
+                            public void onChanged(Resource<DataMaster> dataMasterResource) {
+                                procesaRespuesta(dataMasterResource, 2);
+                            }
+                        });
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+
     }
 
 
@@ -118,6 +153,7 @@ public class ShowDeckActivity extends AppCompatActivity {
 
     private void initViews() {
 
+        textInputEditText_nuevo_comentario  = findViewById(R.id.textInputEditText_nuevo_comentario);
         textView_cost  = findViewById(R.id.textView_cost);
         textView_deckName1  = findViewById(R.id.textView_deckName1);
         textView_deck_description  = findViewById(R.id.textView_deck_description);
@@ -161,7 +197,18 @@ public class ShowDeckActivity extends AppCompatActivity {
                 // Crea copia de listado de heroes
                 switch (opcion) {
                     case 1:
-                        commentsModel = dataMasterResource.data.getData().getDeckComments();
+                        commentsModel = dataMasterResource.data.getData().getDeck().getComments();
+                        initRecyclerViewComentarios();
+                        break;
+                    case 2:
+//                        commentsModel = dataMasterResource.data.getData().getDeck().getComments();
+//                        initRecyclerViewComentarios();
+                        CommentsModel com = dataMasterResource.data.getData().getComment();
+                        commentsModel.add(com);
+                        textInputEditText_nuevo_comentario.setText("");
+                        Toast.makeText(this, "Comments Added!", Toast.LENGTH_SHORT).show();
+                        adapter.notifyDataSetChanged();
+                        break;
                 }
                 break;
             default:
@@ -170,29 +217,17 @@ public class ShowDeckActivity extends AppCompatActivity {
     }
 
     
-    private void initRecyclerView() {
-
-        for (int x = 0; x < 15; x++){
-
-            CommentsModel comment = new CommentsModel();
-            comment.setComment("fyguhbjuyg hi g iu ggh iu erfg i ger g egrgerg ergu g");
-            comment.setUser("ANgel " + x);
-
-            commentsModel.add(comment);
-
-
+    private void initRecyclerViewComentarios() {
+        if (commentsModel.size() > 0){
+            int numberOfColumns = 1;
+            adapter = new DeckCommentsAdapter(commentsModel, ShowDeckActivity.this, 1);
+            recycler_comments.setLayoutManager(new GridLayoutManager(ShowDeckActivity.this, numberOfColumns));
+            recycler_comments.setNestedScrollingEnabled(false);
+            recycler_comments.setHasFixedSize(true);
+            recycler_comments.setAdapter(adapter);
+        }else{
+            Log.d(TAG, "initRecyclerViewComentarios: ----------------------------><");
         }
-
-
-        int numberOfColumns = 1;
-        DeckCommentsAdapter adapter = new DeckCommentsAdapter(commentsModel, ShowDeckActivity.this, 1);
-        recycler_comments.setLayoutManager(new GridLayoutManager(ShowDeckActivity.this, numberOfColumns));
-        recycler_comments.setNestedScrollingEnabled(false);
-        recycler_comments.setHasFixedSize(true);
-        recycler_comments.setAdapter(adapter);
-
-
-
     }
 
 }

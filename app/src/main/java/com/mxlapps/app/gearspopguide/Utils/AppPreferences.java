@@ -175,6 +175,15 @@ public class AppPreferences {
     }
 
 
+    public void setUsuario_id(Integer name){
+        setPreference("id_usuario", name, SHAREDPREFERENCE_NAME);
+    }
+
+    public Integer getUsuario_id(){
+        return getPreferenceInt("id_usuario",  0, SHAREDPREFERENCE_NAME);
+    }
+
+
 
     public static void cerrarSesion() {
         SharedPreferences preferences = instance.mContext.getSharedPreferences(SHAREDPREFERENCE_NAME, Context.MODE_PRIVATE);

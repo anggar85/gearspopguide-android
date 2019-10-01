@@ -1,5 +1,7 @@
 package com.mxlapps.app.gearspopguide.Model;
 
+import java.util.ArrayList;
+
 public class DeckModel {
     private String user_token;
     private String pin1;
@@ -16,6 +18,15 @@ public class DeckModel {
     private String author;
     private Integer votes;
     private Integer id;
+    private ArrayList<CommentsModel> comments;
+
+    public ArrayList<CommentsModel> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<CommentsModel> comments) {
+        this.comments = comments;
+    }
 
     public Integer getId() {
         return id;

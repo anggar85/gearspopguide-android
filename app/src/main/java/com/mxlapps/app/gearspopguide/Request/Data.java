@@ -14,10 +14,19 @@ public class Data {
     private ArrayList<PinModel> pins;
     private ArrayList<DeckModel> decks;
     private ArrayList<CommentsModel> deckComments;
+    private CommentsModel comment;
     private String msg;
     private boolean error;
     private UserModel user;
     private DeckModel deck;
+
+    public CommentsModel getComment() {
+        return comment;
+    }
+
+    public void setComment(CommentsModel comment) {
+        this.comment = comment;
+    }
 
     public ArrayList<CommentsModel> getDeckComments() {
         return deckComments;

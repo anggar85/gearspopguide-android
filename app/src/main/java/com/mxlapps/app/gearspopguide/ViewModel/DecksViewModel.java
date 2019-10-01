@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.mxlapps.app.gearspopguide.Model.CommentsModel;
 import com.mxlapps.app.gearspopguide.Model.DeckModel;
 import com.mxlapps.app.gearspopguide.Repository.DecksRepository;
 import com.mxlapps.app.gearspopguide.Repository.PinsRepository;
@@ -22,17 +23,6 @@ public class DecksViewModel extends AndroidViewModel {
         super(application);
         //Se crea una instancia del repositorio
         repository = DecksRepository.getInstance(application);
-    }
-
-
-    public LiveData<Resource<DataMaster>> createDeck(DeckModel deckModel) {
-
-        Data data  = new Data();
-        data.setDeck(deckModel);
-        DataMaster dataMaster = new DataMaster();
-        dataMaster.setData(data);
-
-        return repository.createDeck(dataMaster);
     }
 
 

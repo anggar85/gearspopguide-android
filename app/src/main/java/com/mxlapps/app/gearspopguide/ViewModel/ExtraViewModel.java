@@ -6,7 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.mxlapps.app.gearspopguide.Model.CommentsModel;
 import com.mxlapps.app.gearspopguide.Repository.ExtraRepository;
+import com.mxlapps.app.gearspopguide.Request.Data;
 import com.mxlapps.app.gearspopguide.Request.DataMaster;
 import com.mxlapps.app.gearspopguide.Service.Resource;
 
@@ -59,6 +61,15 @@ public class ExtraViewModel extends AndroidViewModel {
     }
 
 
+    public LiveData<Resource<DataMaster>> createComment(CommentsModel comment) {
+
+        Data data  = new Data();
+        data.setComment(comment);
+        DataMaster dataMaster = new DataMaster();
+        dataMaster.setData(data);
+
+        return repository.createComment(dataMaster);
+    }
 
 
 

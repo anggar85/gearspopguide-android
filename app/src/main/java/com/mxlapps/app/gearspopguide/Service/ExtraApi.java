@@ -12,6 +12,11 @@ public interface ExtraApi {
     String CONTRIBUTORS_LIST = "extras/contributors";
     String NEWS_LIST = "extras/news";
 
+
+    String create_comment = "comments/create_comment";
+    @POST(create_comment )
+    Call<DataMaster> createComment(@Body DataMaster dataMaster);
+
     // Secciones
     String ITEMS_LIST = "extras/items_list";
     String ROL_DEFINITIONS_LIST = "extras/rol_definitions";

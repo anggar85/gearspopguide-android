@@ -234,9 +234,7 @@ public class LoginFacebookActivity extends AppCompatActivity {
         AppPreferences.getInstance(this).setUserId(userModel.getToken());
         AppPreferences.getInstance(this).setName(userModel.getName());
         AppPreferences.getInstance(this).setEmail(userModel.getEmail());
-
-        Log.d(TAG, "initInfoUSer1: " + AppPreferences.getInstance(this).getUserId());
-        Log.d(TAG, "initInfoUSer1: " + AppPreferences.getInstance(this).getName());
+        AppPreferences.getInstance(this).setUsuario_id(userModel.getId());
 
         String token = AppPreferences.getInstance(this).getUserId();
 

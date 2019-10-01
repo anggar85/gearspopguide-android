@@ -115,6 +115,15 @@ public class ExtraRepository {
         }.getAsLiveData();
     }
 
+    public LiveData<Resource<DataMaster>> createComment(final DataMaster dataMaster) {
 
+        return new NetworkBoundResource<DataMaster, DataMaster>() {
+            @NonNull
+            @Override
+            protected Call<DataMaster> createCallRetrofit() {
+                return apiService.createComment(dataMaster);
+            }
+        }.getAsLiveData();
+    }
 
 }
