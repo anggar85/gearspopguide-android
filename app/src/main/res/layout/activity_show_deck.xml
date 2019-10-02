@@ -275,25 +275,21 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView_deck_description" />
 
-                    <Button
-                        android:id="@+id/button_voteUp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="Like it!"
-                        android:visibility="gone"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/textView8"
+                    <ImageView
+                        android:id="@+id/imageView_like"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_like"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView_total_votes"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView_autor"
-                        app:layout_constraintVertical_bias="0.565" />
+                        app:layout_constraintStart_toEndOf="@+id/textView_total_votes"
+                        app:layout_constraintTop_toTopOf="@+id/textView_total_votes"
+                        tools:visibility="gone" />
 
                     <TextView
                         android:id="@+id/textView_deck_description"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="4dp"
@@ -306,19 +302,21 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView8"
+                        android:id="@+id/textView_total_votes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
                         android:text="14 votes"
                         android:textSize="22sp"
                         android:textStyle="bold"
-                        android:visibility="gone"
-                        app:layout_constraintBottom_toBottomOf="@+id/button_voteUp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/button_voteUp"
-                        app:layout_constraintTop_toTopOf="@+id/button_voteUp" />
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView_like"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_autor"
+                        tools:visibility="gone" />
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>

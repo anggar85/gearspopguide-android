@@ -26,8 +26,8 @@ public class DecksViewModel extends AndroidViewModel {
     }
 
 
-    public LiveData<Resource<DataMaster>> getDecks() {
-        return repository.getDecks();
+    public LiveData<Resource<DataMaster>> getDecks(String orderBy, String column) {
+        return repository.getDecks(orderBy, column);
     }
 
 

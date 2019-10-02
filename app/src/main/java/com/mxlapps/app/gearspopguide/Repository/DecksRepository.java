@@ -42,13 +42,13 @@ public class DecksRepository {
             }
         }.getAsLiveData();
     }
-    public LiveData<Resource<DataMaster>> getDecks() {
+    public LiveData<Resource<DataMaster>> getDecks(final String orderBy, final String column) {
 
         return new NetworkBoundResource<DataMaster, DataMaster>() {
             @NonNull
             @Override
             protected Call<DataMaster> createCallRetrofit() {
-                return apiService.getDecks();
+                return apiService.getDecks(orderBy, column);
             }
         }.getAsLiveData();
     }

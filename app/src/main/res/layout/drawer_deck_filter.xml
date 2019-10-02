@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="150dp"
+    android:layout_height="match_parent"
+    android:background="#AE000000"
+    android:gravity="bottom"
+    android:paddingLeft="10dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Filters"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtEmail"
+            app:layout_constraintStart_toStartOf="@+id/txtEmail" />
+
+        <RadioGroup
+            android:id="@+id/group_asc_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkedButton="@+id/order_asc">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Asc-Desc"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/order_asc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asc" />
+
+            <RadioButton
+                android:id="@+id/order_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Desc" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/orderby_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkedButton="@+id/orderby_cost">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Order By"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/orderby_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cost" />
+
+            <RadioButton
+                android:id="@+id/orderby_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deck Name" />
+
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>

@@ -1,5 +1,6 @@
 package com.mxlapps.app.gearspopguide.Views;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
@@ -11,12 +12,15 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioGroup;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.mxlapps.app.gearspopguide.Adapter.DecksAdapter;
 import com.mxlapps.app.gearspopguide.BuildConfig;
@@ -37,6 +41,10 @@ public class DeckListActivity extends AppCompatActivity {
     View v;
     private DecksViewModel decksViewModel;
     SwipeRefreshLayout swipeRefreshLayout;
+    private NavigationView navigationView;
+    private String ORDER_BY = "ASC";
+    private String COLUMN = "id";
+
 
 
     @Override
@@ -76,15 +84,58 @@ public class DeckListActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         swipeRefreshLayout =  findViewById(R.id.swipeRefreshLayout);
-//        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
-//        swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.colorAccent);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                // Esto se ejecuta cada vez que se realiza el gesto
                 requestCargarListaDecks();
             }
         });
+
+
+        navigationView = findViewById(R.id.nav_view_filter);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                return false;
+            }
+        });
+        final View parentView = navigationView.getHeaderView(0);
+
+        RadioGroup group_asc_desc = parentView.findViewById(R.id.group_asc_desc);
+        group_asc_desc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                switch (checkedId){
+                    case R.id.order_asc:
+                        ORDER_BY = "ASC";
+                        break;
+                    case R.id.order_desc:
+                        ORDER_BY = "DESC";
+                        break;
+                }
+                requestCargarListaDecks();
+            }
+        });
+        RadioGroup orderby_group = parentView.findViewById(R.id.orderby_group);
+        orderby_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                switch (checkedId){
+                    case R.id.orderby_cost:
+                        COLUMN = "cost";
+                        break;
+                    case R.id.orderby_name:
+                        COLUMN = "name";
+                        break;
+                }
+                requestCargarListaDecks();
+            }
+        });
+
 
     }
 
@@ -120,7 +171,7 @@ public class DeckListActivity extends AppCompatActivity {
     }
 
     private void requestCargarListaDecks() {
-        decksViewModel.getDecks().observe(this, new Observer<Resource<DataMaster>>() {
+        decksViewModel.getDecks(ORDER_BY, COLUMN).observe(this, new Observer<Resource<DataMaster>>() {
             @Override
             public void onChanged(Resource<DataMaster> dataMasterResource) {
                 procesaRespuesta(dataMasterResource, 1);

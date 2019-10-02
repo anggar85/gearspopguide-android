@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -60,12 +59,12 @@ public class ShowDeckActivity extends AppCompatActivity {
     ImageView imageViewDeck6;
     ImageView imageViewDeck7;
     ImageView imageViewDeck8;
+    ImageView imageView_like;
     TextView textView_cost;
     TextView textView_deckName1;
     TextView textView_deck_description;
     TextView textView_autor;
     TextInputEditText textInputEditText_nuevo_comentario;
-    Button button_voteUp;
     RecyclerView recycler_comments;
 
 
@@ -142,6 +141,14 @@ public class ShowDeckActivity extends AppCompatActivity {
         });
 
 
+        imageView_like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
     }
 
 
@@ -178,7 +185,7 @@ public class ShowDeckActivity extends AppCompatActivity {
         imageViewDeck6 = findViewById(R.id.imageViewDeck6);
         imageViewDeck7 = findViewById(R.id.imageViewDeck7);
         imageViewDeck8 = findViewById(R.id.imageViewDeck8);
-        button_voteUp = findViewById(R.id.button_voteUp);
+        imageView_like = findViewById(R.id.imageView_like);
         recycler_comments = findViewById(R.id.recycler_comments);
 
 
