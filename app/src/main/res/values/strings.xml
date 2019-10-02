@@ -18,11 +18,17 @@
     <string name="ads_list">ca-app-pub-3940256099942544/6300978111</string>
     <string name="ads_detail">ca-app-pub-3940256099942544/6300978111</string>
     <string name="ads_interstitial">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="ads_list_deck">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="ads_create_deck">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="ads_detail_deck">ca-app-pub-3940256099942544/6300978111</string>
 
     <!--produccion-->
     <!--        <string name="ads_list">ca-app-pub-3725947824223351/2058717787</string>-->
     <!--        <string name="ads_detail">ca-app-pub-3725947824223351/9060252165</string>-->
     <!--        <string name="ads_interstitial">ca-app-pub-3725947824223351/3427639777</string>-->
+    <!--        <string name="ads_list_deck">ca-app-pub-3725947824223351/1347123532</string>-->
+    <!--        <string name="ads_create_deck">ca-app-pub-3725947824223351/6139945909</string>-->
+    <!--        <string name="ads_detail_deck">ca-app-pub-3725947824223351/8574537559</string>-->
 
 
     <string name="navigation_draw_open">open</string>

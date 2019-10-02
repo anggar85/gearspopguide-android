@@ -21,9 +21,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
 import com.mxlapps.app.gearspopguide.Adapter.DeckCommentsAdapter;
+import com.mxlapps.app.gearspopguide.BuildConfig;
 import com.mxlapps.app.gearspopguide.Model.CommentsModel;
 import com.mxlapps.app.gearspopguide.Model.DeckModel;
 import com.mxlapps.app.gearspopguide.R;
@@ -93,10 +97,10 @@ public class ShowDeckActivity extends AppCompatActivity {
         decksViewModel = ViewModelProviders.of(ShowDeckActivity.this).get(DecksViewModel.class);
         extraViewModel = ViewModelProviders.of(ShowDeckActivity.this).get(ExtraViewModel.class);
 
-//        MobileAds.initialize(this, BuildConfig.AD_LIST);
-//        AdView mAdView = findViewById(R.id.adViewListado);
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//        mAdView.loadAd(adRequest);
+        MobileAds.initialize(this, BuildConfig.AD_LIST);
+        AdView mAdView = findViewById(R.id.ads_detail_deck);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         initViews();
 

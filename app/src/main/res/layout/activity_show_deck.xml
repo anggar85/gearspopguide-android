@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,33 +10,35 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:background="#0b0b0d"
-        app:title="Gears Pop Guide - Deck"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#0b0b0d"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Gears Pop Guide - Deck" />
 
     <View
         android:layout_width="match_parent"
 
         android:layout_height="1dp"
         android:background="@android:color/holo_red_dark"
-        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout" />
+        app:layout_constraintBottom_toTopOf="@+id/nestedScrollView2" />
 
     <include layout="@layout/item_loading_screen" />
 
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/ads_detail_deck"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,7 +49,6 @@
                 android:id="@+id/cardView2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -231,10 +232,15 @@
 
 
                     <View
+                        android:id="@+id/view"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginEnd="32dp"
                         android:background="@android:color/holo_red_dark"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -293,8 +299,8 @@
                         android:layout_marginTop="4dp"
                         android:layout_marginEnd="4dp"
                         android:padding="5dp"
-                        android:textSize="15sp"
                         android:text="this is a description"
+                        android:textSize="15sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -330,9 +336,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/cardView_recycler">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/card_with_no_comments"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:id="@+id/card_with_no_comments"/>
+                    android:layout_height="wrap_content" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/card_with_comments"
@@ -355,7 +361,6 @@
                         android:id="@+id/recycler_comments"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="50dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -388,20 +393,15 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </LinearLayout>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/ads_detail_deck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        app:adSize="BANNER"
+        app:adUnitId="@string/ads_detail_deck"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
