@@ -96,6 +96,8 @@ dependencies {
     // animaciones
     implementation 'com.github.armcha:ElasticView:0.2.0'
 
+    // GIfs
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
 
     //Firebase
     implementation 'com.google.firebase:firebase-core:17.2.0'

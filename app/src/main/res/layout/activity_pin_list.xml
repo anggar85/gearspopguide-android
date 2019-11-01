@@ -7,28 +7,25 @@
     android:id="@+id/coordinatorLayout_listado_heroes"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1b1f33">
-
+    android:background="@color/colorPrimary">
 
     <include layout="@layout/item_loading_screen" />
-
-
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_filte"
-            android:layout_marginBottom="49dp"
-            android:layout_marginEnd="15dp"
-            android:tint="#FFFFFF"
-            android:backgroundTint="#E4131313"
-            android:id="@+id/button_drawer_filtros"
-            android:layout_gravity="bottom|end"
-            android:layout_height="wrap_content" />
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:src="@drawable/ic_filte"-->
+<!--            android:layout_marginBottom="49dp"-->
+<!--            android:layout_marginEnd="15dp"-->
+<!--            android:tint="#FFFFFF"-->
+<!--            android:backgroundTint="#E4131313"-->
+<!--            android:id="@+id/button_drawer_filtros"-->
+<!--            android:layout_gravity="bottom|end"-->
+<!--            android:layout_height="wrap_content" />-->
 
        <androidx.constraintlayout.widget.ConstraintLayout
            android:layout_width="match_parent"
@@ -39,11 +36,12 @@
                android:id="@+id/toolbar_pinLIst"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:background="?attr/colorPrimary"
+               android:background="?attr/colorPrimaryDark"
                android:minHeight="?attr/actionBarSize"
                android:theme="?attr/actionBarTheme"
                app:title="Gears Pop Guide"
-               android:backgroundTint="#1b1f33"
+               app:subtitle="Removals"
+               app:subtitleTextColor="@color/icons"
                app:layout_constraintEnd_toEndOf="parent"
                app:layout_constraintStart_toStartOf="parent"
                app:layout_constraintTop_toTopOf="parent" />
@@ -53,20 +51,19 @@
                android:layout_width="59dp"
                android:layout_height="0dp"
                android:layout_marginStart="8dp"
-               app:layout_constraintBottom_toTopOf="@+id/adViewListado"
+               app:layout_constraintBottom_toTopOf="@+id/adView"
                app:layout_constraintEnd_toStartOf="@+id/constraintLayout2"
                app:layout_constraintStart_toStartOf="parent"
                app:layout_constraintTop_toBottomOf="@+id/toolbar_pinLIst" />
 
 
-           <com.google.android.gms.ads.AdView
-               android:id="@+id/adViewListado"
+           <LinearLayout
+               android:orientation="vertical"
+               android:id="@+id/adView"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_alignParentBottom="true"
                android:layout_centerHorizontal="true"
-               app:adSize="BANNER"
-               app:adUnitId="@string/ads_list"
                app:layout_constraintBottom_toBottomOf="parent"
                app:layout_constraintEnd_toEndOf="parent"
                app:layout_constraintStart_toStartOf="parent" />
@@ -75,15 +72,18 @@
                android:id="@+id/constraintLayout2"
                android:layout_width="0dp"
                android:layout_height="0dp"
-               android:layout_marginStart="8dp"
-               android:layout_marginEnd="8dp"
-               app:layout_constraintBottom_toTopOf="@+id/adViewListado"
+               app:layout_constraintBottom_toTopOf="@+id/adView"
                app:layout_constraintEnd_toEndOf="parent"
                app:layout_constraintStart_toEndOf="@+id/recyclerview_hero_list"
                app:layout_constraintTop_toTopOf="@+id/recyclerview_hero_list">
 
 
-               <include layout="@layout/activity_pin_detail"/>
+               <include
+                   layout="@layout/activity_pin_detail"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
 
            </androidx.constraintlayout.widget.ConstraintLayout>
 

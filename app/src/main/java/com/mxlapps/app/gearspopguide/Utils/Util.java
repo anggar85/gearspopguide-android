@@ -13,11 +13,15 @@ import android.net.NetworkInfo;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.mxlapps.app.gearspopguide.R;
 
 import org.json.JSONException;
@@ -47,22 +51,7 @@ public class Util {
         currentContext = context;
     }
 
-    public static Drawable findHeroImage(String hero_name){
 
-//        switch (hero_name){
-//            case Constante.LIGHTBEARERS:
-//                return getContext().getDrawable(R.drawable.humen_i);
-//            case Constante.MAULERS:
-//                return getContext().getDrawable(R.drawable.orc_i);
-//            case Constante.WILDERS:
-//                return getContext().getDrawable(R.drawable.elf_i);
-//            case Constante.GRAVEBORN:
-//                return getContext().getDrawable(R.drawable.undead_i);
-//        }
-
-        return null;
-
-    }
 
     public static String CurrencyChange(String precio_decimal){
         Double precio_listo = Double.parseDouble(precio_decimal);
@@ -101,6 +90,16 @@ public class Util {
             animatorSet.start();
 
         }
+    }
+
+    public static void initAds(View v, Context ctx, String ad_string) {
+        AdView mAdView = new AdView(ctx);
+        mAdView.setAdSize(AdSize.SMART_BANNER);
+        mAdView.setAdUnitId(ad_string);
+        LinearLayout layout = v.findViewById(R.id.adView);
+        layout.addView(mAdView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     public static void release() {

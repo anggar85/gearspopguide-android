@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/transparent"
     tools:context=".Views.PinDetailActivity">
 
     <include layout="@layout/item_loading_screen" />
@@ -14,6 +15,7 @@
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,66 +27,65 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/imageView_pinImage"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                app:srcCompat="@drawable/gears" />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
 
-                    <ImageView
-                        android:id="@+id/imageView_pinImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:background="#000"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/gears" />
-
-
                     <TextView
                         android:id="@+id/textView_Name"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="32dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="8dp"
                         android:fontFamily="@font/ubuntu"
                         android:text="Pin Name"
                         android:textAlignment="center"
-                        android:textSize="20sp"
+                        android:textSize="24sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView_pinImage" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textView_pin_desc"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="8dp"
                         android:fontFamily="@font/ubuntu"
                         android:text="TextView"
-                        android:textSize="17sp"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="@+id/textView_Name"
                         app:layout_constraintStart_toStartOf="@+id/textView_Name"
                         app:layout_constraintTop_toBottomOf="@+id/textView_Name" />
 
-                    <Button
+                    <TextView
                         android:id="@+id/button_race"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
                         android:background="#03A9F4"
                         android:fontFamily="@font/ubuntu"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
                         android:text="CGO"
                         android:textColor="#fff"
                         android:textSize="15sp"
@@ -94,14 +95,16 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView_pin_desc" />
 
-                    <Button
+                    <TextView
                         android:id="@+id/button_type"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
                         android:background="#673AB7"
                         android:fontFamily="@font/ubuntu"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
                         android:text="EPIC"
                         android:textColor="#fff"
                         android:textSize="15sp"
@@ -111,14 +114,16 @@
                         app:layout_constraintStart_toEndOf="@+id/button_race"
                         app:layout_constraintTop_toBottomOf="@+id/textView_pin_desc" />
 
-                    <Button
+                    <TextView
                         android:id="@+id/button_role"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
                         android:background="#009688"
                         android:fontFamily="@font/ubuntu"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
                         android:text="Bruiser"
                         android:textColor="#fff"
                         android:textSize="15sp"
@@ -140,7 +145,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp">
+                android:layout_marginEnd="10dp"
+                tools:visibility="gone">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -151,11 +157,11 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="4dp"
                         android:layout_marginEnd="24dp"
                         android:fontFamily="@font/ubuntu"
                         android:text="Skill Name"
-                        android:textSize="19sp"
+                        android:textSize="17sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -166,16 +172,27 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="4dp"
                         android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="@font/ubuntu"
                         android:text="TextView"
-                        android:textSize="17sp"
+                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView_skillName" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView_skillImage" />
+
+                    <pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/imageView_skillImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:src="@drawable/dom"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_skillName"
+                        tools:srcCompat="@tools:sample/avatars" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -195,11 +212,11 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="4dp"
                         android:layout_marginEnd="24dp"
                         android:fontFamily="@font/ubuntu"
                         android:text="Strong"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -209,8 +226,8 @@
                         android:id="@+id/frameLayout_s1"
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
                         android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/frameLayout_s2"
@@ -305,7 +322,6 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="50dp"
                 android:layout_marginEnd="10dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -317,11 +333,11 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="4dp"
                         android:layout_marginEnd="24dp"
                         android:fontFamily="@font/ubuntu"
                         android:text="Weak"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -431,6 +447,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:adSize="BANNER"
+        android:visibility="gone"
         app:adUnitId="@string/ads_detail"
         app:layout_constraintBottom_toBottomOf="@+id/nestedScrollView"
         app:layout_constraintEnd_toEndOf="parent"

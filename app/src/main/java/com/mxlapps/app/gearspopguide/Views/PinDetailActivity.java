@@ -58,19 +58,10 @@ public class PinDetailActivity extends AppCompatActivity {
 
         Log.d("ddojdojd", "onCreate: dddd");
 
-        MobileAds.initialize(this, BuildConfig.AD_LIST);
-        AdView mAdView = findViewById(R.id.adViewDetalle);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
-
-//        pinViewModel.getHeroDetail(hero_id).observe(PinDetailActivity.this, new Observer<Resource<DataMaster>>() {
-//            @Override
-//            public void onChanged(Resource<DataMaster> dataMasterResource) {
-//                procesaRespuesta(dataMasterResource, 1);
-//            }
-//        });
-
+//        MobileAds.initialize(this, BuildConfig.AD_LIST);
+//        AdView mAdView = findViewById(R.id.adViewDetalle);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
 
     }
 
@@ -109,9 +100,9 @@ public class PinDetailActivity extends AppCompatActivity {
         TextView skillDesc = findViewById(R.id.textView_skillDesc);
 
 
-        Button btn_race = findViewById(R.id.button_race);
-        Button btn_type = findViewById(R.id.button_type);
-        Button btn_role = findViewById(R.id.button_role);
+        TextView btn_race = findViewById(R.id.button_race);
+        TextView btn_type = findViewById(R.id.button_type);
+        TextView btn_role = findViewById(R.id.button_role);
 
         FrameLayout frameLayout_s1 =  findViewById(R.id.frameLayout_s1);
         FrameLayout frameLayout_s2 =  findViewById(R.id.frameLayout_s2);
@@ -121,9 +112,6 @@ public class PinDetailActivity extends AppCompatActivity {
         ImageView imageViewStrong2 =  findViewById(R.id.imageView_strong2);
         ImageView imageViewStrong3 =  findViewById(R.id.imageView_strong3);
 
-//        TextView strong1 = findViewById(R.id.textView_strong1);
-//        TextView strong2 = findViewById(R.id.textView_strong2);
-//        TextView strong3 = findViewById(R.id.textView_strong3);
 
         // Weaks
 
