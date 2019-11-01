@@ -18,13 +18,17 @@
         <activity android:name=".Views.CreateDeckActivity"></activity>
         <activity android:name=".Views.ShowDeckActivity" />
         <activity android:name=".Views.DeckListActivity" />
-        <activity android:name=".Views.PinListActivity" />
-        <activity android:name=".Views.MainActivity">
+        <activity android:name=".Views.PinListActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".Views.MainActivity">
+
         </activity>
         <activity
             android:name=".Views.PinDetailActivity"

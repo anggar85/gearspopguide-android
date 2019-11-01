@@ -120,7 +120,7 @@ public class PinListActivity extends AppCompatActivity {
     private void initRecyclerView(final ArrayList<PinModel> pinModelsInternal) {
         RecyclerView recyclerView = findViewById(R.id.recyclerview_hero_list);
 
-        int numberOfColumns = 3;
+        int numberOfColumns = 1;
 
         PinsAdapter adapter = new PinsAdapter(pinModelsInternal, PinListActivity.this, 1);
 

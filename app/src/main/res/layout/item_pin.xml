@@ -5,24 +5,24 @@
     android:id="@+id/ConstrainLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="2dp"
-    android:layout_marginTop="2dp"
-    android:layout_marginEnd="2dp"
+    android:layout_marginStart="0dp"
+    android:layout_marginTop="0dp"
+    android:layout_marginEnd="0dp"
 
-    android:layout_marginBottom="2dp"
+    android:layout_marginBottom="0dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_section_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
         android:background="@android:color/transparent"
         app:cardBackgroundColor="@android:color/transparent"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
                 android:id="@+id/framelayout_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:padding="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -44,8 +44,8 @@
 
                 <ImageView
                     android:id="@+id/imageView_hero_image"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
                     android:scaleType="fitCenter"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/textView_hero_name"
@@ -55,17 +55,18 @@
 
                 <ImageView
                     android:id="@+id/imageView_holdertenporal"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp" />
+                    android:layout_width="55dp"
+                    android:layout_height="55dp" />
 
                 <TextView
                     android:textAlignment="center"
-                    android:textSize="11sp"
+                    android:textSize="10sp"
                     android:id="@+id/textView_pin_name"
                     android:layout_gravity="bottom|center"
                     android:layout_width="match_parent"
                     android:textColor="#fff"
                     android:paddingEnd="3dp"
+                    android:visibility="gone"
                     android:paddingStart="3dp"
                     android:background="#BB000000"
                     android:layout_height="wrap_content"
